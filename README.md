@@ -296,6 +296,20 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 
 ---
 ---
+## Fejlesztési lehetőségek
+- Felugró ablakok használata: a felhasználó értesítése a történésekről.
+- Statisztikák beszúrása egy külön oldalon.
+- Nagy mennyiségű adat kilistázása esetén lapozó készítése.
+- A fő kategóriák megjelenítése kártyás formában, melyekre kattintva megjelennek az adott entitás tételei.
+- Bevétel, kiadás, befizetendő entitásokhoz további tulajdonság hozzáadása:
+
+Neve | Tartalma
+------------ | -------------
+főkategória | pl.: bevásárlás |
+alkategória | pl.: élelmiszer, háztartás
+
+---
+---
 ## További adatok
 - A projekt prioritása: magas
 - A projekt megvalósítására tervezett idő: 10 hét
