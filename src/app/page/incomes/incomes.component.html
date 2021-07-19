@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">Bevételek</h1>
+
+      <div class="d-grid gap-2 col-12 my-5">
+        <button class="btn btn-primary btn-lg" type="button"
+          routerLink="/incomes/0"
+        >
+          Új bevétel hozzáadása
+        </button>
+      </div>
+
+      <div class="my-5">
+
+        <div class="list__item"
+          *ngFor="let item of data$ | async"
+          >
+
+          <app-list-item
+            [item]="item"
+            [config]="config"
+            [itemIcon]="itemIcon"
+            [routerName]="routerName"
+          ></app-list-item>
+        </div>
+
+        <div class="col-12 bg-light d-flex justify-content-center align-items-center">
+          <div class="col-8 text-end p-3">
+            <h5 class="m-0">
+              Bevételek összesen:
+            </h5>
+          </div>
+          <div class="col-4 py-3">
+            <h4 class="m-0">
+              {{ data$ | async | summary:'amount' | huf }}
+            </h4>
+          </div>
+        </div>
+
+      </div>
+
+<!--       <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>SUM</td>
+            <td>Footer</td>
+            <td>Footer</td>
+            <td>Footer</td>
+          </tr>
+        </tfoot>
+      </table> -->
+    </div>
+  </div>
+</div>
+
