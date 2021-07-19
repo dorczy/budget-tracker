@@ -1,0 +1,20 @@
+.navbar {
+  z-index: 1000;
+}
+
+.bg-dark-translucent {
+  background-color: rgba(33, 37, 41, .8);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-brand {
+  color: rgba(255, 255, 255, 1);
+  transition: color .3s ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, .6);
+  }
+}
