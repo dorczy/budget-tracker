@@ -1,0 +1,35 @@
+<div class="mb-3"
+  *ngFor="let select of selects"
+>
+  <label [for]="select.id" class="form-label">
+    {{ select.title }}
+  </label>
+  <select class="form-select" [id]="select.id" [name]="select.id"
+    [(ngModel)]="select.ngModel"
+    required
+  >
+    <option
+      *ngFor="let option of select.options"
+      [value]="option"
+    > {{ option }} </option>
+
+  <!--
+    select: {
+      title: string,
+      id: string,
+      ngModel: string,
+      options: string[],
+    }
+   -->
+  <!--
+    napi,
+    heti,
+    havi,
+    2 havi,
+    3 havi,
+    6 havi,
+    éves,
+    egyszeri,
+  -->
+  </select>
+</div>
