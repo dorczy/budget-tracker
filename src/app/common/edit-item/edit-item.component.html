@@ -1,0 +1,151 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      {{ item$ | async | json }}
+
+      <h1 class="my-5">Edit-item</h1>
+
+      <div class="col-4 offset-4 my-5"
+        *ngIf="(item$ | async) as expense"
+      >
+        <form #editItemForm="ngForm" (ngSubmit)="onUpdate(editItemForm, expense)">
+
+          <app-input-item
+            [inputs]="inputs"
+          ></app-input-item>
+
+          <app-select-item
+            [selects]="selects"
+          ></app-select-item>
+
+<!--           <div class="mb-3">
+            <label for="category" class="form-label">
+              Kategória
+            </label>
+            <input type="text" class="form-control" id="category" name="category"
+              [(ngModel)]="expense.category.mainCategory + expense.category.subCategory"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Megnevezés
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              [(ngModel)]="expense.name"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="period" class="form-label">
+              Gyakoriság
+            </label>
+            <select class="form-select" name="period" id="period"
+            [(ngModel)]="expense.period"
+            required
+          >
+              <option>napi</option>
+              <option>heti</option>
+              <option>havi</option>
+              <option>2 havi</option>
+              <option>3 havi</option>
+              <option>6 havi</option>
+              <option>éves</option>
+              <option>egyszeri</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="company" class="form-label">
+              Cég
+            </label>
+            <input type="text" class="form-control" id="company" name="company"
+              [(ngModel)]="expense.company"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="deadlineDate" class="form-label">
+              Határidő
+            </label>
+            <input type="date" class="form-control" id="deadlineDate" name="deadlineDate"
+              [(ngModel)]="expense.deadlineDate"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="done" class="form-label">
+              Teljesítve
+            </label>
+            <select class="form-select" name="done" id="done"
+              [(ngModel)]="expense.done"
+              required
+            >
+              <option>igen</option>
+              <option>nem</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneDate" class="form-label">
+              Teljesítés dátuma
+            </label>
+            <input type="date" class="form-control" id="doneDate" name="doneDate"
+              [(ngModel)]="expense.doneDate"
+              required
+            >
+          </div>
+
+          <div class="mb-3">
+            <label for="doneMethod" class="form-label">
+              Teljesítés módja
+            </label>
+            <select class="form-select" name="doneMethod" id="doneMethod"
+              [(ngModel)]="expense.doneMethod"
+              required
+            >
+              <option>készpénz</option>
+              <option>átutalás</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="user" class="form-label">
+              Felhasználó
+            </label>
+            <select class="form-select" name="user" id="user"
+              [(ngModel)]="expense.user.name"
+              required
+            >
+              <option>Anya</option>
+              <option>Apa</option>
+              <option>Mama</option>
+              <option>Gyerek</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="amount" class="form-label">
+              Összeg
+            </label>
+            <input type="number" class="form-control" id="amount" name="amount"
+              [(ngModel)]="expense.amount"
+              required
+            >
+          </div> -->
+
+          <button type="submit" class="btn btn-warning">
+            Mentés
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
