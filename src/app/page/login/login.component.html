@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-4">
+        Bejelentkezés
+      </h1>
+
+      <div *ngIf="user" class="col-4 offset-4 my-5">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm, user)">
+
+          <div class="mb-3">
+            <label for="email" class="form-label">
+              Email
+            </label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+              placeholder="pelda@gmail.com"
+              [(ngModel)]="user.email"
+              pattern="([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\@]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\.]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)"
+              required>
+            <div [hidden]="loginForm.controls.email?.valid || loginForm.controls.email?.pristine" class="error-message">
+              Hibás email cím!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">
+              Jelszó
+            </label>
+            <input type="password" class="form-control" name="password" id="password"
+            placeholder="pelda"
+            [(ngModel)]="user.password"
+            required>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">
+              Jegyezzen meg
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-secondary"
+            [disabled]="loginForm.invalid || loggingIn">
+            <i *ngIf="!loggingIn" class="fas fa-sign-in-alt"></i>
+            <i *ngIf="loggingIn" class="fas fa-sync-alt"></i>
+            Bejelentkezés
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
