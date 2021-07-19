@@ -1,0 +1,102 @@
+<details class="item__body d-flex align-items-center p-3">
+
+  <summary class="d-flex">
+
+    <div class="item__icon d-flex justify-content-center col-1">
+      <i class="fas fa-2x" [ngClass]="itemIcon"></i>
+    </div>
+
+    <div class="item__content col-7">
+      <h4 class="m-0">{{ item.name }}</h4>
+    </div>
+
+    <div class="item__amount col-2">
+      <h4 class="m-0">{{ item.amount | huf }}</h4>
+    </div>
+
+    <div class="btn-group col-2">
+      <button class="btn btn-secondary"
+        (click)="updateItem(item.id)">
+        Módosítás
+      </button>
+      <button class="btn btn-danger"
+        (click)="deleteItem()">
+        Törlés
+      </button>
+    </div>
+
+  </summary>
+
+  <div class="table-responsive">
+    <table class="table table-borderless mt-3 mb-5 align-middle">
+
+      <thead>
+
+        <tr class="border-bottom border-dark">
+          <th *ngFor="let prop of config">
+            {{ prop.title }}
+          </th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+        <tr>
+          <td *ngFor="let prop of config">
+
+            <span *ngIf="!prop.modification; else anotherBlock">
+              {{ item[prop.key] }}
+            </span>
+
+            <ng-template #anotherBlock>
+              <span *ngIf="item[prop.key] === item['category']">
+                {{ displayCategory(item.category) }}
+              </span>
+              <span #itemName *ngIf="item[prop.key] === item['name']">
+                {{ toStrongLetters(itemName, item.name) }}
+              </span>
+              <span *ngIf="item[prop.key] === item['user']">
+                {{ item.user.name }}
+              </span>
+              <span #itemAmount *ngIf="item[prop.key] === item['amount']">
+                {{ toStrongLetters(itemAmount, (item.amount | huf)) }}
+              </span>
+            </ng-template>
+
+
+          </td>
+          <!--
+          {{
+            item[prop.key]
+            ||
+            item[prop.key] === item['category'] ? (item.category.mainCategory + item.category.subCategory) : item[prop.key]
+            ||
+            item[prop.key] === item['name'] ? toStrongLetters(item) : item[prop.key]
+            ||
+            item[prop.key] === item['user'] ? item.user.name : item[prop.key]
+            ||
+            item[prop.key] === item['amount'] ? (toStrongLetters(item.amount) | [prop.pipe]) : item[prop.key]
+          }}
+        -->
+
+<!-- --------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------- -->
+          <!--
+          <td> {{ item.id }} </td>
+          <td> {{ item.category.mainCategory }}, {{ item.category.subCategory }} </td>
+          <td> <strong> {{ item.name }} </strong> </td>
+          <td> {{ item.period }} </td>
+          <td> {{ item.company }} </td>
+          <td> {{ item.deadlineDate }} </td>
+          <td> {{ item.done }} </td>
+          <td> {{ item.doneDate }} </td>
+          <td> {{ item.doneMethod }} </td>
+          <td> {{ item.user.name }} </td>
+          <td> <strong> {{ item.amount | huf }} </strong> </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</details>
