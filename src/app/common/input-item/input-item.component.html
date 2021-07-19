@@ -1,0 +1,20 @@
+<div class="mb-3"
+  *ngFor="let input of inputs"
+>
+  <label [for]="input.id" class="form-label">
+    {{ input.title }}
+  </label>
+  <input [type]="input.type" class="form-control" [id]="input.id" [name]="input.id"
+    [(ngModel)]="input.ngModel"
+    required
+  >
+</div>
+
+<!--
+  input = {
+    title: '',
+    id: '',
+    type: 'text' | 'date' | 'number',
+    ngModel: '',
+  }
+ -->
