@@ -1,0 +1,190 @@
+{
+  "expenses": [
+    {
+      "id": 1,
+      "category": {
+        "id": 1,
+        "mainCategory": "Rezsi",
+        "subCategory": "Lakhatás"
+      },
+      "name": "Albérlet",
+      "period": "havi",
+      "company": "főbérlő",
+      "deadlineDate": "2021-07-29",
+      "done": "igen",
+      "doneDate": "2021-07-28",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 1,
+        "name": "Apa",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 48
+      },
+      "amount": 120000
+    },
+    {
+      "id": 2,
+      "category": {
+        "id": 2,
+        "mainCategory": "Bevásálás",
+        "subCategory": "Élelmiszer"
+      },
+      "name": "Bevásárlás",
+      "period": "egyszeri",
+      "company": "Lidl",
+      "deadlineDate": "2021-07-15",
+      "done": "igen",
+      "doneDate": "2021-07-15",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 2,
+        "name": "Anya",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 45
+      },
+      "amount": 9870
+    },
+    {
+      "id": 3,
+      "category": {
+        "id": 3,
+        "mainCategory": "Egyéb",
+        "subCategory": "Szórakozás"
+      },
+      "name": "Mozi",
+      "period": "egyszeri",
+      "company": "CinemaCity",
+      "deadlineDate": "2021-07-13",
+      "done": "igen",
+      "doneDate": "2021-07-13",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 3,
+        "name": "Gyerek",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 15
+      },
+      "amount": 2500
+    },
+    {
+      "id": 4,
+      "category": {
+        "id": 4,
+        "mainCategory": "Bevásárlás",
+        "subCategory": "Háztartás"
+      },
+      "name": "Vegyszerek",
+      "period": "egyszeri",
+      "company": "Rossmann",
+      "deadlineDate": "2021.07.15.",
+      "done": "igen",
+      "doneDate": "2021.07.15.",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 2,
+        "name": "Anya",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 45
+      },
+      "amount": 8341
+    }
+  ],
+  "incomes": [
+    {
+      "id": 1,
+      "category": {
+        "id": 1,
+        "mainCategory": "Rezsi",
+        "subCategory": "Lakhatás"
+      },
+      "name": "Fizetés",
+      "period": "havi",
+      "company": "OTP Bank Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 1,
+        "name": "Apa",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 48
+      },
+      "amount": 540000
+    },
+    {
+      "id": 2,
+      "category": {
+        "id": 2,
+        "mainCategory": "Bevásálás",
+        "subCategory": "Élelmiszer"
+      },
+      "name": "Fizetés",
+      "period": "havi",
+      "company": "Kemence Pékség Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 2,
+        "name": "Anya",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 45
+      },
+      "amount": 181000
+    },
+    {
+      "id": 3,
+      "category": {
+        "id": 3,
+        "mainCategory": "Egyéb",
+        "subCategory": "Szórakozás"
+      },
+      "name": "Nyugdíj",
+      "period": "havi",
+      "company": "Magyar Államkincstár Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 4,
+        "name": "Mama",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 78
+      },
+      "amount": 120000
+    },
+    {
+      "id": 4,
+      "category": {
+        "id": 4,
+        "mainCategory": "Bevásárlás",
+        "subCategory": "Háztartás"
+      },
+      "name": "Sportfogadás",
+      "period": "egyszeri",
+      "company": "Szerencsejáték Zrt.",
+      "date": "2021-05-08",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 1,
+        "name": "Apa",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 48
+      },
+      "amount": 15300
+    }
+  ]
+}
