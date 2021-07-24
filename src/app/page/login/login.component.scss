@@ -1,3 +1,22 @@
+.login {
+  min-height: 15rem;
+  padding: 7rem 3rem 3rem;
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
+    url('./../../../assets/images/budgetBackground.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: -3.5rem;
+}
+
+.registration {
+  min-height: 15rem;
+  padding: 7rem 3rem 3rem;
+  position: relative;
+  top: -3.5rem;
+}
+
 .fa-sync-alt {
   animation: roundAnimation 1.5s infinite ease;
 }

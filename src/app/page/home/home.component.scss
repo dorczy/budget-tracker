@@ -3,18 +3,22 @@
   padding: 7rem 3rem 3rem;
   background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
     url('./../../../assets/images/budgetBackground.png');
-  // background-position: center right;
   background-position: center;
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   top: -3.5rem;
 }
 
 .introImg {
-  width: 28rem;
-  margin-right: 2rem;
+  max-width: 28rem;
+  width: 100%;
 }
 
 .introText {
   text-align: justify;
+}
+
+.icons {
+  font-size: 5em;
 }
