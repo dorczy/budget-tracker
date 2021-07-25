@@ -51,7 +51,7 @@
 
             <ng-template #anotherBlock>
               <span *ngIf="item[prop.key] === item['category']">
-                {{ displayCategory(item.category) }}
+                {{ item.category.name }}
               </span>
               <span #itemName *ngIf="item[prop.key] === item['name']">
                 {{ toStrongLetters(itemName, item.name) }}

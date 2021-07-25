@@ -47,12 +47,14 @@
               </label>
             </div>
 
-            <button type="submit" class="btn btn-secondary btn-lg"
-              [disabled]="loginForm.invalid || loggingIn">
-              <i *ngIf="!loggingIn" class="fas fa-sign-in-alt"></i>
-              <i *ngIf="loggingIn" class="fas fa-sync-alt"></i>
-              Bejelentkezés
-            </button>
+            <div class="col-12 d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary btn-lg"
+                [disabled]="loginForm.invalid || loggingIn">
+                <i *ngIf="!loggingIn" class="fas fa-sign-in-alt"></i>
+                <i *ngIf="loggingIn" class="fas fa-sync-alt"></i>
+                Bejelentkezés
+              </button>
+            </div>
 
           </form>
         </div>

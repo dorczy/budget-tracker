@@ -17,6 +17,17 @@
   top: -3.5rem;
 }
 
+.btn-primary {
+  color: rgb(24, 24, 24);
+  background-color: rgb(243, 184, 107);
+  border-color: rgb(243, 184, 107);
+
+  &:hover {
+    background-color: rgb(243, 165, 56);
+    border-color: rgb(243, 165, 56);
+  }
+}
+
 .fa-sync-alt {
   animation: roundAnimation 1.5s infinite ease;
 }

@@ -32,10 +32,6 @@ export class ListItemComponent implements OnInit {
     console.log("Item deleted!");
   }
 
-  displayCategory(cat: any): any {
-    return `${cat.mainCategory}, ${cat.subCategory}`
-  }
-
   toStrongLetters(element: HTMLElement, value: any): any {
     element.innerHTML = `<strong>${value}</strong>`;
   }
