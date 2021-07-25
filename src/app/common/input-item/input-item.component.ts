@@ -25,7 +25,7 @@ export class InputItemComponent implements OnInit {
       title: 'Kategória',
       id: 'category',
       type: 'text',
-      ngModel: 'entity.category.mainCategory + entity.category.subCategory',
+      ngModel: 'entity.category.name',
     },
     {
       title: 'Megnevezés',
