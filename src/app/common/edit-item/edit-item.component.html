@@ -2,14 +2,36 @@
   <div class="row">
     <div class="col-12">
 
-      {{ item$ | async | json }}
 
-      <h1 class="my-5">Edit-item</h1>
+      <h4> entity: {{ entity }} </h4>
+      <!-- <h1> id: {{ id }} </h1>
+      <h4> headers: {{ headers }} </h4>
+      <strong>item$:</strong> {{ item$ | async | json }} -->
 
-      <div class="col-4 offset-4 my-5"
-        *ngIf="(item$ | async) as expense"
+      <h1 class="my-5">Edit item</h1>
+
+      <div *ngIf="(item$ | async) as item">
+        <p>
+          <strong>item:</strong> {{ item | json }}
+        </p>
+        <p>
+          ------------------------------------
+        </p>
+        <p>
+          <strong>headers:</strong> {{ headers | json }}
+        </p>
+        <p *ngFor="let head of headers">
+          <strong>head:</strong> {{ head | json }} <br>
+          <strong>head.key:</strong> {{ head.key | json }} <br>
+          <strong>head.title:</strong> {{ head.title | json }} <br>
+          <strong>item[head.key]:</strong> {{ item[head.key] }}
+        </p>
+      </div>
+
+      <!-- <div class="col-4 offset-4 my-5"
+        *ngIf="(item$ | async) as entity"
       >
-        <form #editItemForm="ngForm" (ngSubmit)="onUpdate(editItemForm, expense)">
+        <form #editItemForm="ngForm" (ngSubmit)="onUpdate(editItemForm, entity)">
 
           <app-input-item
             [inputs]="inputs"
@@ -19,12 +41,12 @@
             [selects]="selects"
           ></app-select-item>
 
-<!--           <div class="mb-3">
+          <div class="mb-3">
             <label for="category" class="form-label">
               Kategória
             </label>
             <input type="text" class="form-control" id="category" name="category"
-              [(ngModel)]="expense.category.mainCategory + expense.category.subCategory"
+              [(ngModel)]="entity.category.name"
               required
             >
           </div>
@@ -34,7 +56,7 @@
               Megnevezés
             </label>
             <input type="text" class="form-control" id="name" name="name"
-              [(ngModel)]="expense.name"
+              [(ngModel)]="entity.name"
               required
             >
           </div>
@@ -44,7 +66,7 @@
               Gyakoriság
             </label>
             <select class="form-select" name="period" id="period"
-            [(ngModel)]="expense.period"
+            [(ngModel)]="entity.period"
             required
           >
               <option>napi</option>
@@ -63,7 +85,7 @@
               Cég
             </label>
             <input type="text" class="form-control" id="company" name="company"
-              [(ngModel)]="expense.company"
+              [(ngModel)]="entity.company"
               required
             >
           </div>
@@ -73,7 +95,7 @@
               Határidő
             </label>
             <input type="date" class="form-control" id="deadlineDate" name="deadlineDate"
-              [(ngModel)]="expense.deadlineDate"
+              [(ngModel)]="entity.deadlineDate"
               required
             >
           </div>
@@ -83,7 +105,7 @@
               Teljesítve
             </label>
             <select class="form-select" name="done" id="done"
-              [(ngModel)]="expense.done"
+              [(ngModel)]="entity.done"
               required
             >
               <option>igen</option>
@@ -96,7 +118,7 @@
               Teljesítés dátuma
             </label>
             <input type="date" class="form-control" id="doneDate" name="doneDate"
-              [(ngModel)]="expense.doneDate"
+              [(ngModel)]="entity.doneDate"
               required
             >
           </div>
@@ -106,7 +128,7 @@
               Teljesítés módja
             </label>
             <select class="form-select" name="doneMethod" id="doneMethod"
-              [(ngModel)]="expense.doneMethod"
+              [(ngModel)]="entity.doneMethod"
               required
             >
               <option>készpénz</option>
@@ -119,7 +141,7 @@
               Felhasználó
             </label>
             <select class="form-select" name="user" id="user"
-              [(ngModel)]="expense.user.name"
+              [(ngModel)]="entity.user.name"
               required
             >
               <option>Anya</option>
@@ -134,17 +156,17 @@
               Összeg
             </label>
             <input type="number" class="form-control" id="amount" name="amount"
-              [(ngModel)]="expense.amount"
+              [(ngModel)]="entity.amount"
               required
             >
-          </div> -->
+          </div>
 
           <button type="submit" class="btn btn-warning">
             Mentés
           </button>
 
         </form>
-      </div>
+      </div> -->
 
     </div>
   </div>
