@@ -1,0 +1,191 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">Edit-expenses</h1>
+
+      <h1>
+        item$: {{ item$ | async | json }}
+      </h1>
+
+      <div class="col-4 offset-4 my-5"
+        *ngIf="(item$ | async) as expense"
+      >
+        <form #editExpenseForm="ngForm" (ngSubmit)="onUpdate(editExpenseForm, expense)">
+
+          <div class="mb-3">
+            <label for="category" class="form-label">
+              Kategória
+            </label>
+            <input type="text" class="form-control" id="category" name="category"
+              [(ngModel)]="expense.category.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.category?.valid || editExpenseForm.controls.category?.pristine">
+                Fő- és alkategória megadása kötelező!
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Megnevezés
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              [(ngModel)]="expense.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.name?.valid || editExpenseForm.controls.name?.pristine">
+                Megnevezés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="period" class="form-label">
+              Gyakoriság
+            </label>
+            <select class="form-select" name="period" id="period"
+              [(ngModel)]="expense.period"
+              required
+            >
+              <option>napi</option>
+              <option>heti</option>
+              <option>havi</option>
+              <option>2 havi</option>
+              <option>3 havi</option>
+              <option>6 havi</option>
+              <option>éves</option>
+              <option>egyszeri</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.period?.valid || editExpenseForm.controls.period?.pristine">
+                Gyakoriság megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="company" class="form-label">
+              Cég
+            </label>
+            <input type="text" class="form-control" id="company" name="company"
+              [(ngModel)]="expense.company"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.company?.valid || editExpenseForm.controls.company?.pristine">
+                Cég megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="deadlineDate" class="form-label">
+              Határidő
+            </label>
+            <input type="date" class="form-control" id="deadlineDate" name="deadlineDate"
+              [(ngModel)]="expense.deadlineDate"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.deadlineDate?.valid || editExpenseForm.controls.deadlineDate?.pristine">
+                Határidő megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="done" class="form-label">
+              Teljesítve
+            </label>
+            <select class="form-select" name="done" id="done"
+              [(ngModel)]="expense.done"
+              required
+            >
+              <option>igen</option>
+              <option>nem</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.done?.valid || editExpenseForm.controls.done?.pristine">
+                Teljesítés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneDate" class="form-label">
+              Teljesítés dátuma
+            </label>
+            <input type="date" class="form-control" id="doneDate" name="doneDate"
+              [(ngModel)]="expense.doneDate"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.doneDate?.valid || editExpenseForm.controls.doneDate?.pristine">
+                Teljesítés dátumának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneMethod" class="form-label">
+              Teljesítés módja
+            </label>
+            <select class="form-select" name="doneMethod" id="doneMethod"
+              [(ngModel)]="expense.doneMethod"
+              required
+            >
+              <option>készpénz</option>
+              <option>átutalás</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.doneMethod?.valid || editExpenseForm.controls.doneMethod?.pristine">
+                Teljesítés módjának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="user" class="form-label">
+              Felhasználó
+            </label>
+            <select class="form-select" name="user" id="user"
+              [(ngModel)]="expense.user.name"
+              required
+            >
+              <option *ngFor="let user of (users$ | async)">
+                {{ user.name }}
+              </option>
+            </select>
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.user?.valid || editExpenseForm.controls.user?.pristine">
+              Felhasználó megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="amount" class="form-label">
+              Összeg
+            </label>
+            <input type="number" class="form-control" id="amount" name="amount"
+              [(ngModel)]="expense.amount"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editExpenseForm.controls.amount?.valid || editExpenseForm.controls.amount?.pristine">
+              Összeg megadása kötelező!
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-warning"
+            [disabled]="editExpenseForm.invalid || updating">
+            <i *ngIf="!updating" class="far fa-save"></i>
+            <i *ngIf="updating" class="fas fa-sync-alt"></i>
+            Mentés
+          </button>
+          <div class="error-message"
+            [hidden]="editExpenseForm.valid || editExpenseForm.pristine">
+              Összes mező megadása kötelező!
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
