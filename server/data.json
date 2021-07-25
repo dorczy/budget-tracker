@@ -4,8 +4,7 @@
       "id": 1,
       "category": {
         "id": 1,
-        "mainCategory": "Rezsi",
-        "subCategory": "Lakhatás"
+        "name": "Rezsi"
       },
       "name": "Albérlet",
       "period": "havi",
@@ -28,8 +27,7 @@
       "id": 2,
       "category": {
         "id": 2,
-        "mainCategory": "Bevásálás",
-        "subCategory": "Élelmiszer"
+        "name": "Bevásárlás"
       },
       "name": "Bevásárlás",
       "period": "egyszeri",
@@ -52,13 +50,12 @@
       "id": 3,
       "category": {
         "id": 3,
-        "mainCategory": "Egyéb",
-        "subCategory": "Szórakozás"
+        "name": "Egyéb"
       },
       "name": "Mozi",
       "period": "egyszeri",
       "company": "CinemaCity",
-      "deadlineDate": "2021-07-13",
+      "deadlineDate": "2021-07-11",
       "done": "igen",
       "doneDate": "2021-07-13",
       "doneMethod": "készpénz",
@@ -75,9 +72,8 @@
     {
       "id": 4,
       "category": {
-        "id": 4,
-        "mainCategory": "Bevásárlás",
-        "subCategory": "Háztartás"
+        "id": 2,
+        "name": "Bevásárlás"
       },
       "name": "Vegyszerek",
       "period": "egyszeri",
@@ -100,11 +96,6 @@
   "incomes": [
     {
       "id": 1,
-      "category": {
-        "id": 1,
-        "mainCategory": "Rezsi",
-        "subCategory": "Lakhatás"
-      },
       "name": "Fizetés",
       "period": "havi",
       "company": "OTP Bank Kft.",
@@ -122,11 +113,6 @@
     },
     {
       "id": 2,
-      "category": {
-        "id": 2,
-        "mainCategory": "Bevásálás",
-        "subCategory": "Élelmiszer"
-      },
       "name": "Fizetés",
       "period": "havi",
       "company": "Kemence Pékség Kft.",
@@ -144,11 +130,6 @@
     },
     {
       "id": 3,
-      "category": {
-        "id": 3,
-        "mainCategory": "Egyéb",
-        "subCategory": "Szórakozás"
-      },
       "name": "Nyugdíj",
       "period": "havi",
       "company": "Magyar Államkincstár Kft.",
@@ -166,11 +147,6 @@
     },
     {
       "id": 4,
-      "category": {
-        "id": 4,
-        "mainCategory": "Bevásárlás",
-        "subCategory": "Háztartás"
-      },
       "name": "Sportfogadás",
       "period": "egyszeri",
       "company": "Szerencsejáték Zrt.",
@@ -185,6 +161,40 @@
         "age": 48
       },
       "amount": 15300
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Apa",
+      "email": "apa@gmail.com",
+      "password": "Apa_Jelszo",
+      "role": "admin",
+      "age": 48
+    },
+    {
+      "id": 2,
+      "name": "Anya",
+      "email": "anya@gmail.com",
+      "password": "Anya_Jelszo",
+      "role": "admin",
+      "age": 45
+    },
+    {
+      "id": 3,
+      "name": "Gyerek",
+      "email": "gyerek@gmail.com",
+      "password": "Gyerek_Jelszo",
+      "role": "user",
+      "age": 15
+    },
+    {
+      "id": 4,
+      "name": "Mama",
+      "email": "mama@gmail.com",
+      "password": "Mama_Jelszo",
+      "role": "user",
+      "age": 73
     }
   ]
 }
