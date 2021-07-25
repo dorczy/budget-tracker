@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">Edit-users</h1>
+
+      <div class="col-4 offset-4 my-5"
+        *ngIf="(item$ | async) as user"
+      >
+        <form #editUserForm="ngForm" (ngSubmit)="onUpdate(editUserForm, user)">
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Név
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              placeholder="Gizi"
+              [(ngModel)]="user.name"
+              pattern="[A-Z]+[a-z]+"
+              required>
+            <div class="error-message"
+              [hidden]="editUserForm.controls.name?.valid || editUserForm.controls.name?.pristine">
+                Név megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">
+              Email
+            </label>
+            <input type="email" class="form-control" name="email" id="email"
+              placeholder="pelda@gmail.com"
+              [(ngModel)]="user.email"
+              pattern="([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\@]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\.]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)"
+              required>
+            <div [hidden]="editUserForm.controls.email?.valid || editUserForm.controls.email?.pristine" class="error-message">
+              Hibás email cím!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">
+              Jelszó
+            </label>
+            <input type="password" class="form-control" name="password" id="password"
+              placeholder="Pelda_jelszo"
+              [(ngModel)]="user.password"
+              required>
+            <div [hidden]="editUserForm.controls.password?.valid || editUserForm.controls.password?.pristine" class="error-message">
+              Hibás jelszó!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="role" class="form-label">
+              Jogosultság
+            </label>
+            <select class="form-select" name="role" id="role"
+              [(ngModel)]="user.role"
+              required>
+              <option>admin</option>
+              <option>user</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editUserForm.controls.role?.valid || editUserForm.controls.role?.pristine">
+                Jogosultság megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="age" class="form-label">
+              Kor
+            </label>
+            <input type="number" class="form-control" id="age" name="age"
+              [(ngModel)]="user.age"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editUserForm.controls.age?.valid || editUserForm.controls.age?.pristine">
+              Kor megadása kötelező!
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-warning"
+            [disabled]="editUserForm.invalid || updating">
+              <i *ngIf="!updating" class="far fa-save"></i>
+              <i *ngIf="updating" class="fas fa-sync-alt"></i>
+              Mentés
+          </button>
+          <div class="error-message"
+            [hidden]="editUserForm.valid || editUserForm.pristine">
+              Összes mező megadása kötelező!
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

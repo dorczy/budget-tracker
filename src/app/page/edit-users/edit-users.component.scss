@@ -1,0 +1,23 @@
+.fa-sync-alt {
+  animation: roundAnimation 1.5s infinite ease;
+}
+
+.error-message {
+  font-style: italic;
+  font-size: .8rem;
+  color: rgb(240, 0, 0);
+  position: relative;
+  animation: errorMessage .4s 3 ease;
+}
+
+@keyframes roundAnimation {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@keyframes errorMessage {
+  0% { left: 0rem }
+  50% { left: .5rem }
+  100% { left: 0rem }
+}
