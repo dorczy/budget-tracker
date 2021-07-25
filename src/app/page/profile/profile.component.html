@@ -1,0 +1,119 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12 px-md-0 col-md-8 offset-md-2">
+
+      <h1 class="display-5 fw-bold my-4">
+        {{ title }}
+      </h1>
+
+      <div *ngIf="user" class="my-5">
+        <form #profileForm="ngForm" (ngSubmit)="login(profileForm, user)">
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Név
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              placeholder="Gizi"
+              [(ngModel)]="user.name"
+              pattern="[A-Z]+[a-z]+"
+              required>
+            <div class="error-message"
+              [hidden]="profileForm.controls.name?.valid || profileForm.controls.name?.pristine">
+              Név megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">
+              Email
+            </label>
+            <input type="email" class="form-control" name="email" id="email"
+              placeholder="pelda@gmail.com"
+              [(ngModel)]="user.email"
+              pattern="([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\@]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\.]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)"
+              required>
+            <div [hidden]="profileForm.controls.email?.valid || profileForm.controls.email?.pristine" class="error-message">
+              Hibás email cím!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">
+              Jelszó
+            </label>
+            <input type="password" class="form-control" name="password" id="password"
+            placeholder="Pelda_jelszo"
+            [(ngModel)]="user.password"
+            required>
+            <div [hidden]="profileForm.controls.password?.valid || profileForm.controls.password?.pristine" class="error-message">
+              Hibás jelszó!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="role" class="form-label">
+              Jogosultság
+            </label>
+            <select class="form-select" name="role" id="role"
+              [(ngModel)]="user.role"
+              required>
+              <option>admin</option>
+              <option>user</option>
+            </select>
+            <div class="error-message"
+              [hidden]="profileForm.controls.role?.valid || profileForm.controls.role?.pristine">
+                Jogosultság megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="age" class="form-label">
+              Kor
+            </label>
+            <input type="number" class="form-control" name="age" id="age"
+              placeholder="25"
+              [(ngModel)]="user.age"
+              required>
+            <div class="error-message"
+              [hidden]="profileForm.controls.age?.valid || profileForm.controls.age?.pristine">
+              Kor megadása kötelező!
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-between">
+
+            <div *ngIf="registration"></div>
+            <button type="submit" class="btn btn-danger btn-lg"
+              *ngIf="!registration"
+              [disabled]="profileForm.invalid || loggingIn">
+
+              <i *ngIf="!loggingIn" class="far fa-trash-alt"></i>
+              <i *ngIf="loggingIn" class="fas fa-sync-alt"></i>
+              &nbsp; Törlés
+
+            </button>
+
+            <button type="submit" class="btn btn-primary btn-lg"
+              [disabled]="profileForm.invalid || loggingIn">
+
+              <i *ngIf="!loggingIn" class="far fa-save"></i>
+              <i *ngIf="loggingIn" class="fas fa-sync-alt"></i>
+
+              <span *ngIf="!registration">&nbsp; Mentés</span>
+              <span *ngIf="registration">&nbsp; Regisztráció</span>
+
+            </button>
+            <div class="error-message"
+              [hidden]="profileForm.valid || profileForm.pristine">
+                Összes mező megadása kötelező!
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
