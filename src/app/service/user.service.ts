@@ -12,6 +12,7 @@ export class UserService extends BaseService<User> {
 
   config: TableColumn[] = this.configService.user;
   itemIcon: string = 'fa-user-circle';
+  routerName: string = 'users';
 
   constructor(
     public http: HttpClient,

@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditItemComponent } from './common/edit-item/edit-item.component';
-import { ExpensesComponent } from './page/expenses/expenses.component';
+
 import { HomeComponent } from './page/home/home.component';
-import { IncomesComponent } from './page/incomes/incomes.component';
+import { ListIncomesComponent } from './page/list-incomes/list-incomes.component';
+import { EditIncomesComponent } from './page/edit-incomes/edit-incomes.component';
+import { ListExpensesComponent } from './page/list-expenses/list-expenses.component';
+import { EditExpensesComponent } from './page/edit-expenses/edit-expenses.component';
 import { LoginComponent } from './page/login/login.component';
+import { ProfileComponent } from './page/profile/profile.component';
+import { ListUsersComponent } from './page/list-users/list-users.component';
+import { EditUsersComponent } from './page/edit-users/edit-users.component';
 
 const routes: Routes = [
   {
@@ -13,23 +18,35 @@ const routes: Routes = [
   },
   {
     path: "incomes",
-    component: IncomesComponent
+    component: ListIncomesComponent
   },
   {
     path: "incomes/:id",
-    component: EditItemComponent
+    component: EditIncomesComponent
   },
   {
     path: "expenses",
-    component: ExpensesComponent
+    component: ListExpensesComponent
   },
   {
     path: "expenses/:id",
-    component: EditItemComponent
+    component: EditExpensesComponent
   },
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
+  },
+  {
+    path: "users",
+    component: ListUsersComponent
+  },
+  {
+    path: "users/:id",
+    component: EditUsersComponent
   },
   {
     path: "*",

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { TableColumn } from '../interface/table-column';
-import { HufPipe } from '../pipe/huf.pipe';
 
 @Injectable({
   providedIn: 'root',
@@ -27,14 +26,13 @@ export class ConfigService {
 
   income: TableColumn[] = [
     { key: 'id', title: '#', hidden: true },
-    { key: 'category', title: 'Kategória', modification: true },
     { key: 'name', title: 'Megnevezés', modification: true },
     { key: 'period', title: 'Gyakoriság' },
     { key: 'company', title: 'Cég' },
     { key: 'date', title: 'Teljesítés dátuma' },
     { key: 'doneMethod', title: 'Teljesítés módja' },
     { key: 'user', title: 'Felhasználó', modification: true },
-    { key: 'amount', title: 'Összeg', modification: true, pipe: HufPipe },
+    { key: 'amount', title: 'Összeg', modification: true },
   ];
 
   expense: TableColumn[] = [
@@ -48,7 +46,7 @@ export class ConfigService {
     { key: 'doneDate', title: 'Teljesítés dátuma' },
     { key: 'doneMethod', title: 'Teljesítés módja' },
     { key: 'user', title: 'Felhasználó', modification: true },
-    { key: 'amount', title: 'Összeg', modification: true, pipe: HufPipe },
+    { key: 'amount', title: 'Összeg', modification: true },
   ];
 
   remaining: TableColumn[] = [
@@ -62,13 +60,12 @@ export class ConfigService {
     { key: 'doneDate', title: 'Teljesítés dátuma' },
     { key: 'doneMethod', title: 'Teljesítés módja' },
     { key: 'user', title: 'Felhasználó', modification: true },
-    { key: 'amount', title: 'Összeg', modification: true, pipe: HufPipe },
+    { key: 'amount', title: 'Összeg', modification: true },
   ];
 
   category: TableColumn[] = [
     { key: 'id', title: '#', hidden: true },
-    { key: 'mainCategory', title: 'Főkategória' },
-    { key: 'subCategory', title: 'Alkategória' },
+    { key: 'name', title: 'Kategória neve' }
   ];
 
   constructor() { }
