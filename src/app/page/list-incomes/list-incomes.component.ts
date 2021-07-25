@@ -5,11 +5,11 @@ import { Income } from 'src/app/model/income';
 import { IncomeService } from 'src/app/service/income.service';
 
 @Component({
-  selector: 'app-incomes',
-  templateUrl: './incomes.component.html',
-  styleUrls: ['./incomes.component.scss']
+  selector: 'app-list-incomes',
+  templateUrl: './list-incomes.component.html',
+  styleUrls: ['./list-incomes.component.scss']
 })
-export class IncomesComponent implements OnInit {
+export class ListIncomesComponent implements OnInit {
 
   data$: BehaviorSubject<Income[]> = this.incomeService.list$;
 
