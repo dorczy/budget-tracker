@@ -161,6 +161,23 @@
         "age": 48
       },
       "amount": 15300
+    },
+    {
+      "id": 5,
+      "name": "Sportfogadás",
+      "period": "egyszeri",
+      "company": "Szerencsejáték Zrt.",
+      "date": "2021-07-13",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 0,
+        "name": "Gyerek",
+        "email": "",
+        "password": "",
+        "role": "",
+        "age": 0
+      },
+      "amount": 123000
     }
   ],
   "users": [
@@ -195,6 +212,14 @@
       "password": "Mama_Jelszo",
       "role": "user",
       "age": 73
+    },
+    {
+      "id": 5,
+      "name": "Gizi",
+      "email": "gizi@gmail.com",
+      "password": "Gizi_jelszo",
+      "role": "admin",
+      "age": 25
     }
   ]
 }

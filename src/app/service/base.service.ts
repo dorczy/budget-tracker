@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ConfigService } from './config.service';
 
 @Injectable({
@@ -31,14 +31,7 @@ export class BaseService<T extends { id: number }> {
   }
 
   get(id: number): Observable<T> {
-    id = typeof id === 'string' ? parseInt(id) : id;
-
-    if (id === 0) {
-      return new Observable<T>();
-    } else {
-      return this.http.get<T>(`${this.apiUrl}/${id}`);
-    }
-
+    return Number(id) === 0 ? new Observable<T>() : this.http.get<T>(`${this.apiUrl}/${id}`);
   }
 
   create(item: T): void {

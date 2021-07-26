@@ -1,1 +1,146 @@
-<p>edit-incomes works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">
+        <span *ngIf="incomeId === '0'">Bevétel létrehozása</span>
+        <span *ngIf="incomeId !== '0'">Bevétel módosítása</span>
+      </h1>
+
+      <div class="col-4 offset-4 my-5"
+        *ngIf="income"
+      >
+        <form #editIncomeForm="ngForm">
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Megnevezés
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              [(ngModel)]="income.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.name?.valid || editIncomeForm.controls.name?.pristine">
+                Megnevezés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="period" class="form-label">
+              Gyakoriság
+            </label>
+            <select class="form-select" name="period" id="period"
+              [(ngModel)]="income.period"
+              required
+            >
+              <option>napi</option>
+              <option>heti</option>
+              <option>havi</option>
+              <option>2 havi</option>
+              <option>3 havi</option>
+              <option>6 havi</option>
+              <option>éves</option>
+              <option>egyszeri</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.period?.valid || editIncomeForm.controls.period?.pristine">
+                Gyakoriság megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="company" class="form-label">
+              Cég
+            </label>
+            <input type="text" class="form-control" id="company" name="company"
+              [(ngModel)]="income.company"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.company?.valid || editIncomeForm.controls.company?.pristine">
+                Cég megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="date" class="form-label">
+              Teljesítés dátuma
+            </label>
+            <input type="date" class="form-control" id="date" name="date"
+              [(ngModel)]="income.date"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.date?.valid || editIncomeForm.controls.date?.pristine">
+                Teljesítés dátumának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneMethod" class="form-label">
+              Teljesítés módja
+            </label>
+            <select class="form-select" name="doneMethod" id="doneMethod"
+              [(ngModel)]="income.doneMethod"
+              required
+            >
+              <option>készpénz</option>
+              <option>átutalás</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.doneMethod?.valid || editIncomeForm.controls.doneMethod?.pristine">
+                Teljesítés módjának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="user" class="form-label">
+              Felhasználó
+            </label>
+            <select class="form-select" name="user" id="user"
+              [(ngModel)]="income.user.name"
+              required
+            >
+              <option *ngFor="let user of (users$ | async)">
+                {{ user.name }}
+              </option>
+            </select>
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.user?.valid || editIncomeForm.controls.user?.pristine">
+              Felhasználó megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="amount" class="form-label">
+              Összeg
+            </label>
+            <input type="number" class="form-control" id="amount" name="amount"
+              [(ngModel)]="income.amount"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editIncomeForm.controls.amount?.valid || editIncomeForm.controls.amount?.pristine">
+              Összeg megadása kötelező!
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-warning"
+            [disabled]="editIncomeForm.invalid || updating"
+            (click)="saveIncome(income)">
+            <i *ngIf="!updating" class="far fa-save"></i>
+            <i *ngIf="updating" class="fas fa-sync-alt"></i>
+            Mentés
+          </button>
+          <div class="error-message"
+            [hidden]="editIncomeForm.valid || editIncomeForm.pristine">
+              Összes mező megadása kötelező!
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -2,16 +2,15 @@
   <div class="row">
     <div class="col-12">
 
-      <h1 class="my-5">Edit-expenses</h1>
-
-      <h1>
-        item$: {{ item$ | async | json }}
+      <h1 class="my-5">
+        <span *ngIf="expenseId === '0'">Kiadás létrehozása</span>
+        <span *ngIf="expenseId !== '0'">Kiadás módosítása</span>
       </h1>
 
       <div class="col-4 offset-4 my-5"
-        *ngIf="(item$ | async) as expense"
+        *ngIf="expense"
       >
-        <form #editExpenseForm="ngForm" (ngSubmit)="onUpdate(editExpenseForm, expense)">
+        <form #editExpenseForm="ngForm">
 
           <div class="mb-3">
             <label for="category" class="form-label">
@@ -173,7 +172,8 @@
           </div>
 
           <button type="submit" class="btn btn-warning"
-            [disabled]="editExpenseForm.invalid || updating">
+            [disabled]="editExpenseForm.invalid || updating"
+            (click)="saveExpense(expense)">
             <i *ngIf="!updating" class="far fa-save"></i>
             <i *ngIf="updating" class="fas fa-sync-alt"></i>
             Mentés

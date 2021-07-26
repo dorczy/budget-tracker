@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Expense } from 'src/app/model/expense';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
@@ -16,9 +15,10 @@ import { User } from 'src/app/model/user';
 export class EditExpensesComponent implements OnInit {
 
   updating = false;
-  item$: Observable<Expense> | null = this.activatedRoute.params.pipe(
-    switchMap(params => this.expenseService.get(params.id))
-  );
+
+  expense: Expense = new Expense();
+  expenseId: string = "";
+
   users$: BehaviorSubject<User[]> = this.usersService.list$
 
   constructor(
@@ -26,25 +26,24 @@ export class EditExpensesComponent implements OnInit {
     private expenseService: ExpenseService,
     private usersService: UserService,
     private router: Router,
-  ) {
-    if (this.item$ === null) {
-      console.log("VÉGRE");
-      this.item$ = new Observable<Expense>();
-    } else {
-      console.log("nem látja h null");
-    }
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      params => this.expenseId = params.id === undefined ? "0" : params.id
+    );
+    this.expenseService.get(parseInt(this.expenseId)).subscribe(
+      expense => this.expense = expense
+    );
   }
 
 
-  onUpdate(form: NgForm, expense: Expense): void {
+  saveExpense(expense: Expense): void {
     this.updating = true;
     if (expense.id === 0) {
       this.expenseService.create(expense);
       this.router.navigate([this.expenseService.routerName]);
-      alert('You have successfully created an expense!');
+      alert('Sikeresen hozzáadtál egy kiadást!');
     } else {
       this.expenseService.update(expense).subscribe(
         () => {
@@ -52,7 +51,7 @@ export class EditExpensesComponent implements OnInit {
           this.router.navigate([this.expenseService.routerName]);
         }
       );
-      alert('You have successfully updated an expense!');
+      alert('Sikeresen módosítottál egy kiadást!');
     }
   }
 
