@@ -54,7 +54,7 @@
 > _A felhasználó törölheti profilját._
 
 **Elfogadási kritérium:**
-- A megfelelő gombra kattintva a profilját törölheti, melynek változásai megjelennek a kártyán.
+- A megfelelő gombra kattintva a profilját törölheti egy figyelmeztető üzenet után.
 - A felhasználónak lehetősége van a visszalépésre is.
 
 ---
