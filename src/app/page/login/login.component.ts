@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,13 @@ export class LoginComponent implements OnInit {
   loggingIn: boolean = false;
 
   user: { email: string, password: string } = {
-    email: "ex@gmail.com",
-    password: "example"
+    email: "",
+    password: ""
   };
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +27,7 @@ export class LoginComponent implements OnInit {
     console.log("Logging in...");
     console.log(user);
     this.loggingIn = true;
+    this.router.navigate([""]);
   }
 
 }

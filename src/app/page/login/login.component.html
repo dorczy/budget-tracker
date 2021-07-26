@@ -35,9 +35,12 @@
                 Jelszó
               </label>
               <input type="password" class="form-control" name="password" id="password"
-              placeholder="pelda"
+              placeholder="Pelda_Jelszo"
               [(ngModel)]="user.password"
               required>
+              <div [hidden]="loginForm.controls.email?.valid || loginForm.controls.email?.pristine" class="error-message">
+                Hibás jelszó!
+              </div>
             </div>
 
             <div class="mb-3 form-check">
@@ -63,10 +66,10 @@
 
       <div class="registration col-12 col-md-6">
 
-        <app-profile
+        <app-edit-profile
           [title]="'Regisztráció'"
           [registration]="true"
-        ></app-profile>
+        ></app-edit-profile>
 
       </div>
 
