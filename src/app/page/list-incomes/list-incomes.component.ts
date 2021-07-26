@@ -18,7 +18,7 @@ export class ListIncomesComponent implements OnInit {
   routerName: string = this.incomeService.routerName;
 
   constructor(
-    private incomeService: IncomeService,
+    public incomeService: IncomeService,
   ) {
     this.incomeService.getAll();
   }

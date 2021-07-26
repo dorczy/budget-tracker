@@ -23,6 +23,7 @@
             [config]="config"
             [itemIcon]="itemIcon"
             [routerName]="routerName"
+            [service]="expenseService"
           ></app-list-item>
         </div>
 
@@ -34,7 +35,7 @@
           </div>
           <div class="col-4 py-3">
             <h4 class="m-0">
-              {{ data$ | async | summary:'amount' | huf }}
+              - {{ data$ | async | summary:'amount' | huf }}
             </h4>
           </div>
         </div>

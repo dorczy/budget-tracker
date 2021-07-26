@@ -14,6 +14,7 @@ export class ListItemComponent implements OnInit {
   @Input() config: TableColumn[] = [];
   @Input() itemIcon: string = '';
   @Input() routerName: string = '';
+  @Input() service: any;
 
   constructor(
     private router: Router,
@@ -24,12 +25,16 @@ export class ListItemComponent implements OnInit {
   }
 
   updateItem(id: number): void {
-    console.log("Item updated!");
     this.router.navigate([this.routerName + '/' + id]);
   }
 
-  deleteItem(): void {
-    console.log("Item deleted!");
+  deleteItem(id: number): void {
+    if (confirm('Biztos, hogy törli?')) {
+      this.service.delete(id);
+      this.router.navigate([this.routerName]);
+    } else {
+      return
+    }
   }
 
   toStrongLetters(element: HTMLElement, value: any): any {

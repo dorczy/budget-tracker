@@ -19,7 +19,7 @@ export class ListUsersComponent implements OnInit {
 
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
   ) {
     this.userService.getAll();
   }

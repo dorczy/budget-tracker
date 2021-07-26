@@ -19,7 +19,7 @@ export class ListExpensesComponent implements OnInit {
 
 
   constructor(
-    private expenseService: ExpenseService,
+    public expenseService: ExpenseService,
   ) {
     this.expenseService.getAll();
   }
