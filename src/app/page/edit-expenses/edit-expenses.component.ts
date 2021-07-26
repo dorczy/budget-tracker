@@ -55,4 +55,12 @@ export class EditExpensesComponent implements OnInit {
     }
   }
 
+  goBack(): void {
+    if (confirm('Biztos, hogy visszalép?')) {
+      this.router.navigate([this.expenseService.routerName]);
+    } else {
+      return
+    }
+  }
+
 }

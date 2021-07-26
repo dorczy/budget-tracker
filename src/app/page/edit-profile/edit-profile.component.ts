@@ -59,7 +59,11 @@ export class EditProfileComponent implements OnInit {
   };
 
   goBack(): void {
-    this.router.navigate(['profile']);
+    if (confirm('Biztos, hogy visszalép?')) {
+      this.router.navigate(['profile']);
+    } else {
+      return
+    }
   }
 
 }

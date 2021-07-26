@@ -55,4 +55,12 @@ export class EditIncomesComponent implements OnInit {
     }
   }
 
+  goBack(): void {
+    if (confirm('Biztos, hogy visszalép?')) {
+      this.router.navigate([this.incomeService.routerName]);
+    } else {
+      return
+    }
+  }
+
 }

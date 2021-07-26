@@ -171,16 +171,24 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-warning"
-            [disabled]="editExpenseForm.invalid || updating"
-            (click)="saveExpense(expense)">
-            <i *ngIf="!updating" class="far fa-save"></i>
-            <i *ngIf="updating" class="fas fa-sync-alt"></i>
-            Mentés
-          </button>
-          <div class="error-message"
-            [hidden]="editExpenseForm.valid || editExpenseForm.pristine">
-              Összes mező megadása kötelező!
+          <div class="col-12 d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary mr-3"
+              (click)="goBack()">
+              <i class="fas fa-chevron-left"></i>
+              &nbsp; Vissza
+            </button>
+
+            <button type="submit" class="btn btn-warning"
+              [disabled]="editExpenseForm.invalid || updating"
+              (click)="saveExpense(expense)">
+              <i *ngIf="!updating" class="far fa-save"></i>
+              <i *ngIf="updating" class="fas fa-sync-alt"></i>
+              Mentés
+            </button>
+            <div class="error-message"
+              [hidden]="editExpenseForm.valid || editExpenseForm.pristine">
+                Összes mező megadása kötelező!
+            </div>
           </div>
 
         </form>
