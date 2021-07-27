@@ -1,4 +1,91 @@
 {
+  "incomes": [
+    {
+      "id": 1,
+      "name": "Fizetés",
+      "period": "havi",
+      "company": "OTP Bank Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 1,
+        "name": "Apa",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 48
+      },
+      "amount": 540000
+    },
+    {
+      "id": 2,
+      "name": "Fizetés",
+      "period": "havi",
+      "company": "Kemence Pékség Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 2,
+        "name": "Anya",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 45
+      },
+      "amount": 181000
+    },
+    {
+      "id": 3,
+      "name": "Nyugdíj",
+      "period": "havi",
+      "company": "Magyar Államkincstár Kft.",
+      "date": "2021-05-01",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 4,
+        "name": "Mama",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 78
+      },
+      "amount": 120000
+    },
+    {
+      "id": 4,
+      "name": "Sportfogadás",
+      "period": "egyszeri",
+      "company": "Szerencsejáték Zrt.",
+      "date": "2021-05-08",
+      "doneMethod": "készpénz",
+      "user": {
+        "id": 1,
+        "name": "Apa",
+        "email": "pelda@gmail.com",
+        "password": "peldaJelszo",
+        "role": "user",
+        "age": 48
+      },
+      "amount": 15300
+    },
+    {
+      "id": 5,
+      "name": "Sportfogadás",
+      "period": "egyszeri",
+      "company": "Szerencsejáték Zrt.",
+      "date": "2021-07-13",
+      "doneMethod": "átutalás",
+      "user": {
+        "id": 0,
+        "name": "Gyerek",
+        "email": "",
+        "password": "",
+        "role": "",
+        "age": 0
+      },
+      "amount": 123000
+    }
+  ],
   "expenses": [
     {
       "id": 1,
@@ -93,91 +180,97 @@
       "amount": 8341
     }
   ],
-  "incomes": [
+  "remainings": [
     {
       "id": 1,
-      "name": "Fizetés",
+      "category": {
+        "id": 5,
+        "name": "Autó, utazás"
+      },
+      "name": "BKV bérlet",
       "period": "havi",
-      "company": "OTP Bank Kft.",
-      "date": "2021-05-01",
-      "doneMethod": "átutalás",
+      "company": "BKK Kft.",
+      "deadlineDate": "2021-08-05",
+      "done": false,
+      "doneDate": "",
+      "doneMethod": "",
       "user": {
         "id": 1,
-        "name": "Apa",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 48
-      },
-      "amount": 540000
-    },
-    {
-      "id": 2,
-      "name": "Fizetés",
-      "period": "havi",
-      "company": "Kemence Pékség Kft.",
-      "date": "2021-05-01",
-      "doneMethod": "átutalás",
-      "user": {
-        "id": 2,
-        "name": "Anya",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 45
-      },
-      "amount": 181000
-    },
-    {
-      "id": 3,
-      "name": "Nyugdíj",
-      "period": "havi",
-      "company": "Magyar Államkincstár Kft.",
-      "date": "2021-05-01",
-      "doneMethod": "készpénz",
-      "user": {
-        "id": 4,
-        "name": "Mama",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 78
-      },
-      "amount": 120000
-    },
-    {
-      "id": 4,
-      "name": "Sportfogadás",
-      "period": "egyszeri",
-      "company": "Szerencsejáték Zrt.",
-      "date": "2021-05-08",
-      "doneMethod": "készpénz",
-      "user": {
-        "id": 1,
-        "name": "Apa",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 48
-      },
-      "amount": 15300
-    },
-    {
-      "id": 5,
-      "name": "Sportfogadás",
-      "period": "egyszeri",
-      "company": "Szerencsejáték Zrt.",
-      "date": "2021-07-13",
-      "doneMethod": "átutalás",
-      "user": {
-        "id": 0,
-        "name": "Gyerek",
+        "name": "",
         "email": "",
         "password": "",
         "role": "",
         "age": 0
       },
-      "amount": 123000
+      "amount": 9500
+    },
+    {
+      "id": 2,
+      "category": {
+        "id": 1,
+        "name": "Rezsi"
+      },
+      "name": "Áram",
+      "period": "havi",
+      "company": "ELMŰ Kft.",
+      "deadlineDate": "2021-08-02",
+      "done": false,
+      "doneDate": "",
+      "doneMethod": "",
+      "user": {
+        "id": 1,
+        "name": "",
+        "email": "",
+        "password": "",
+        "role": "",
+        "age": 0
+      },
+      "amount": 21000
+    },
+    {
+      "id": 3,
+      "category": {
+        "id": 5,
+        "name": "Autó, utazás"
+      },
+      "name": "Biztosítás",
+      "period": "évi",
+      "company": "Generali Kft.",
+      "deadlineDate": "2021-10-15",
+      "done": false,
+      "doneDate": "",
+      "doneMethod": "",
+      "user": {
+        "id": 1,
+        "name": "",
+        "email": "",
+        "password": "",
+        "role": "",
+        "age": 0
+      },
+      "amount": 55300
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Rezsi"
+    },
+    {
+      "id": 2,
+      "name": "Bevásárlás"
+    },
+    {
+      "id": 3,
+      "name": "Egyéb"
+    },
+    {
+      "id": 4,
+      "name": "Egészségügy"
+    },
+    {
+      "id": 5,
+      "name": "Autó, utazás"
     }
   ],
   "users": [
