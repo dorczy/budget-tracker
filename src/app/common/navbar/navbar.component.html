@@ -1,43 +1,43 @@
 <nav class="navbar navbar-dark navbar-expand-lg py-2 px-3 bg-dark-translucent">
 
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="" routerLinkActive="{exact: true}">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="{exact: true}">
       <i class="fas fa-wallet fa-lg"></i>
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarComponent"
+      aria-controls="NavbarComponent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon text-light"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse" id="NavbarComponent">
 
       <div class="d-lg-flex justify-content-lg-between w-100">
 
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-            <a class="nav-link" routerLink="" routerLinkActive="{exact: true}">
+            <a class="nav-link" routerLink="/remainings" routerLinkActive="{exact: true}">
               <i class="fas fa-list-ul"></i>
               &nbsp;
               Összegző lista
             </a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" routerLink="incomes" routerLinkActive="{exact: true}">
+            <a class="nav-link" routerLink="/incomes" routerLinkActive="{exact: true}">
               <i class="fas fa-plus-circle"></i>
               &nbsp;
               Bevételek
             </a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" routerLink="expenses" routerLinkActive="{exact: true}">
+            <a class="nav-link" routerLink="/expenses" routerLinkActive="{exact: true}">
               <i class="fas fa-minus-circle"></i>
               &nbsp;
               Kiadások
             </a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" routerLink="" routerLinkActive="{exact: true}">
+            <a class="nav-link" routerLink="/" routerLinkActive="{exact: true}">
               <i class="fas fa-exclamation-circle"></i>
               &nbsp;
               Befizetendő számlák</a>
@@ -46,7 +46,7 @@
 
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-            <a class="nav-link" routerLink="login" routerLinkActive="{exact: true}">
+            <a class="nav-link" routerLink="/login" routerLinkActive="{exact: true}">
               <i class="fas fa-sign-in-alt"></i>
               &nbsp;
               Bejelentkezés
@@ -54,7 +54,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+            <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-user"></i>
               &nbsp;
@@ -62,13 +62,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-              <li><a class="dropdown-item" routerLink="profile">
+              <li><a class="dropdown-item" routerLink="/profile">
                 <i class="fas fa-user-edit"></i>
                 &nbsp;
                 Profil megtekintése
               </a></li>
 
-              <li><a class="dropdown-item" routerLink="users">
+              <li><a class="dropdown-item" routerLink="/users">
                 <i class="fas fa-users"></i>
                 &nbsp;
                 Felhasználók
@@ -76,7 +76,7 @@
 
               <li><hr class="dropdown-divider"></li>
 
-              <li><a class="dropdown-item" routerLink="">
+              <li><a class="dropdown-item" routerLink="/">
                 <i class="fas fa-sign-out-alt"></i>
                 &nbsp;
                 Kijelentkezés
