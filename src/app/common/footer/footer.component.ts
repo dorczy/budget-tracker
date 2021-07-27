@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationItem } from 'src/app/model/navigation-item';
+import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  navItems: NavigationItem[] = this.configService.navigationFirstBlock;
+
+  constructor(
+    private configService: ConfigService,
+  ) { }
 
   ngOnInit(): void {
   }
