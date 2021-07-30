@@ -67,7 +67,6 @@
 
 **Elfogadási kritérium:**
 - Az oldalon megjelennek a bevételek és a kiadások adatai együttesen.
-- Ezek az adatok az alábbiak: megnevezés, gyakoriság, cég, határidő, teljesítés dátuma, teljesítés módja, összeg
 
 ---
 
@@ -75,12 +74,7 @@
 > _A bevételeket és kiadásokat több szempont szerint le lehet kérdezni._
 
 **Elfogadási kritérium:**
-Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
-- megnevezés
-- gyakoriság
-- cég
-- határidő
-- teljesítés dátuma
+Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 
@@ -88,7 +82,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A bevételeket és kiadásokat az adott tulajdonság alapján sorba rendezhetjük._
 
 **Elfogadási kritérium:**
-- A táblázat fejlécére kattintva az adott tulajdonságokat ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
+- A rendezés szempontját és sorrendjét beállítva az adott tulajdonságot ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
 
 ---
 ---
@@ -143,12 +137,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A bevételeket több szempont szerint le lehet kérdezni._
 
 **Elfogadási kritérium:**
-Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
-- megnevezés
-- gyakoriság
-- cég
-- határidő
-- teljesítés dátuma
+Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 
@@ -156,7 +145,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A bevételeket az adott tulajdonság alapján sorba rendezhetjük._
 
 **Elfogadási kritérium:**
-- A táblázat fejlécére kattintva az adott tulajdonságokat ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
+- A rendezés szempontját és sorrendjét beállítva az adott tulajdonságot ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
 
 ---
 ---
@@ -211,12 +200,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A kiadásokat több szempont szerint le lehet kérdezni._
 
 **Elfogadási kritérium:**
-Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
-- megnevezés
-- gyakoriság
-- cég
-- határidő
-- teljesítés dátuma
+Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 
@@ -224,7 +208,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A kiadásokat az adott tulajdonság alapján sorba rendezhetjük._
 
 **Elfogadási kritérium:**
-- A táblázat fejlécére kattintva az adott tulajdonságokat ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
+- A rendezés szempontját és sorrendjét beállítva az adott tulajdonságot ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
 
 ---
 ---
@@ -279,12 +263,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A befizetendő számlákat több szempont szerint le lehet kérdezni._
 
 **Elfogadási kritérium:**
-Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
-- megnevezés
-- gyakoriság
-- cég
-- határidő
-- teljesítés dátuma
+Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 
@@ -292,7 +271,7 @@ Az adatokat az alábbi tulajdonságok alapján lehet szűrni:
 > _A befizetendő számlákat az adott tulajdonság alapján sorba rendezhetjük._
 
 **Elfogadási kritérium:**
-- A táblázat fejlécére kattintva az adott tulajdonságokat ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
+- A rendezés szempontját és sorrendjét beállítva az adott tulajdonságot ABC vagy számok szerint, növekvő vagy csökkenő sorrendbe állíthatjuk.
 
 ---
 ---
