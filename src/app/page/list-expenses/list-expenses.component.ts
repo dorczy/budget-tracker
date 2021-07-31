@@ -17,6 +17,14 @@ export class ListExpensesComponent implements OnInit {
   itemIcon: string = this.expenseService.itemIcon;
   routerName: string = this.expenseService.routerName;
 
+  // sort
+  ascend: boolean = false;
+  sortKey: string = '';
+
+  // filter
+  filterKey: string = '';
+  phrase: string = '';
+
 
   constructor(
     public expenseService: ExpenseService,

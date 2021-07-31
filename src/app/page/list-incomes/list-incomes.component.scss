@@ -12,3 +12,13 @@
     border-color: rgb(243, 165, 56);
   }
 }
+
+.btn-secondary {
+  background-color: rgb(161, 133, 115);
+  border-color: rgb(161, 133, 115);
+
+  &:hover {
+    background-color: rgb(138, 108, 87);
+    border-color: rgb(138, 108, 87);
+  }
+}

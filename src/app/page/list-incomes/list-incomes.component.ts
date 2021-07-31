@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { TableColumn } from 'src/app/interface/table-column';
 import { Income } from 'src/app/model/income';
@@ -16,6 +16,15 @@ export class ListIncomesComponent implements OnInit {
   config: TableColumn[] = this.incomeService.config;
   itemIcon: string = this.incomeService.itemIcon;
   routerName: string = this.incomeService.routerName;
+
+  // sort
+  ascend: boolean = false;
+  sortKey: string = '';
+
+  // filter
+  filterKey: string = '';
+  phrase: string = '';
+
 
   constructor(
     public incomeService: IncomeService,
