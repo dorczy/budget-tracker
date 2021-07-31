@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">Befizetendő számlák</h1>
+
+      <form class="col-12 bg-light p-3 d-flex justify-content-around">
+
+        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+          <app-sort
+            [config]="config"
+            [(ascend)]="ascend"
+            [(sortKey)]="sortKey"
+          ></app-sort>
+        </div>
+
+        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+          <app-filter
+            [(filterKey)]="filterKey"
+            [(phrase)]="phrase"
+            [config]="config"
+          ></app-filter>
+        </div>
+
+
+      </form>
+
+      <div class="d-grid gap-2 col-12 my-5">
+        <button class="btn btn-primary btn-lg" type="button"
+          routerLink="/remainings/0"
+        >
+          Új befizetendő számla hozzáadása
+        </button>
+      </div>
+
+      <h5 class="my-4">
+        A listaelemekre való kattintással megtekintheti a részletes információkat az adott befizetendő számláról!
+      </h5>
+
+      <div class="my-5">
+
+        <div class="list__item"
+          *ngFor="let item of data$ | async | filter:phrase:filterKey | sort:sortKey:ascend"
+          >
+
+          <app-list-item
+            [item]="item"
+            [config]="config"
+            [itemIcon]="itemIcon"
+            [iconColor]="' text-danger'"
+            [routerName]="routerName"
+            [service]="remainingService"
+          ></app-list-item>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
