@@ -11,11 +11,18 @@ import { ListUsersComponent } from './page/list-users/list-users.component';
 import { EditUsersComponent } from './page/edit-users/edit-users.component';
 import { EditProfileComponent } from './page/edit-profile/edit-profile.component';
 import { ListProfileComponent } from './page/list-profile/list-profile.component';
+import { ListRemainingsComponent } from './page/list-remainings/list-remainings.component';
+import { EditRemainingsComponent } from './page/edit-remainings/edit-remainings.component';
+import { ListSummaryComponent } from './page/list-summary/list-summary.component';
 
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+  {
+    path: "summary",
+    component: ListSummaryComponent
   },
   {
     path: "incomes",
@@ -32,6 +39,14 @@ const routes: Routes = [
   {
     path: "expenses/:id",
     component: EditExpensesComponent
+  },
+  {
+    path: "remainings",
+    component: ListRemainingsComponent
+  },
+  {
+    path: "remainings/:id",
+    component: EditRemainingsComponent
   },
   {
     path: "login",

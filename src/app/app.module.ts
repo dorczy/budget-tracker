@@ -24,6 +24,13 @@ import { EditUsersComponent } from './page/edit-users/edit-users.component';
 import { ListItemComponent } from './common/list-item/list-item.component';
 import { HufPipe } from './pipe/huf.pipe';
 import { SummaryPipe } from './pipe/summary.pipe';
+import { ListRemainingsComponent } from './page/list-remainings/list-remainings.component';
+import { EditRemainingsComponent } from './page/edit-remainings/edit-remainings.component';
+import { ListSummaryComponent } from './page/list-summary/list-summary.component';
+import { SortPipe } from './pipe/sort.pipe';
+import { FilterPipe } from './pipe/filter.pipe';
+import { FilterComponent } from './common/filter/filter.component';
+import { SortComponent } from './common/sort/sort.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +50,13 @@ import { SummaryPipe } from './pipe/summary.pipe';
     ListItemComponent,
     HufPipe,
     SummaryPipe,
+    ListRemainingsComponent,
+    EditRemainingsComponent,
+    ListSummaryComponent,
+    SortPipe,
+    FilterPipe,
+    FilterComponent,
+    SortComponent,
   ],
   imports: [
     BrowserModule,
