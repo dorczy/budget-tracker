@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center col-12 mb-3">
+  <h4>Szűrés</h4>
+</div>
+
+<div class="d-flex col-12 mb-3">
+  <div class="col-6 d-flex justify-content-end px-3">
+    <label for="filterKey" class="form-label m-0 d-flex align-items-center">
+      Szűrés szempontja:
+    </label>
+  </div>
+  <div class="col-6">
+    <select [(ngModel)]="filterKey" (ngModelChange)="filtering(filterKey, phrase)" class="form-select" name="filterKey" id="filterKey" required>
+      <option
+        *ngFor="let col of config"
+        [value]="col.key">
+      {{ col.title }}
+      </option>
+      <!--
+        [value]="
+          col.modification === true
+            ? (
+                col.key === 'category' ? '[category.name]' : col.key ||
+                col.key === 'name' ? col.key : col.key ||
+                col.key === 'user' ? '[user.name]' : col.key ||
+                col.key === 'amount' ? col.key : col.key
+              )
+            : col.key"
+            -->
+    </select>
+  </div>
+</div>
+
+<div class="d-flex col-12 mb-3">
+  <div class="col-6 d-flex justify-content-end px-3">
+    <label for="filterPhrase" class="form-label m-0 d-flex align-items-center">
+      Keresés:
+    </label>
+  </div>
+  <div class="col-6">
+    <input type="text" class="form-control" id="filterPhrase" name="filterPhrase"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)">
+  </div>
+</div>
