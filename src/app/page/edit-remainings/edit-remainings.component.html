@@ -1,0 +1,191 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">
+        <span *ngIf="remainingId === '0'">Befizetendő számla létrehozása</span>
+        <span *ngIf="remainingId !== '0'">Befizetendő számla módosítása</span>
+      </h1>
+
+      <div class="col-4 offset-4 my-5"
+        *ngIf="remaining"
+      >
+        <form #editRemainingForm="ngForm">
+
+          <div class="mb-3">
+            <label for="category" class="form-label">
+              Kategória
+            </label>
+            <input type="text" class="form-control" id="category" name="category"
+              [(ngModel)]="remaining.category.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.category?.valid || editRemainingForm.controls.category?.pristine">
+                Fő- és alkategória megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">
+              Megnevezés
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              [(ngModel)]="remaining.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.name?.valid || editRemainingForm.controls.name?.pristine">
+                Megnevezés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="period" class="form-label">
+              Gyakoriság
+            </label>
+            <select class="form-select" name="period" id="period"
+              [(ngModel)]="remaining.period"
+              required
+            >
+              <option>napi</option>
+              <option>heti</option>
+              <option>havi</option>
+              <option>2 havi</option>
+              <option>3 havi</option>
+              <option>6 havi</option>
+              <option>éves</option>
+              <option>egyszeri</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.period?.valid || editRemainingForm.controls.period?.pristine">
+                Gyakoriság megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="company" class="form-label">
+              Cég
+            </label>
+            <input type="text" class="form-control" id="company" name="company"
+              [(ngModel)]="remaining.company"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.company?.valid || editRemainingForm.controls.company?.pristine">
+                Cég megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="deadlineDate" class="form-label">
+              Határidő
+            </label>
+            <input type="date" class="form-control" id="deadlineDate" name="deadlineDate"
+              [(ngModel)]="remaining.deadlineDate"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.deadlineDate?.valid || editRemainingForm.controls.deadlineDate?.pristine">
+                Határidő megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="done" class="form-label">
+              Teljesítve
+            </label>
+            <select class="form-select" name="done" id="done"
+              [(ngModel)]="remaining.done"
+              required
+            >
+              <option>igen</option>
+              <option>nem</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.done?.valid || editRemainingForm.controls.done?.pristine">
+                Teljesítés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneDate" class="form-label">
+              Teljesítés dátuma
+            </label>
+            <input type="date" class="form-control" id="doneDate" name="doneDate"
+              [(ngModel)]="remaining.doneDate">
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.doneDate?.valid || editRemainingForm.controls.doneDate?.pristine">
+                Teljesítés dátumának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="doneMethod" class="form-label">
+              Teljesítés módja
+            </label>
+            <select class="form-select" name="doneMethod" id="doneMethod"
+              [(ngModel)]="remaining.doneMethod">
+                <option>készpénz</option>
+                <option>átutalás</option>
+            </select>
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.doneMethod?.valid || editRemainingForm.controls.doneMethod?.pristine">
+                Teljesítés módjának megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="user" class="form-label">
+              Felhasználó
+            </label>
+            <select class="form-select" name="user" id="user"
+              [(ngModel)]="remaining.user.name">
+              <option *ngFor="let user of (users$ | async)">
+                {{ user.name }}
+              </option>
+            </select>
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.user?.valid || editRemainingForm.controls.user?.pristine">
+              Felhasználó megadása kötelező!
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="amount" class="form-label">
+              Összeg
+            </label>
+            <input type="number" class="form-control" id="amount" name="amount"
+              [(ngModel)]="remaining.amount">
+            <div class="error-message"
+              [hidden]="editRemainingForm.controls.amount?.valid || editRemainingForm.controls.amount?.pristine">
+              Összeg megadása kötelező!
+            </div>
+          </div>
+
+          <div class="col-12 d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary mr-3"
+              (click)="goBack()">
+              <i class="fas fa-chevron-left"></i>
+              &nbsp; Vissza
+            </button>
+
+            <button type="submit" class="btn btn-primary"
+              [disabled]="editRemainingForm.invalid || updating"
+              (click)="saveRemaining(remaining)">
+              <i *ngIf="!updating" class="far fa-save"></i>
+              <i *ngIf="updating" class="fas fa-sync-alt"></i>
+              Mentés
+            </button>
+            <div class="error-message"
+              [hidden]="editRemainingForm.valid || editRemainingForm.pristine">
+                Összes mező megadása kötelező!
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
