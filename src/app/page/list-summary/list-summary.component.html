@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">Összegző lista</h1>
+
+      <form class="col-12 bg-light p-3 d-flex justify-content-around">
+
+        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+          <app-sort
+            [config]="expenseConfig"
+            [(ascend)]="ascend"
+            [(sortKey)]="sortKey"
+          ></app-sort>
+        </div>
+
+        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+          <app-filter
+            [(filterKey)]="filterKey"
+            [(phrase)]="phrase"
+            [config]="expenseConfig"
+          ></app-filter>
+        </div>
+
+      </form>
+
+      <h5 class="my-4">
+        A listaelemekre való kattintással megtekintheti a részletes információkat az adott tételről!
+      </h5>
+
+      <div class="my-5">
+
+        <div class="list__item"
+          *ngFor="let income of incomes$ | async | filter:phrase:filterKey | sort:sortKey:ascend"
+          >
+          <app-list-item
+            [item]="income"
+            [config]="incomeConfig"
+            [itemIcon]="incomeItemIcon"
+            [iconColor]="' text-success'"
+            [routerName]="incomeRouterName"
+            [service]="incomeService"
+          ></app-list-item>
+        </div>
+
+        <div class="list__item"
+          *ngFor="let expense of expenses$ | async | filter:phrase:filterKey | sort:sortKey:ascend"
+          >
+          <app-list-item
+            [item]="expense"
+            [config]="expenseConfig"
+            [itemIcon]="expenseItemIcon"
+            [iconColor]="' text-danger'"
+            [routerName]="expenseRouterName"
+            [service]="expenseService"
+          ></app-list-item>
+        </div>
+
+        <div class="col-12 bg-light d-flex justify-content-center align-items-center">
+          <div class="col-8 text-end p-3">
+            <h5 class="m-0">
+              Bevételek:
+            </h5>
+          </div>
+          <div class="col-4 py-3">
+            <h4 class="m-0 text-success">
+              {{ incomes$ | async | summary:'amount' | huf }}
+            </h4>
+          </div>
+        </div>
+
+        <div class="col-12 bg-light d-flex justify-content-center align-items-center">
+          <div class="col-8 text-end p-3">
+            <h5 class="m-0">
+              Kiadások:
+            </h5>
+          </div>
+          <div class="col-4 py-3">
+            <h4 class="m-0 text-danger">
+              {{ expenses$ | async | summary:'amount' | huf }}
+            </h4>
+          </div>
+        </div>
+
+        <div class="col-12 bg-light d-flex justify-content-center align-items-center">
+          <div class="col-8 text-end p-3">
+            <h5 class="m-0">
+              Összesen:
+            </h5>
+          </div>
+          <div class="col-4 py-3">
+            <h4 class="m-0">
+              {{ allDatas | summary:'amount' | huf }}
+            </h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
