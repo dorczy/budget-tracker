@@ -11,7 +11,7 @@ import { ConfigService } from './config.service';
 export class IncomeService extends BaseService<Income> {
 
   config: TableColumn[] = this.configService.income;
-  itemIcon: string = 'fa-plus-circle';
+  itemIcon: string = 'fa-plus';
   routerName: string = 'incomes';
 
   constructor(

@@ -12,7 +12,7 @@ export class ListProfileComponent implements OnInit {
 
   updating = false;
   user: User = new User();
-  userId: string = '1';
+  userId: string = '2';
 
   constructor(
     private activatedRoute: ActivatedRoute,

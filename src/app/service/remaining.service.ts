@@ -11,7 +11,8 @@ import { ConfigService } from './config.service';
 export class RemainingService extends BaseService<Remaining> {
 
   config: TableColumn[] = this.configService.remaining;
-  itemIcon: string = 'fa-exclamation-circle';
+  itemIcon: string = 'fa-exclamation';
+  routerName: string = 'remainings';
 
   constructor(
     public http: HttpClient,

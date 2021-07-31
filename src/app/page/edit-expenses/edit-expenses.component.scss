@@ -10,6 +10,17 @@
   animation: errorMessage .4s 3 ease;
 }
 
+.btn-primary {
+  color: rgb(24, 24, 24);
+  background-color: rgb(243, 184, 107);
+  border-color: rgb(243, 184, 107);
+
+  &:hover {
+    background-color: rgb(243, 165, 56);
+    border-color: rgb(243, 165, 56);
+  }
+}
+
 @keyframes roundAnimation {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(180deg); }

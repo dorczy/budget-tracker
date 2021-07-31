@@ -4,3 +4,21 @@ body {
   padding: 0;
   border: 0;
 }
+
+.text-success {
+  color: #0fb332 !important;
+}
+
+.text-danger {
+  color: #eb2236 !important;
+}
+
+.btn-danger {
+  background-color: #eb2236 !important;
+  border-color: #eb2236 !important;
+
+  &:hover {
+    background-color: #cf1b2d !important;
+    border-color: #cf1b2d !important;
+  }
+}

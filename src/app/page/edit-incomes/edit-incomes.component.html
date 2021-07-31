@@ -64,15 +64,15 @@
           </div>
 
           <div class="mb-3">
-            <label for="date" class="form-label">
+            <label for="doneDate" class="form-label">
               Teljesítés dátuma
             </label>
-            <input type="date" class="form-control" id="date" name="date"
-              [(ngModel)]="income.date"
+            <input type="date" class="form-control" id="doneDate" name="doneDate"
+              [(ngModel)]="income.doneDate"
               required
             >
             <div class="error-message"
-              [hidden]="editIncomeForm.controls.date?.valid || editIncomeForm.controls.date?.pristine">
+              [hidden]="editIncomeForm.controls.doneDate?.valid || editIncomeForm.controls.doneDate?.pristine">
                 Teljesítés dátumának megadása kötelező!
             </div>
           </div>
@@ -133,7 +133,7 @@
               &nbsp; Vissza
             </button>
 
-            <button type="submit" class="btn btn-warning"
+            <button type="submit" class="btn btn-primary"
               [disabled]="editIncomeForm.invalid || updating"
               (click)="saveIncome(income)">
               <i *ngIf="!updating" class="far fa-save"></i>

@@ -9,9 +9,9 @@ export class Remaining {
   period: string = '';
   company: string = '';
   deadlineDate: string = '';
-  done: boolean = false;
-  doneDate: string = '';
-  doneMethod: string = '';
+  done: string = '';
+  doneDate?: string = '';
+  doneMethod?: string = '';
   user: User = new User();
   amount: number = 0;
 }
