@@ -17,8 +17,65 @@ body {
   background-color: #eb2236 !important;
   border-color: #eb2236 !important;
 
-  &:hover {
+  &:hover, &:active, &:focus {
     background-color: #cf1b2d !important;
     border-color: #cf1b2d !important;
   }
+}
+
+.btn-primary {
+  color: rgb(24, 24, 24);
+  background-color: rgb(243, 184, 107);
+  border-color: rgb(243, 184, 107);
+
+  &:hover, &:active, &:focus {
+    color: rgb(24, 24, 24);
+    background-color: rgb(243, 165, 56);
+    border-color: rgb(243, 165, 56);
+  }
+
+  &:disabled {
+    color: rgb(24, 24, 24);
+    background-color: rgb(221, 174, 113);
+    border-color: rgb(221, 174, 113);
+  }
+}
+
+.btn-secondary {
+  background-color: rgb(161, 133, 115);
+  border-color: rgb(161, 133, 115);
+
+  &:hover, &:active, &:focus {
+    background-color: rgb(138, 108, 87);
+    border-color: rgb(138, 108, 87);
+  }
+
+  &:disabled {
+    background-color: rgb(161, 133, 115);
+    border-color: rgb(161, 133, 115);
+  }
+}
+
+.fa-sync-alt {
+  animation: roundAnimation 1.5s infinite ease;
+}
+
+.error-message {
+  font-style: italic;
+  font-size: .8rem;
+  color: rgb(240, 0, 0);
+  position: relative;
+  animation: errorMessage .4s 3 ease;
+}
+
+@keyframes roundAnimation {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(359deg); }
+}
+
+@keyframes errorMessage {
+  0% { left: 0rem }
+  50% { left: .5rem }
+  100% { left: 0rem }
 }
