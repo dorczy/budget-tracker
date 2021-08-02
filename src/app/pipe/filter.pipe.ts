@@ -10,21 +10,16 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
     phrase = typeof phrase !== "number" ? ("" + phrase).toLowerCase() : phrase;
-    // // key = key === ('category' ? 'category[name]' : key) || ('user' ? 'user.name' : key)
-
-    // console.log(key);
-
-    // if (key === 'category') {
-    //   key = 'category' + '[name]';
-    // } else if (key === 'user') {
-    //   key = 'user.name'
-    // }
-    // console.log(key);
 
     return value.filter( item => {
+      if (typeof item[key] === "object") {
+        return ("" + item[key]["name"]).toLowerCase().includes( (phrase as string) );
+      }
+
       if(typeof item[key] === "number" && typeof phrase === "number") {
         return item[key] === phrase;
       }
+
       return ("" + item[key]).toLowerCase().includes( (phrase as string) );
     } )
   }
