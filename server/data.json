@@ -282,7 +282,7 @@
       "name": "Mobilrészlet",
       "period": "havi",
       "company": "Telekom",
-      "deadlineDate": "2021-08-06",
+      "deadlineDate": "2021-08-05",
       "done": "nem",
       "doneDate": "",
       "doneMethod": "",
@@ -348,7 +348,7 @@
       "id": 4,
       "name": "Mama",
       "email": "mama@gmail.com",
-      "password": "Mama_Jelszo",
+      "password": "$2a$10$Pnuq4JvnLTcjBaiePoYWGOe3ik1Mq2l71T.M1ja6pu8Ap4yHUNGu.",
       "role": "user",
       "age": 73
     },

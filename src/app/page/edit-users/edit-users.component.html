@@ -7,7 +7,7 @@
       <div class="col-4 offset-4 my-5"
         *ngIf="(item$ | async) as user"
       >
-        <form #editUserForm="ngForm" (ngSubmit)="onUpdate(editUserForm, user)">
+        <form #editUserForm="ngForm">
 
           <div class="mb-3">
             <label for="name" class="form-label">
@@ -81,12 +81,22 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary"
-            [disabled]="editUserForm.invalid || updating">
-              <i *ngIf="!updating" class="far fa-save"></i>
-              <i *ngIf="updating" class="fas fa-sync-alt"></i>
-              Mentés
-          </button>
+          <div class="col-12 d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary mr-3"
+              (click)="goBack()">
+              <i class="fas fa-chevron-left"></i>
+              &nbsp; Vissza
+            </button>
+
+            <button type="submit" class="btn btn-primary"
+              [disabled]="editUserForm.invalid || updating"
+              (click)="saveUser(user)">
+                <i *ngIf="!updating" class="far fa-save"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                Mentés
+            </button>
+          </div>
+
           <div class="error-message"
             [hidden]="editUserForm.valid || editUserForm.pristine">
               Összes mező megadása kötelező!

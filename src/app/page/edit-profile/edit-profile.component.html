@@ -112,10 +112,11 @@
                 <span *ngIf="!registration">&nbsp; Mentés</span>
                 <span *ngIf="registration">&nbsp; Regisztráció</span>
               </button>
-              <div class="error-message"
-                [hidden]="profileForm.valid || profileForm.pristine">
-                  Összes mező megadása kötelező!
-              </div>
+            </div>
+
+            <div class="error-message"
+              [hidden]="profileForm.valid || profileForm.pristine">
+                Összes mező megadása kötelező!
             </div>
 
           </div>

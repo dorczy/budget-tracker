@@ -13,6 +13,7 @@ export class ListItemComponent implements OnInit {
 
   @Input() config: TableColumn[] = [];
   @Input() itemIcon: string = '';
+  @Input() iconColor: string = '';
   @Input() routerName: string = '';
   @Input() service: any;
 
@@ -31,7 +32,6 @@ export class ListItemComponent implements OnInit {
   deleteItem(id: number): void {
     if (confirm('Biztos, hogy törli?')) {
       this.service.delete(id);
-      this.router.navigate([this.routerName]);
     } else {
       return
     }

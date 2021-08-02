@@ -29,7 +29,7 @@ export class EditUsersComponent implements OnInit {
   }
 
 
-  onUpdate(form: NgForm, user: User): void {
+  saveUser(user: User): void {
     this.updating = true;
     if (user.id === 0) {
       this.router.navigate([this.userService.routerName]);
@@ -41,6 +41,14 @@ export class EditUsersComponent implements OnInit {
         }
       );
       alert('Sikeresen módosította a felhasználó adatait!');
+    }
+  }
+
+  goBack(): void {
+    if (confirm('Biztos, hogy visszalép?')) {
+      this.router.navigate([this.userService.routerName]);
+    } else {
+      return
     }
   }
 

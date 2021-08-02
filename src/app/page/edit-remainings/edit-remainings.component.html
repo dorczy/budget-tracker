@@ -177,10 +177,11 @@
               <i *ngIf="updating" class="fas fa-sync-alt"></i>
               Mentés
             </button>
-            <div class="error-message"
-              [hidden]="editRemainingForm.valid || editRemainingForm.pristine">
-                Összes mező megadása kötelező!
-            </div>
+          </div>
+
+          <div class="error-message"
+            [hidden]="editRemainingForm.valid || editRemainingForm.pristine">
+              Összes mező megadása kötelező!
           </div>
 
         </form>
