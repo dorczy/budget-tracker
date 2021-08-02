@@ -63,6 +63,15 @@
 ---
 
 ### ***1. felhasználói történet:***
+> _A felhasználó jogosultságának megfelelően olvashat, írhat, módosíthat az adott tételeken._
+
+**Elfogadási kritérium:**
+- Bizonyos felhasználók csak olvashatnak.
+- Továbbá bizonyos felhasználók olvashatnak, írhatnak és módosíthatnak is.
+
+---
+
+### ***2. felhasználói történet:***
 > _A bevételeket és kiadásokat összesítve láthatjuk táblázatos formában._
 
 **Elfogadási kritérium:**
@@ -70,7 +79,7 @@
 
 ---
 
-### ***2. felhasználói történet:***
+### ***3. felhasználói történet:***
 > _A bevételeket és kiadásokat több szempont szerint le lehet kérdezni._
 
 **Elfogadási kritérium:**
@@ -78,7 +87,7 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 
-### ***3. felhasználói történet:***
+### ***4. felhasználói történet:***
 > _A bevételeket és kiadásokat az adott tulajdonság alapján sorba rendezhetjük._
 
 **Elfogadási kritérium:**
