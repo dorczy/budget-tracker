@@ -1,9 +1,10 @@
 export class User {
   [propname: string]: any;
   id: number = 0;
-  name: string = '';
+  name?: string;
   email: string = '';
   password: string = '';
-  role: string = '';
-  age: number = 0;
+  role: string | number = 1;
+  token?: string;
+  age?: number;
 }

@@ -3,6 +3,7 @@ export class NavigationItem {
   routerLink: string = '';
   icon: string = '';
   role: number = 0;
-  dropdownItem?: boolean = false;
+  dropdownItem?: boolean;
   dropdown?: NavigationItem[];
+  logout?: boolean;
 }

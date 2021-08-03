@@ -15,17 +15,18 @@ export class ConfigService {
     {label: 'Befizetendő számlák',  routerLink: '/remainings',  icon: 'fas fa-exclamation-circle', role: 2},
   ];
 
-  public readonly navigationSecondBlock: NavigationItem[] = [
-    { label: 'Bejelentkezés',  routerLink: '/login',   icon: 'fas fa-sign-in-alt',   role: 1 },
+  public readonly navigationLogin: NavigationItem =
+    { label: 'Bejelentkezés',  routerLink: '/login',   icon: 'fas fa-sign-in-alt',   role: 1 };
+
+  public readonly navigationUser: NavigationItem =
     { label: 'Profil',         routerLink: '',         icon: 'fas fa-user',          role: 2,
       dropdownItem: true,
       dropdown: [
-        { label: 'Profil megtekintése',   routerLink: '/profile',   icon: 'fas fa-user-edit',     role: 2 },
-        { label: 'Felhasználók',          routerLink: '/users',     icon: 'fas fa-users',         role: 3 },
-        { label: 'Kijelentkezés',         routerLink: '',           icon: 'fas fa-sign-out-alt',  role: 2 }
+        { label: 'Profil megtekintése',   routerLink: '/profile',   icon: 'fas fa-user-edit',     role: 2, },
+        { label: 'Felhasználók',          routerLink: '/users',     icon: 'fas fa-users',         role: 3, },
+        { label: 'Kijelentkezés',         routerLink: '',           icon: 'fas fa-sign-out-alt',  role: 2,  logout: true }
       ]
-    }
-  ];
+    };
 
 
   /*
@@ -37,11 +38,11 @@ export class ConfigService {
   */
 
   public readonly user: TableColumn[] = [
-    { key: 'id',        title: '#',     hidden: true },
+    { key: 'id',        title: '#',             hidden: true },
     { key: 'name',      title: 'Név' },
     { key: 'email',     title: 'Email' },
     { key: 'password',  title: 'Jelszó' },
-    { key: 'role',      title: 'Jogosultság' },
+    { key: 'role',      title: 'Jogosultság',   modification: true },
     { key: 'age',       title: 'Kor' },
   ];
 
