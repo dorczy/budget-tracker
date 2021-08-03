@@ -11,7 +11,8 @@ import { IncomeService } from 'src/app/service/income.service';
 })
 export class ListIncomesComponent implements OnInit {
 
-  data$: BehaviorSubject<Income[]> = this.incomeService.list$;
+  // data$: BehaviorSubject<Income[]> = this.incomeService.list$;
+  data: Income[] = [];
 
   config: TableColumn[] = this.incomeService.config;
   itemIcon: string = this.incomeService.itemIcon;
@@ -29,7 +30,11 @@ export class ListIncomesComponent implements OnInit {
   constructor(
     public incomeService: IncomeService,
   ) {
-    this.incomeService.getAll();
+    // this.incomeService.getAll();
+    this.incomeService.getAll().subscribe(
+      incomes => this.data = incomes,
+      err => console.error(err)
+    );
   }
 
   ngOnInit(): void {

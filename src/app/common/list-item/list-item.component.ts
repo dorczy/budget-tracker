@@ -29,9 +29,15 @@ export class ListItemComponent implements OnInit {
     this.router.navigate([this.routerName + '/' + id]);
   }
 
-  deleteItem(id: number): void {
+  // deleteItem(id: number): void {
+  deleteItem(item: any): void {
     if (confirm('Biztos, hogy törli?')) {
-      this.service.delete(id);
+      // this.service.delete(id);
+      this.service.delete(item).subscribe(
+        () => this.router.navigate([this.routerName]),
+        (err: any) => console.error(err)
+      );
+      alert("Sikeresen törölte az elemet!")
     } else {
       return
     }

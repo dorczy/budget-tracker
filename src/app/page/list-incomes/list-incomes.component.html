@@ -39,7 +39,7 @@
       <div class="my-5">
 
         <div class="list__item"
-          *ngFor="let item of data$ | async | filter:phrase:filterKey | sort:sortKey:ascend"
+          *ngFor="let item of data | filter:phrase:filterKey | sort:sortKey:ascend"
           >
 
           <app-list-item
@@ -60,7 +60,7 @@
           </div>
           <div class="col-6 col-lg-4 py-3">
             <h4 class="m-0 text-success">
-              {{ data$ | async | summary:'amount' | huf }}
+              {{ data | summary:'amount' | huf }}
             </h4>
           </div>
         </div>

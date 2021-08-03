@@ -11,7 +11,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  data$: BehaviorSubject<User[]> = this.userService.list$;
+  // data$: BehaviorSubject<User[]> = this.userService.list$;
+  data: User[] = [];
 
   config: TableColumn[] = this.userService.config;
   itemIcon: string = this.userService.itemIcon;
@@ -21,7 +22,11 @@ export class ListUsersComponent implements OnInit {
   constructor(
     public userService: UserService,
   ) {
-    this.userService.getAll();
+    // this.userService.getAll();
+    this.userService.getAll().subscribe(
+      users => this.data = users,
+      err => console.error(err)
+    );
   }
 
   ngOnInit(): void {

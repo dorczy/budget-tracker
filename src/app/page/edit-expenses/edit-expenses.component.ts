@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Expense } from 'src/app/model/expense';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
@@ -19,7 +19,8 @@ export class EditExpensesComponent implements OnInit {
   expense: Expense = new Expense();
   expenseId: string = "";
 
-  users$: BehaviorSubject<User[]> = this.usersService.list$;
+  // users$: BehaviorSubject<User[]> = this.usersService.list$;
+  users: User[] =  [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,10 +31,17 @@ export class EditExpensesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.expenseId = params.id === undefined ? "0" : params.id
+      params => this.expenseId = params.id === undefined ? "0" : params.id,
+      err => console.error(err)
     );
-    this.expenseService.get(parseInt(this.expenseId)).subscribe(
-      expense => this.expense = expense
+    // this.expenseService.get(parseInt(this.expenseId)).subscribe(
+    this.expenseService.get(this.expenseId).subscribe(
+      expense => this.expense = expense,
+      err => console.error(err)
+    );
+    this.usersService.getAll().subscribe(
+      users => this.users = users,
+      err => console.error(err)
     );
   }
 
@@ -41,15 +49,18 @@ export class EditExpensesComponent implements OnInit {
   saveExpense(expense: Expense): void {
     this.updating = true;
     if (expense.id === 0) {
-      this.expenseService.create(expense);
-      this.router.navigate([this.expenseService.routerName]);
+      this.expenseService.create(expense).subscribe(
+        () => this.router.navigate([this.expenseService.routerName]),
+        err => console.error(err)
+      );
       alert('Sikeresen hozzáadtál egy kiadást!');
     } else {
       this.expenseService.update(expense).subscribe(
         () => {
           console.log("Updated expense: ", expense);
           this.router.navigate([this.expenseService.routerName]);
-        }
+        },
+        err => console.error(err)
       );
       alert('Sikeresen módosítottál egy kiadást!');
     }

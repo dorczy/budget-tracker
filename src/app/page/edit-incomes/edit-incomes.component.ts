@@ -19,7 +19,8 @@ export class EditIncomesComponent implements OnInit {
   income: Income = new Income();
   incomeId: string = "";
 
-  users$: BehaviorSubject<User[]> = this.usersService.list$
+  // users$: BehaviorSubject<User[]> = this.usersService.list$
+  users: User[] =  [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,10 +31,17 @@ export class EditIncomesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.incomeId = params.id === undefined ? "0" : params.id
+      params => this.incomeId = params.id === undefined ? "0" : params.id,
+      err => console.error(err)
     );
-    this.incomeService.get(parseInt(this.incomeId)).subscribe(
-      income => this.income = income
+    // this.incomeService.get(parseInt(this.incomeId)).subscribe(
+    this.incomeService.get(this.incomeId).subscribe(
+      income => this.income = income,
+      err => console.error(err)
+    );
+    this.usersService.getAll().subscribe(
+      users => this.users = users,
+      err => console.error(err)
     );
   }
 
@@ -41,15 +49,18 @@ export class EditIncomesComponent implements OnInit {
   saveIncome(income: Income): void {
     this.updating = true;
     if (income.id === 0) {
-      this.incomeService.create(income);
-      this.router.navigate([this.incomeService.routerName]);
+      this.incomeService.create(income).subscribe(
+        () => this.router.navigate([this.incomeService.routerName]),
+        err => console.error(err)
+      );
       alert('Sikeresen hozzáadtál egy bevételt!');
     } else {
       this.incomeService.update(income).subscribe(
         () => {
           console.log("Updated income: ", income);
           this.router.navigate([this.incomeService.routerName]);
-        }
+        },
+        err => console.error(err)
       );
       alert('Sikeresen módosítottál egy bevételt!');
     }

@@ -21,7 +21,7 @@
         Módosítás
       </button>
       <button class="btn btn-danger"
-        (click)="deleteItem(item.id)">
+        (click)="deleteItem(item)">
         Törlés
       </button>
     </div>
@@ -61,6 +61,9 @@
               </span>
               <span #itemAmount *ngIf="item[prop.key] === item['amount']">
                 {{ toStrongLetters(itemAmount, (item.amount | huf)) }}
+              </span>
+              <span *ngIf="item[prop.key] === item['role']">
+                {{ item.role === 3 ? "admin" : "user" }}
               </span>
             </ng-template>
 

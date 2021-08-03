@@ -40,7 +40,7 @@
       <div class="my-5">
 
         <div class="list__item"
-          *ngFor="let item of data$ | async | filter:phrase:filterKey | sort:sortKey:ascend"
+          *ngFor="let item of data | filter:phrase:filterKey | sort:sortKey:ascend"
           >
 
           <app-list-item

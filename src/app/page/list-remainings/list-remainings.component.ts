@@ -11,7 +11,8 @@ import { RemainingService } from 'src/app/service/remaining.service';
 })
 export class ListRemainingsComponent implements OnInit {
 
-  data$: BehaviorSubject<Remaining[]> = this.remainingService.list$;
+  // data$: BehaviorSubject<Remaining[]> = this.remainingService.list$;
+  data: Remaining[] = [];
 
   config: TableColumn[] = this.remainingService.config;
   itemIcon: string = this.remainingService.itemIcon;
@@ -29,7 +30,11 @@ export class ListRemainingsComponent implements OnInit {
   constructor(
     public remainingService: RemainingService,
   ) {
-    this.remainingService.getAll();
+    // this.remainingService.getAll();
+    this.remainingService.getAll().subscribe(
+      remainings => this.data = remainings,
+      err => console.error(err)
+    );
   }
 
   ngOnInit(): void {

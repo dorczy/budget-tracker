@@ -102,7 +102,7 @@
               [(ngModel)]="income.user.name"
               required
             >
-              <option *ngFor="let user of (users$ | async)">
+              <option *ngFor="let user of users">
                 {{ user.name }}
               </option>
             </select>

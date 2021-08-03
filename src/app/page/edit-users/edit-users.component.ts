@@ -38,7 +38,8 @@ export class EditUsersComponent implements OnInit {
         () => {
           console.log("Updated user: ", user);
           this.router.navigate([this.userService.routerName]);
-        }
+        },
+        err => console.error(err)
       );
       alert('Sikeresen módosította a felhasználó adatait!');
     }

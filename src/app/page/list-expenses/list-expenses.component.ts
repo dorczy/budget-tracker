@@ -11,7 +11,8 @@ import { ExpenseService } from 'src/app/service/expense.service';
 })
 export class ListExpensesComponent implements OnInit {
 
-  data$: BehaviorSubject<Expense[]> = this.expenseService.list$;
+  // data$: BehaviorSubject<Expense[]> = this.expenseService.list$;
+  data: Expense[] = [];
 
   config: TableColumn[] = this.expenseService.config;
   itemIcon: string = this.expenseService.itemIcon;
@@ -29,7 +30,11 @@ export class ListExpensesComponent implements OnInit {
   constructor(
     public expenseService: ExpenseService,
   ) {
-    this.expenseService.getAll();
+    // this.expenseService.getAll();
+    this.expenseService.getAll().subscribe(
+      expenses => this.data = expenses,
+      err => console.error(err)
+    );
   }
 
   ngOnInit(): void {

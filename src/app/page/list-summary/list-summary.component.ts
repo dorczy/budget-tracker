@@ -13,8 +13,10 @@ import { ExpenseService } from 'src/app/service/expense.service';
 })
 export class ListSummaryComponent implements OnInit {
 
-  incomes$: BehaviorSubject<Income[]> = this.incomeService.list$;
-  expenses$: BehaviorSubject<Expense[]> = this.expenseService.list$;
+  // incomes$: BehaviorSubject<Income[]> = this.incomeService.list$;
+  // expenses$: BehaviorSubject<Expense[]> = this.expenseService.list$;
+  incomes: Income[] = [];
+  expenses: Expense[] = [];
 
   allDatas: any[] = [];
 
@@ -42,12 +44,27 @@ export class ListSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.incomes$.forEach(
-      incomes => this.allDatas = this.allDatas.concat(incomes)
+    this.incomeService.getAll().subscribe(
+      incomes => {
+        this.incomes = incomes;
+        this.allDatas = [...this.allDatas, ...incomes];
+      },
+      err => console.error(err)
     );
-    this.expenses$.forEach(
-      expenses => this.allDatas = this.allDatas.concat(expenses)
+    this.expenseService.getAll().subscribe(
+      expenses => {
+        this.expenses = expenses;
+        this.allDatas = [...this.allDatas, ...expenses];
+      },
+      err => console.error(err)
     );
+
+    // this.incomes$.forEach(
+    //   incomes => this.allDatas = this.allDatas.concat(incomes)
+    // );
+    // this.expenses$.forEach(
+    //   expenses => this.allDatas = this.allDatas.concat(expenses)
+    // );
   }
 
 }
