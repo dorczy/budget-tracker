@@ -19,7 +19,7 @@ export class EditExpensesComponent implements OnInit {
   expense: Expense = new Expense();
   expenseId: string = "";
 
-  users$: BehaviorSubject<User[]> = this.usersService.list$
+  users$: BehaviorSubject<User[]> = this.usersService.list$;
 
   constructor(
     private activatedRoute: ActivatedRoute,

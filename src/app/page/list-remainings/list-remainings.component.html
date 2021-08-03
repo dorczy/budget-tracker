@@ -4,9 +4,9 @@
 
       <h1 class="my-5">Befizetendő számlák</h1>
 
-      <form class="col-12 bg-light p-3 d-flex justify-content-around">
+      <form class="col-12 bg-light p-3 d-flex justify-content-around flex-column flex-lg-row">
 
-        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+        <div class="col-12 col-lg-5 p-3 d-flex flex-column justify-content-center">
           <app-sort
             [config]="config"
             [(ascend)]="ascend"
@@ -14,7 +14,7 @@
           ></app-sort>
         </div>
 
-        <div class="col-5 p-3 d-flex flex-column justify-content-center">
+        <div class="col-12 col-lg-5 p-3 d-flex flex-column justify-content-center">
           <app-filter
             [(filterKey)]="filterKey"
             [(phrase)]="phrase"

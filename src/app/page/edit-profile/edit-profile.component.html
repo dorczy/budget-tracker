@@ -1,12 +1,15 @@
-<div class="container-fluid p-0">
+<div class="container">
   <div class="row">
-    <div class="col-12 px-md-0 col-md-8 offset-md-2">
+    <div class="col-12">
+
+
+      <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4 my-5"
+      *ngIf="user"
+      >
 
       <h1 class="my-5">
         {{ title }}
       </h1>
-
-      <div *ngIf="user" class="my-5">
 
         <form #profileForm="ngForm">
 
@@ -82,12 +85,12 @@
             </div>
           </div>
 
-          <div class="col-12 d-flex justify-content-between">
+          <div class="col-12 d-flex flex-column flex-sm-row justify-content-between">
 
-            <div class="col-8">
-              <div *ngIf="registration"></div>
-              <button type="button" class="btn btn-danger btn-lg"
-                *ngIf="!registration"
+            <div *ngIf="registration" class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0 d-none d-sm-flex">
+            </div>
+            <div *ngIf="!registration" class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0">
+              <button type="button" class="btn btn-danger"
                 [disabled]="profileForm.invalid || saving"
                 (click)="deleteUser(user.id)">
                 <i *ngIf="!saving" class="far fa-trash-alt"></i>
@@ -96,15 +99,15 @@
               </button>
             </div>
 
-            <div class="col-4 d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary btn-lg mr-3"
+            <div class="col-12 col-sm-6 col-lg-8 col-xl-7 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mr-3"
                 *ngIf="!registration"
                 (click)="goBack()">
                 <i class="fas fa-chevron-left"></i>
                 &nbsp; Vissza
               </button>
 
-              <button type="button" class="btn btn-primary btn-lg"
+              <button type="button" class="btn btn-primary"
                 [disabled]="profileForm.invalid || saving"
                 (click)="save(user)">
                 <i *ngIf="!saving" class="far fa-save"></i>
