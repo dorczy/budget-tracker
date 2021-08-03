@@ -20,7 +20,7 @@
             <input type="text" class="form-control" id="name" name="name"
               placeholder="Gizi"
               [(ngModel)]="user.name"
-              pattern="[A-Z]+[a-z]+"
+              pattern="[A-ZÁÉÍÓÖŐÚÜŰ]+[a-záéíóöőúüű]+"
               required>
             <div class="error-message"
               [hidden]="profileForm.controls.name?.valid || profileForm.controls.name?.pristine">
@@ -62,8 +62,8 @@
             <select class="form-select" name="role" id="role"
               [(ngModel)]="user.role"
               required>
-              <option>admin</option>
-              <option>user</option>
+              <option value="3">admin</option>
+              <option value="2">user</option>
             </select>
             <div class="error-message"
               [hidden]="profileForm.controls.role?.valid || profileForm.controls.role?.pristine">
@@ -92,7 +92,7 @@
             <div *ngIf="!registration" class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0">
               <button type="button" class="btn btn-danger"
                 [disabled]="profileForm.invalid || saving"
-                (click)="deleteUser(user.id)">
+                (click)="deleteUser(user)">
                 <i *ngIf="!saving" class="far fa-trash-alt"></i>
                 <i *ngIf="saving" class="fas fa-sync-alt"></i>
                 &nbsp; Törlés

@@ -26,18 +26,26 @@ export class EditProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.userId = params.id === undefined ? "0" : params.id
+      params => this.userId = params.id === undefined ? "0" : params.id,
+      err => console.error(err)
     );
-    this.userService.get(parseInt(this.userId)).subscribe(
-      user => this.user = user
+    // this.userService.get(parseInt(this.userId)).subscribe(
+    this.userService.get(this.userId).subscribe(
+      user => this.user = user,
+      err => console.error(err)
     );
   };
 
   save(user: User): void {
     this.saving = true;
     if (user.id === 0) {
-      this.userService.create(user);
-      this.router.navigate([""]);
+      this.userService.create(user).subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate([""]);
+        },
+        err => console.error(err)
+      );
       alert('Sikeresen regisztrált!')
     } else {
       this.userService.update(user).subscribe(
@@ -48,11 +56,16 @@ export class EditProfileComponent implements OnInit {
     };
   };
 
-  deleteUser(id: number): void {
+  deleteUser(user: User): void {
     if (confirm('Biztos, hogy törli a profilját?')) {
       this.saving = true;
-      this.userService.delete(id);
-      this.router.navigate(['profile']);
+      this.userService.delete(user).subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['profile']);
+        },
+        err => console.error(err)
+      );
     } else {
       return
     };

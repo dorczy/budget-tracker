@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TableColumn } from '../interface/table-column';
 import { User } from '../model/user';
 import { BaseService } from './base.service';
@@ -19,5 +20,15 @@ export class UserService extends BaseService<User> {
     public configService: ConfigService
   ) {
     super(http, 'users', configService);
+  }
+
+  create(user: User): Observable<User> {
+    user.role = user.role === "3" ? 3 : 2;
+    return this.http.post<User>(this.apiUrl, user);
+  }
+
+  update(user: User): Observable<User> {
+    user.role = user.role === "3" ? 3 : 2;
+    return this.http.patch<User>(`${this.apiUrl}/${user.id}`, user);
   }
 }
