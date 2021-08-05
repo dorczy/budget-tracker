@@ -14,6 +14,9 @@ import { ListProfileComponent } from './page/list-profile/list-profile.component
 import { ListRemainingsComponent } from './page/list-remainings/list-remainings.component';
 import { EditRemainingsComponent } from './page/edit-remainings/edit-remainings.component';
 import { ListSummaryComponent } from './page/list-summary/list-summary.component';
+import { AuthGuardService } from './service/auth-guard.service';
+import { RoleGuardService } from './service/role-guard.service';
+import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 
 const routes: Routes = [
   {
@@ -22,31 +25,59 @@ const routes: Routes = [
   },
   {
     path: "summary",
-    component: ListSummaryComponent
+    component: ListSummaryComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
     path: "incomes",
-    component: ListIncomesComponent
+    component: ListIncomesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
-    path: "incomes/:id",
-    component: EditIncomesComponent
+    path: "incomes/:_id",
+    component: EditIncomesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
+    },
   },
   {
     path: "expenses",
-    component: ListExpensesComponent
+    component: ListExpensesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
-    path: "expenses/:id",
-    component: EditExpensesComponent
+    path: "expenses/:_id",
+    component: EditExpensesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
+    },
   },
   {
     path: "remainings",
-    component: ListRemainingsComponent
+    component: ListRemainingsComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
-    path: "remainings/:id",
-    component: EditRemainingsComponent
+    path: "remainings/:_id",
+    component: EditRemainingsComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
+    },
   },
   {
     path: "login",
@@ -54,19 +85,35 @@ const routes: Routes = [
   },
   {
     path: "profile",
-    component: ListProfileComponent
+    component: ListProfileComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
-    path: "profile/:id",
-    component: EditProfileComponent
+    path: "profile/:_id",
+    component: EditProfileComponent,
   },
   {
     path: "users",
-    component: ListUsersComponent
+    component: ListUsersComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
+    },
   },
   {
-    path: "users/:id",
-    component: EditUsersComponent
+    path: "users/:_id",
+    component: EditUsersComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
+    },
+  },
+  {
+    path: "forbidden",
+    component: ForbiddenComponent,
   },
   {
     path: "*",
