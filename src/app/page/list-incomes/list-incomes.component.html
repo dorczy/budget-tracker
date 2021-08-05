@@ -14,11 +14,12 @@
           ></app-sort>
         </div>
 
-        <div class="col-12 col-lg-5 p-3 d-flex flex-column justify-content-center">
+        <div class="col-12 col-lg-5 p-3 d-flex flex-column">
           <app-filter
             [config]="config"
             [(filterKey)]="filterKey"
             [(phrase)]="phrase"
+            [(result)]="result"
           ></app-filter>
         </div>
 
@@ -39,6 +40,7 @@
       <div class="my-5">
 
         <div class="list__item"
+          #datasItem
           *ngFor="let item of data | filter:phrase:filterKey | sort:sortKey:ascend"
           >
 
@@ -48,21 +50,21 @@
             [itemIcon]="itemIcon"
             [iconColor]="' text-success'"
             [routerName]="routerName"
-            [service]="incomeService"
           ></app-list-item>
         </div>
 
         <div class="col-12 bg-light d-flex justify-content-center align-items-center">
-          <div class="col-6 col-lg-8 text-end p-3">
+          <div class="col-6 col-xl-7 text-end p-3">
             <h5 class="m-0">
               Bevételek összesen:
             </h5>
           </div>
-          <div class="col-6 col-lg-4 py-3">
+          <div class="col-6 col-md-3 col-lg-3 p-3 d-flex justify-content-end">
             <h4 class="m-0 text-success">
               {{ data | summary:'amount' | huf }}
             </h4>
           </div>
+          <div class="col-0 col-md-3 col-lg-3 col-xl-2"></div>
         </div>
 
       </div>

@@ -15,17 +15,6 @@
         [value]="col.key">
       {{ col.title }}
       </option>
-      <!--
-        [value]="
-          col.modification === true
-            ? (
-                col.key === 'category' ? '[category.name]' : col.key ||
-                col.key === 'name' ? col.key : col.key ||
-                col.key === 'user' ? '[user.name]' : col.key ||
-                col.key === 'amount' ? col.key : col.key
-              )
-            : col.key"
-            -->
     </select>
   </div>
 </div>

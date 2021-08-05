@@ -1,5 +1,5 @@
 export class Category {
   [propname: string]: any;
-  id: number = 0;
+  _id: string = '';
   name: string = '';
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { TableColumn } from 'src/app/interface/table-column';
 import { Remaining } from 'src/app/model/remaining';
 import { RemainingService } from 'src/app/service/remaining.service';
@@ -28,7 +27,7 @@ export class ListRemainingsComponent implements OnInit {
 
 
   constructor(
-    public remainingService: RemainingService,
+    private remainingService: RemainingService,
   ) {
     // this.remainingService.getAll();
     this.remainingService.getAll().subscribe(

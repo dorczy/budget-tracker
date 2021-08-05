@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { TableColumn } from 'src/app/interface/table-column';
 import { Expense } from 'src/app/model/expense';
 import { ExpenseService } from 'src/app/service/expense.service';
@@ -28,7 +27,7 @@ export class ListExpensesComponent implements OnInit {
 
 
   constructor(
-    public expenseService: ExpenseService,
+    private expenseService: ExpenseService,
   ) {
     // this.expenseService.getAll();
     this.expenseService.getAll().subscribe(

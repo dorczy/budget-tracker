@@ -5,7 +5,7 @@
       <h1 class="my-5">Felhasználó adatainak módosítása</h1>
 
       <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4 my-5"
-        *ngIf="(item$ | async) as user"
+        *ngIf="user"
       >
         <form #editUserForm="ngForm">
 
@@ -81,20 +81,35 @@
             </div>
           </div>
 
-          <div class="col-12 d-flex justify-content-between">
-            <button type="button" class="btn btn-secondary mr-3"
-              (click)="goBack()">
-              <i class="fas fa-chevron-left"></i>
-              &nbsp; Vissza
-            </button>
+          <div class="col-12 d-flex flex-column flex-sm-row justify-content-between">
 
-            <button type="submit" class="btn btn-primary"
-              [disabled]="editUserForm.invalid || updating"
-              (click)="saveUser(user)">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0">
+              <button type="button" class="btn btn-danger"
+                *ngIf="userId !== '0'"
+                [disabled]="editUserForm.invalid || updating"
+                (click)="deleteUser(user)">
+                <i *ngIf="!updating" class="far fa-trash-alt"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                &nbsp; Törlés
+              </button>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-8 col-xl-7 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mr-3"
+                (click)="goBack()">
+                <i class="fas fa-chevron-left"></i>
+                &nbsp; Vissza
+              </button>
+
+              <button type="button" class="btn btn-primary"
+                [disabled]="editUserForm.invalid || updating"
+                (click)="saveUser(user)">
                 <i *ngIf="!updating" class="far fa-save"></i>
                 <i *ngIf="updating" class="fas fa-sync-alt"></i>
-                Mentés
-            </button>
+                &nbsp; Mentés
+              </button>
+            </div>
+
           </div>
 
           <div class="error-message"

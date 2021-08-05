@@ -1,5 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { TableColumn } from 'src/app/interface/table-column';
 import { Income } from 'src/app/model/income';
 import { IncomeService } from 'src/app/service/income.service';
@@ -25,10 +24,11 @@ export class ListIncomesComponent implements OnInit {
   // filter
   filterKey: string = '';
   phrase: string = '';
+  result: boolean = false;
 
 
   constructor(
-    public incomeService: IncomeService,
+    private incomeService: IncomeService,
   ) {
     // this.incomeService.getAll();
     this.incomeService.getAll().subscribe(

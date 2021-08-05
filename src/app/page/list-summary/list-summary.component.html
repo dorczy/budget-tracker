@@ -14,7 +14,7 @@
           ></app-sort>
         </div>
 
-        <div class="col-12 col-lg-5 p-3 d-flex flex-column justify-content-center">
+        <div class="col-12 col-lg-5 p-3 d-flex flex-column">
           <app-filter
             [(filterKey)]="filterKey"
             [(phrase)]="phrase"
@@ -39,7 +39,6 @@
             [itemIcon]="incomeItemIcon"
             [iconColor]="' text-success'"
             [routerName]="incomeRouterName"
-            [service]="incomeService"
           ></app-list-item>
         </div>
 
@@ -52,47 +51,49 @@
             [itemIcon]="expenseItemIcon"
             [iconColor]="' text-danger'"
             [routerName]="expenseRouterName"
-            [service]="expenseService"
           ></app-list-item>
         </div>
 
         <div class="col-12 bg-light d-flex justify-content-center align-items-center">
-          <div class="col-6 col-lg-8 text-end p-3">
+          <div class="col-6 col-xl-7 text-end p-3">
             <h5 class="m-0">
               Bevételek:
             </h5>
           </div>
-          <div class="col-6 col-lg-4 py-3">
+          <div class="col-6 col-md-3 col-lg-3 p-3 d-flex justify-content-end">
             <h4 class="m-0 text-success">
               {{ incomes | summary:'amount' | huf }}
             </h4>
           </div>
+          <div class="col-0 col-md-3 col-lg-3 col-xl-2"></div>
         </div>
 
         <div class="col-12 bg-light d-flex justify-content-center align-items-center">
-          <div class="col-6 col-lg-8 text-end p-3">
+          <div class="col-6 col-xl-7 text-end p-3">
             <h5 class="m-0">
               Kiadások:
             </h5>
           </div>
-          <div class="col-6 col-lg-4 py-3">
+          <div class="col-6 col-md-3 col-lg-3 p-3 d-flex justify-content-end">
             <h4 class="m-0 text-danger">
               {{ expenses | summary:'amount' | huf }}
             </h4>
           </div>
+          <div class="col-0 col-md-3 col-lg-3 col-xl-2"></div>
         </div>
 
         <div class="col-12 bg-light d-flex justify-content-center align-items-center">
-          <div class="col-6 col-lg-8 text-end p-3">
+          <div class="col-6 col-xl-7 text-end p-3">
             <h5 class="m-0">
               Összesen:
             </h5>
           </div>
-          <div class="col-6 col-lg-4 py-3">
+          <div class="col-6 col-md-3 col-lg-3 p-3 d-flex justify-content-end">
             <h4 class="m-0">
               {{ allDatas | summary:'amount' | huf }}
             </h4>
           </div>
+          <div class="col-0 col-md-3 col-lg-3 col-xl-2"></div>
         </div>
 
       </div>

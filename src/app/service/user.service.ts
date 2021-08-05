@@ -29,6 +29,6 @@ export class UserService extends BaseService<User> {
 
   update(user: User): Observable<User> {
     user.role = user.role === "3" ? 3 : 2;
-    return this.http.patch<User>(`${this.apiUrl}/${user.id}`, user);
+    return this.http.patch<User>(`${this.apiUrl}/${user._id}`, user);
   }
 }

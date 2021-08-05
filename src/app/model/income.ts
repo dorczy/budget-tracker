@@ -2,7 +2,7 @@ import { User } from "./user";
 
 export class Income {
   [propname: string]: any;
-  id: number = 0;
+  _id: string = '';
   name: string = '';
   period: string = '';
   company: string = '';

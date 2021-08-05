@@ -48,14 +48,14 @@
               [(ngModel)]="expense.period"
               required
             >
-              <option>napi</option>
-              <option>heti</option>
-              <option>havi</option>
-              <option>2 havi</option>
-              <option>3 havi</option>
-              <option>6 havi</option>
-              <option>éves</option>
-              <option>egyszeri</option>
+              <option value="napi">napi</option>
+              <option value="heti">heti</option>
+              <option value="havi">havi</option>
+              <option value="2 havi">2 havi</option>
+              <option value="3 havi">3 havi</option>
+              <option value="6 havi">6 havi</option>
+              <option value="éves">éves</option>
+              <option value="egyszeri">egyszeri</option>
             </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.period?.valid || editExpenseForm.controls.period?.pristine">
@@ -99,8 +99,8 @@
               [(ngModel)]="expense.done"
               required
             >
-              <option>igen</option>
-              <option>nem</option>
+              <option value="igen" selected>igen</option>
+              <option value="nem">nem</option>
             </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.done?.valid || editExpenseForm.controls.done?.pristine">
@@ -130,8 +130,8 @@
               [(ngModel)]="expense.doneMethod"
               required
             >
-              <option>készpénz</option>
-              <option>átutalás</option>
+              <option value="készpénz">készpénz</option>
+              <option value="átutalás">átutalás</option>
             </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.doneMethod?.valid || editExpenseForm.controls.doneMethod?.pristine">
@@ -147,8 +147,9 @@
               [(ngModel)]="expense.user.name"
               required
             >
-              <option *ngFor="let user of users">
-                {{ user.name }}
+              <option
+                *ngFor="let user of users">
+                  {{ user.name }}
               </option>
             </select>
             <div class="error-message"
@@ -171,20 +172,35 @@
             </div>
           </div>
 
-          <div class="col-12 d-flex justify-content-between">
-            <button type="button" class="btn btn-secondary mr-3"
-              (click)="goBack()">
-              <i class="fas fa-chevron-left"></i>
-              &nbsp; Vissza
-            </button>
+          <div class="col-12 d-flex flex-column flex-sm-row justify-content-between">
 
-            <button type="submit" class="btn btn-primary"
-              [disabled]="editExpenseForm.invalid || updating"
-              (click)="saveExpense(expense)">
-              <i *ngIf="!updating" class="far fa-save"></i>
-              <i *ngIf="updating" class="fas fa-sync-alt"></i>
-              Mentés
-            </button>
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0">
+              <button type="button" class="btn btn-danger"
+                *ngIf="expenseId !== '0'"
+                [disabled]="editExpenseForm.invalid || updating"
+                (click)="deleteExpense(expense)">
+                <i *ngIf="!updating" class="far fa-trash-alt"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                &nbsp; Törlés
+              </button>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-8 col-xl-7 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mr-3"
+                (click)="goBack()">
+                <i class="fas fa-chevron-left"></i>
+                &nbsp; Vissza
+              </button>
+
+              <button type="button" class="btn btn-primary"
+                [disabled]="editExpenseForm.invalid || updating"
+                (click)="saveExpense(expense)">
+                <i *ngIf="!updating" class="far fa-save"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                &nbsp; Mentés
+              </button>
+            </div>
+
           </div>
 
           <div class="error-message"

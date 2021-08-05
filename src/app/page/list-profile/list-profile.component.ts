@@ -46,8 +46,8 @@ export class ListProfileComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
 
-  openEditProfile(id: number): void {
-    this.router.navigate(['profile/' + id]);
+  openEditProfile(_id: number | string): void {
+    this.router.navigate(['profile/' + _id]);
   }
 
 }

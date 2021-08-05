@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { TableColumn } from 'src/app/interface/table-column';
 import { Income } from 'src/app/model/income';
 import { IncomeService } from 'src/app/service/income.service';
@@ -38,8 +37,8 @@ export class ListSummaryComponent implements OnInit {
 
 
   constructor(
-    public incomeService: IncomeService,
-    public expenseService: ExpenseService,
+    private incomeService: IncomeService,
+    private expenseService: ExpenseService,
   ) {
   }
 

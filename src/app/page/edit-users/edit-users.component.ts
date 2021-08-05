@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
 
@@ -15,9 +12,10 @@ export class EditUsersComponent implements OnInit {
 
   updating = false;
 
-  item$: Observable<User> | null = this.activatedRoute.params.pipe(
-    switchMap(params => this.userService.get(params.id))
-  );
+  user: User = new User();
+  userId: string = "";
+  routerName: string = this.userService.routerName;
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,18 +24,30 @@ export class EditUsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(
+      params => this.userId = params._id === undefined ? "0" : params._id,
+      err => console.error(err)
+    );
+    this.userService.get(this.userId).subscribe(
+      user => this.user = user,
+      err => console.error(err)
+    );
   }
 
 
   saveUser(user: User): void {
     this.updating = true;
-    if (user.id === 0) {
-      this.router.navigate([this.userService.routerName]);
+
+    // itt nincs új felvétele:
+    if (user._id === "") {
+      this.router.navigate([this.routerName]);
+
+    // egy User adatainak frissítése:
     } else {
       this.userService.update(user).subscribe(
         () => {
           console.log("Updated user: ", user);
-          this.router.navigate([this.userService.routerName]);
+          this.router.navigate([this.routerName]);
         },
         err => console.error(err)
       );
@@ -45,9 +55,21 @@ export class EditUsersComponent implements OnInit {
     }
   }
 
+  deleteUser(user: User): void {
+    if (confirm('Biztos, hogy törli?')) {
+      this.userService.delete(user).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
+      );
+      alert("Sikeresen törölte a felhasználót!")
+    } else {
+      return
+    }
+  }
+
   goBack(): void {
     if (confirm('Biztos, hogy visszalép?')) {
-      this.router.navigate([this.userService.routerName]);
+      this.router.navigate([this.routerName]);
     } else {
       return
     }

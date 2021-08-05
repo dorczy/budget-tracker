@@ -3,7 +3,7 @@ import { User } from "./user";
 
 export class Expense {
   [propname: string]: any;
-  id: number = 0;
+  _id: string = '';
   category: Category = new Category();
   name: string = '';
   period: string = '';

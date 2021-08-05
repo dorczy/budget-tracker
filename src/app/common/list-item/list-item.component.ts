@@ -15,7 +15,6 @@ export class ListItemComponent implements OnInit {
   @Input() itemIcon: string = '';
   @Input() iconColor: string = '';
   @Input() routerName: string = '';
-  @Input() service: any;
 
   constructor(
     private router: Router,
@@ -25,22 +24,8 @@ export class ListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateItem(id: number): void {
-    this.router.navigate([this.routerName + '/' + id]);
-  }
-
-  // deleteItem(id: number): void {
-  deleteItem(item: any): void {
-    if (confirm('Biztos, hogy törli?')) {
-      // this.service.delete(id);
-      this.service.delete(item).subscribe(
-        () => this.router.navigate([this.routerName]),
-        (err: any) => console.error(err)
-      );
-      alert("Sikeresen törölte az elemet!")
-    } else {
-      return
-    }
+  updateItem(_id: number): void {
+    this.router.navigate([this.routerName + '/' + _id]);
   }
 
   toStrongLetters(element: HTMLElement, value: any): any {

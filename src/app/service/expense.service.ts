@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TableColumn } from '../interface/table-column';
 import { Expense } from '../model/expense';
 import { Remaining } from '../model/remaining';
@@ -22,11 +23,33 @@ export class ExpenseService extends BaseService<Expense>{
     super(http, 'expenses', configService);
   }
 
-  create(expense: Expense | Remaining): void {
-    expense.amount = expense.amount * -1;
-    this.http.post<Expense | Remaining>(this.apiUrl, expense).subscribe(
-      () => this.getAll(),
-      err => console.error(err)
-    );
+  // -- EREDETI:
+  // create(expense: Expense | Remaining): void {
+  //   console.log(expense);
+  //   console.log(typeof expense);
+  //   expense.amount = expense.amount * -1;
+  //   console.log(expense);
+  //   this.http.post<Expense | Remaining>(this.apiUrl, expense).subscribe(
+  //     () => this.getAll(),
+  //     err => console.error(err)
+  //   );
+  // }
+  // !-- EREDETI
+  create(item: Expense | Remaining): Observable<Expense> {
+    console.log(typeof item, item);
+
+    if (item.amount > 0) {
+      item.amount *= -1;
+    }
+
+    return this.http.post<Expense>(this.apiUrl, item as Expense);
+  }
+
+  update(expense: Expense): Observable<Expense> {
+    if (expense.amount > 0) {
+      expense.amount *= -1;
+    }
+
+    return this.http.patch<Expense>(`${this.apiUrl}/${expense._id}`, expense);
   }
 }

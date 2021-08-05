@@ -1,6 +1,6 @@
 export class User {
   [propname: string]: any;
-  id: number = 0;
+  _id: string = '';
   name?: string;
   email: string = '';
   password: string = '';

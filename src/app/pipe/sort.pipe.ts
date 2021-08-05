@@ -12,34 +12,40 @@ export class SortPipe implements PipeTransform {
 
     if (ascend === true) {
       return value.sort((a, b) => {
-        if (typeof a[key] === "object" && typeof b[key] === "object") {
+        // string
+        if (typeof a[key] === "string" && typeof b[key] === "string") {
+          a = a[key].toString().toLowerCase();
+          b = b[key].toString().toLowerCase();
+          return a.localeCompare(b);
+
+        // object
+        } else if (typeof a[key] === "object" && typeof b[key] === "object") {
           a = a[key]["name"].toString().toLowerCase();
           b = b[key]["name"].toString().toLowerCase();
           return a.localeCompare(b);
 
+        // number
         } else if (parseInt(a[key]) !== NaN && parseInt(b[key]) !== NaN) {
           return a[key] - b[key];
-
-        } else {
-          a = a[key].toString().toLowerCase();
-          b = b[key].toString().toLowerCase();
-          return a.localeCompare(b);
         }
       })
     } else {
       return value.sort((a, b) => {
-        if (typeof a[key] === "object" && typeof b[key] === "object") {
+        // string
+        if (typeof a[key] === "string" && typeof b[key] === "string") {
+          a = a[key].toString().toLowerCase();
+          b = b[key].toString().toLowerCase();
+          return b.localeCompare(a);
+
+        // object
+        } else if (typeof a[key] === "object" && typeof b[key] === "object") {
           a = a[key]["name"].toString().toLowerCase();
           b = b[key]["name"].toString().toLowerCase();
           return b.localeCompare(a);
 
+        // number
         } else if (parseInt(a[key]) !== NaN && parseInt(b[key]) !== NaN) {
           return b[key] - a[key];
-
-        } else {
-          a = a[key].toString().toLowerCase();
-          b = b[key].toString().toLowerCase();
-          return b.localeCompare(a);
         }
       })
 

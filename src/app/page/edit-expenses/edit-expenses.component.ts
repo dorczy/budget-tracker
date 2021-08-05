@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { Expense } from 'src/app/model/expense';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
@@ -18,6 +16,7 @@ export class EditExpensesComponent implements OnInit {
 
   expense: Expense = new Expense();
   expenseId: string = "";
+  routerName: string = this.expenseService.routerName;
 
   // users$: BehaviorSubject<User[]> = this.usersService.list$;
   users: User[] =  [];
@@ -31,7 +30,7 @@ export class EditExpensesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.expenseId = params.id === undefined ? "0" : params.id,
+      params => this.expenseId = params._id === undefined ? "0" : params._id,
       err => console.error(err)
     );
     // this.expenseService.get(parseInt(this.expenseId)).subscribe(
@@ -48,12 +47,12 @@ export class EditExpensesComponent implements OnInit {
 
   saveExpense(expense: Expense): void {
     this.updating = true;
-    if (expense.id === 0) {
+    if (expense._id === "") {
       this.expenseService.create(expense).subscribe(
         () => this.router.navigate([this.expenseService.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadtál egy kiadást!');
+      alert('Sikeresen hozzáadott egy kiadást!');
     } else {
       this.expenseService.update(expense).subscribe(
         () => {
@@ -62,7 +61,19 @@ export class EditExpensesComponent implements OnInit {
         },
         err => console.error(err)
       );
-      alert('Sikeresen módosítottál egy kiadást!');
+      alert('Sikeresen módosított egy kiadást!');
+    }
+  }
+
+  deleteExpense(expense: Expense): void {
+    if (confirm('Biztos, hogy törli?')) {
+      this.expenseService.delete(expense).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
+      );
+      alert("Sikeresen törölt egy kiadást!")
+    } else {
+      return
     }
   }
 

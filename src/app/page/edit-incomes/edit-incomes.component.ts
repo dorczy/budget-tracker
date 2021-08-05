@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { Income } from 'src/app/model/income';
-import { BehaviorSubject } from 'rxjs';
 import { IncomeService } from 'src/app/service/income.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
@@ -18,6 +16,7 @@ export class EditIncomesComponent implements OnInit {
 
   income: Income = new Income();
   incomeId: string = "";
+  routerName: string = this.incomeService.routerName;
 
   // users$: BehaviorSubject<User[]> = this.usersService.list$
   users: User[] =  [];
@@ -31,7 +30,7 @@ export class EditIncomesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.incomeId = params.id === undefined ? "0" : params.id,
+      params => this.incomeId = params._id === undefined ? "0" : params._id,
       err => console.error(err)
     );
     // this.incomeService.get(parseInt(this.incomeId)).subscribe(
@@ -48,27 +47,39 @@ export class EditIncomesComponent implements OnInit {
 
   saveIncome(income: Income): void {
     this.updating = true;
-    if (income.id === 0) {
+    if (income._id === "") {
       this.incomeService.create(income).subscribe(
-        () => this.router.navigate([this.incomeService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadtál egy bevételt!');
+      alert('Sikeresen hozzáadott egy bevételt!');
     } else {
       this.incomeService.update(income).subscribe(
         () => {
           console.log("Updated income: ", income);
-          this.router.navigate([this.incomeService.routerName]);
+          this.router.navigate([this.routerName]);
         },
         err => console.error(err)
       );
-      alert('Sikeresen módosítottál egy bevételt!');
+      alert('Sikeresen módosított egy bevételt!');
+    }
+  }
+
+  deleteIncome(income: Income): void {
+    if (confirm('Biztos, hogy törli?')) {
+      this.incomeService.delete(income).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
+      );
+      alert("Sikeresen törölt egy bevételt!")
+    } else {
+      return
     }
   }
 
   goBack(): void {
     if (confirm('Biztos, hogy visszalép?')) {
-      this.router.navigate([this.incomeService.routerName]);
+      this.router.navigate([this.routerName]);
     } else {
       return
     }

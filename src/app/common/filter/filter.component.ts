@@ -12,9 +12,11 @@ export class FilterComponent implements OnInit {
 
   @Input() filterKey!: string;
   @Input() phrase!: string;
+  @Input() result!: boolean;
 
   @Output() filterKeyChange = new EventEmitter<string>();
   @Output() phraseChange = new EventEmitter<string>();
+  @Output() resultChange = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -22,8 +24,10 @@ export class FilterComponent implements OnInit {
   }
 
   filtering(newFilterKey: string, newPhrase: string): void {
+    const newResult = true;
     this.filterKeyChange.emit(newFilterKey);
     this.phraseChange.emit(newPhrase);
+    this.resultChange.emit(newResult);
   }
 
 }

@@ -38,7 +38,6 @@ export class ConfigService {
   */
 
   public readonly user: TableColumn[] = [
-    { key: 'id',        title: '#',             hidden: true },
     { key: 'name',      title: 'Név' },
     { key: 'email',     title: 'Email' },
     { key: 'password',  title: 'Jelszó' },
@@ -47,7 +46,6 @@ export class ConfigService {
   ];
 
   public readonly income: TableColumn[] = [
-    { key: 'id',          title: '#',             hidden: true },
     { key: 'name',        title: 'Megnevezés',    modification: true },
     { key: 'period',      title: 'Gyakoriság' },
     { key: 'company',     title: 'Cég' },
@@ -58,7 +56,6 @@ export class ConfigService {
   ];
 
   public readonly expense: TableColumn[] = [
-    { key: 'id',            title: '#',             hidden: true },
     { key: 'category',      title: 'Kategória',     modification: true },
     { key: 'name',          title: 'Megnevezés',    modification: true },
     { key: 'period',        title: 'Gyakoriság'},
@@ -72,7 +69,6 @@ export class ConfigService {
   ];
 
   public readonly remaining: TableColumn[] = [
-    { key: 'id',            title: '#', hidden: true },
     { key: 'category',      title: 'Kategória',     modification: true },
     { key: 'name',          title: 'Megnevezés',    modification: true },
     { key: 'period',        title: 'Gyakoriság'},
@@ -86,7 +82,7 @@ export class ConfigService {
   ];
 
   public readonly category: TableColumn[] = [
-    { key: 'id',    title: '#',             hidden: true },
+    { key: '_id',    title: '#',             hidden: true },
     { key: 'name',  title: 'Kategória neve' }
   ];
 

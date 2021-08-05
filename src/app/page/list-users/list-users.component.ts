@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { TableColumn } from 'src/app/interface/table-column';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
@@ -20,7 +19,7 @@ export class ListUsersComponent implements OnInit {
 
 
   constructor(
-    public userService: UserService,
+    private userService: UserService,
   ) {
     // this.userService.getAll();
     this.userService.getAll().subscribe(

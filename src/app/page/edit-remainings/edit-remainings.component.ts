@@ -19,8 +19,10 @@ export class EditRemainingsComponent implements OnInit {
 
   remaining: Remaining = new Remaining();
   remainingId: string = "";
+  routerName: string = this.remainingService.routerName;
 
-  users$: BehaviorSubject<User[]> = this.usersService.list$
+  // users$: BehaviorSubject<User[]> = this.usersService.list$;
+  users: User[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,10 +34,17 @@ export class EditRemainingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => this.remainingId = params.id === undefined ? "0" : params.id
+      params => this.remainingId = params._id === undefined ? "0" : params._id,
+      err => console.error(err)
     );
-    this.remainingService.get(parseInt(this.remainingId)).subscribe(
-      remaining => this.remaining = remaining
+    // this.remainingService.get(parseInt(this.remainingId)).subscribe(
+    this.remainingService.get(this.remainingId).subscribe(
+      remaining => this.remaining = remaining,
+      err => console.error(err)
+    );
+    this.usersService.getAll().subscribe(
+      users => this.users = users,
+      err => console.error(err)
     );
   }
 
@@ -43,30 +52,56 @@ export class EditRemainingsComponent implements OnInit {
   saveRemaining(remaining: Remaining): void {
     this.updating = true;
 
-    if (remaining.id === 0 && remaining.done === "nem") {
-      this.remainingService.create(remaining);
-      this.router.navigate([this.remainingService.routerName]);
-      alert('Sikeresen hozzáadtál egy befizetendő számlát!');
+    if (remaining._id === "" && remaining.done === "nem") {
+      this.remainingService.create(remaining).subscribe(
+        () => this.router.navigate([this.remainingService.routerName]),
+        err => console.error(err)
+      );
+      alert('Sikeresen hozzáadott egy befizetendő számlát!');
 
-    } else if (remaining.id > 0 && remaining.done === "nem") {
+    } else if (remaining._id > "0" && remaining.done === "nem") {
       this.remainingService.update(remaining).subscribe(
         () => {
           console.log("Updated remaining: ", remaining);
           this.router.navigate([this.remainingService.routerName]);
-        }
+        },
+        err => console.error(err)
       );
-      alert('Sikeresen módosítottál egy befizetendő számlát!');
+      alert('Sikeresen módosított egy befizetendő számlát!');
 
-    } else if (remaining.id === 0 && remaining.done === "igen") {
-      this.expenseService.create(remaining);
-      this.router.navigate([this.remainingService.routerName]);
-      alert('Sikeresen hozzáadtál egy kiadást, mivel teljesített számlát hoztál létre!');
+    } else if (remaining._id === "" && remaining.done === "igen") {
+      this.expenseService.create(remaining).subscribe(
+        () => this.router.navigate([this.remainingService.routerName]),
+        err => console.error(err)
+      );
+      alert('Sikeresen hozzáadott egy kiadást, mivel teljesített számlát hozott létre!');
 
-    } else if (remaining.id > 0 && remaining.done === "igen") {
-      this.expenseService.create(remaining);  // HIBA, ERROR, MÓDOSÍTANI
-      this.remainingService.delete(remaining.id);
-      this.router.navigate([this.remainingService.routerName]);
-      alert('Sikeresen módosítottad a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
+    } else if (remaining._id > "0" && remaining.done === "igen") {
+      this.expenseService.create(remaining).subscribe(
+        () => this.router.navigate([this.remainingService.routerName]),
+        err => console.error(err)
+      );  // HIBA, ERROR, MÓDOSÍTANI
+
+      // this.remainingService.delete(remaining).subscribe(
+      //  () => console.log("Sikeres törlés!")
+      // );
+
+      console.log(remaining);
+      console.log(typeof remaining);
+
+      alert('Sikeresen módosította a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
+    }
+  }
+
+  deleteRemaining(remaining: Remaining): void {
+    if (confirm('Biztos, hogy törli?')) {
+      this.remainingService.delete(remaining).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
+      );
+      alert("Sikeresen törölt egy befizetendő számlát!")
+    } else {
+      return
     }
   }
 

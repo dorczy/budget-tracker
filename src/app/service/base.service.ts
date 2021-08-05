@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService<T extends { id: number }> {
+export class BaseService<T extends { _id: number | string }> {
 
   apiUrl: string = '';
   entityName: string = '';
@@ -72,12 +72,12 @@ export class BaseService<T extends { id: number }> {
   }
 
   update(item: T): Observable<T> {
-    return this.http.patch<T>(`${this.apiUrl}/${item.id}`, item);
+    return this.http.patch<T>(`${this.apiUrl}/${item._id}`, item);
   }
 
   delete(item: T): Observable<T> {
-    item.id = typeof item.id === 'string' ? parseInt(item.id) : item.id;
-    return this.http.delete<T>(`${this.apiUrl}/${item.id}`);
+    // item._id = typeof item._id === 'string' ? parseInt(item._id) : item._id;
+    return this.http.delete<T>(`${this.apiUrl}/${item._id}`);
   }
 
 
