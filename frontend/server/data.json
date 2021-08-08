@@ -1,14 +1,14 @@
 {
   "incomes": [
     {
-      "id": 1,
+      "_id": "etkdd31",
       "name": "Fizetés",
       "period": "havi",
       "company": "OTP Bank Kft.",
       "doneDate": "2021-05-01",
       "doneMethod": "átutalás",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "Apa",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -18,14 +18,14 @@
       "amount": 540000
     },
     {
-      "id": 2,
+      "_id": "2fhs4",
       "name": "Fizetés",
       "period": "havi",
       "company": "Kemence Pékség Kft.",
       "doneDate": "2021-05-01",
       "doneMethod": "átutalás",
       "user": {
-        "id": 2,
+        "_id": "2",
         "name": "Anya",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -35,31 +35,31 @@
       "amount": 181000
     },
     {
-      "id": 3,
+      "_id": "3udfsa3",
       "name": "Nyugdíj",
-      "period": "havi",
+      "period": "éves",
       "company": "Magyar Államkincstár Kft.",
       "doneDate": "2021-05-01",
       "doneMethod": "készpénz",
       "user": {
-        "id": 4,
+        "_id": "4",
         "name": "Mama",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
         "role": "user",
         "age": 78
       },
-      "amount": 120000
+      "amount": 600000
     },
     {
-      "id": 4,
+      "_id": "4th45g",
       "name": "Sportfogadás",
       "period": "egyszeri",
       "company": "Szerencsejáték Zrt.",
       "doneDate": "2021-05-08",
       "doneMethod": "készpénz",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "Apa",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -69,14 +69,14 @@
       "amount": 15300
     },
     {
-      "id": 5,
+      "_id": "45udad5",
       "name": "Sportfogadás",
       "period": "egyszeri",
       "company": "Szerencsejáték Zrt.",
       "doneDate": "2021-07-13",
       "doneMethod": "átutalás",
       "user": {
-        "id": 0,
+        "_id": "0",
         "name": "Gyerek",
         "email": "",
         "password": "",
@@ -84,13 +84,29 @@
         "age": 0
       },
       "amount": 123000
+    },
+    {
+      "_id": "6lge4",
+      "name": "Mari néni",
+      "period": "napi",
+      "company": "Mari néni Bt",
+      "doneDate": "2021-05-26",
+      "doneMethod": "átutalás",
+      "user": {
+        "_id": "0",
+        "email": "",
+        "password": "",
+        "role": 1,
+        "name": "Anya"
+      },
+      "amount": 1234567
     }
   ],
   "expenses": [
     {
-      "id": 1,
+      "_id": "1lzt6",
       "category": {
-        "id": 3,
+        "_id": "3",
         "name": "Egyéb"
       },
       "name": "Mozi",
@@ -101,7 +117,7 @@
       "doneDate": "2021-07-13",
       "doneMethod": "készpénz",
       "user": {
-        "id": 3,
+        "_id": "3",
         "name": "Gyerek",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -111,9 +127,9 @@
       "amount": -2500
     },
     {
-      "id": 2,
+      "_id": "2asg5",
       "category": {
-        "id": 1,
+        "_id": "1",
         "name": "Rezsi"
       },
       "name": "Albérlet",
@@ -124,7 +140,7 @@
       "doneDate": "2021-07-28",
       "doneMethod": "készpénz",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "Apa",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -134,9 +150,9 @@
       "amount": -120000
     },
     {
-      "id": 3,
+      "_id": "3nmf5a",
       "category": {
-        "id": 2,
+        "_id": "2",
         "name": "Bevásárlás"
       },
       "name": "Vegyszerek",
@@ -147,7 +163,7 @@
       "doneDate": "2021.07.15.",
       "doneMethod": "átutalás",
       "user": {
-        "id": 2,
+        "_id": "2",
         "name": "Anya",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -157,9 +173,9 @@
       "amount": -8341
     },
     {
-      "id": 4,
+      "_id": "a4sad",
       "category": {
-        "id": 2,
+        "_id": "2",
         "name": "Bevásárlás"
       },
       "name": "Bevásárlás",
@@ -170,7 +186,7 @@
       "doneDate": "2021-07-15",
       "doneMethod": "átutalás",
       "user": {
-        "id": 2,
+        "_id": "2",
         "name": "Anya",
         "email": "pelda@gmail.com",
         "password": "peldaJelszo",
@@ -180,32 +196,9 @@
       "amount": -9870
     },
     {
-      "id": 5,
+      "_id": "6jkj4sda2",
       "category": {
-        "id": 0,
-        "name": "Rezsi"
-      },
-      "name": "Csatorna",
-      "period": "6 havi",
-      "company": "Vízművek Kft.",
-      "deadlineDate": "2021-08-06",
-      "done": "igen",
-      "doneDate": "2021-07-29",
-      "doneMethod": "készpénz",
-      "user": {
-        "id": 0,
-        "name": "Gizi",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
-      },
-      "amount": -11000
-    },
-    {
-      "id": 6,
-      "category": {
-        "id": 0,
+        "_id": "0",
         "name": "Egyéb"
       },
       "name": "Mozi",
@@ -216,21 +209,43 @@
       "doneDate": "2021-08-02",
       "doneMethod": "készpénz",
       "user": {
-        "id": 0,
+        "_id": "0",
         "name": "Gyerek",
         "email": "",
         "password": "",
         "role": "",
         "age": 0
       },
-      "amount": -2460
+      "amount": -2560
+    },
+    {
+      "_id": "7ke4asd",
+      "category": {
+        "_id": "0",
+        "name": "Egyéb"
+      },
+      "name": "Házvásárlás",
+      "period": "egyszeri",
+      "company": "Közöd",
+      "deadlineDate": "2021-08-15",
+      "done": "igen",
+      "doneDate": "2021-08-03",
+      "doneMethod": "átutalás",
+      "user": {
+        "_id": "0",
+        "email": "",
+        "password": "",
+        "role": 1,
+        "name": "Barack"
+      },
+      "amount": -57000000
     }
   ],
   "remainings": [
     {
-      "id": 1,
+      "_id": "1cyxk",
       "category": {
-        "id": 5,
+        "_id": "5",
         "name": "Autó, utazás"
       },
       "name": "BKV bérlet",
@@ -241,7 +256,7 @@
       "doneDate": "",
       "doneMethod": "",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "",
         "email": "",
         "password": "",
@@ -251,9 +266,9 @@
       "amount": 9500
     },
     {
-      "id": 2,
+      "_id": "j5qdas2",
       "category": {
-        "id": 1,
+        "_id": "1",
         "name": "Rezsi"
       },
       "name": "Áram",
@@ -264,7 +279,7 @@
       "doneDate": "",
       "doneMethod": "",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "",
         "email": "",
         "password": "",
@@ -274,9 +289,9 @@
       "amount": 21000
     },
     {
-      "id": 3,
+      "_id": "rthasd3",
       "category": {
-        "id": 5,
+        "_id": "5",
         "name": "Autó, utazás"
       },
       "name": "Biztosítás",
@@ -287,7 +302,7 @@
       "doneDate": "",
       "doneMethod": "",
       "user": {
-        "id": 1,
+        "_id": "1",
         "name": "",
         "email": "",
         "password": "",
@@ -297,9 +312,9 @@
       "amount": 55300
     },
     {
-      "id": 4,
+      "_id": "mk342d4",
       "category": {
-        "id": 0,
+        "_id": "0",
         "name": "Rezsi"
       },
       "name": "Mobilrészlet",
@@ -310,7 +325,7 @@
       "doneDate": "",
       "doneMethod": "",
       "user": {
-        "id": 0,
+        "_id": "0",
         "name": "",
         "email": "",
         "password": "",
@@ -318,33 +333,54 @@
         "age": 0
       },
       "amount": 130
+    },
+    {
+      "_id": "k34ta6",
+      "category": {
+        "_id": "0",
+        "name": "Rezsi"
+      },
+      "name": "Telefon",
+      "period": "havi",
+      "company": "Vodafone",
+      "deadlineDate": "2021-08-20",
+      "done": "nem",
+      "doneMethod": "",
+      "user": {
+        "_id": "0",
+        "email": "",
+        "password": "",
+        "role": 1,
+        "name": "Anya"
+      },
+      "amount": 10000
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "_id": "b1a",
       "name": "Rezsi"
     },
     {
-      "id": 2,
+      "_id": "aba2",
       "name": "Bevásárlás"
     },
     {
-      "id": 3,
+      "_id": "je3",
       "name": "Egyéb"
     },
     {
-      "id": 4,
+      "_id": "4usdd",
       "name": "Egészségügy"
     },
     {
-      "id": 5,
+      "_id": "5lw",
       "name": "Autó, utazás"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "_id": "df12d1",
       "name": "Apa",
       "email": "apa@gmail.com",
       "password": "$2a$10$r5y0SSIV1PZLt2aPLsF1Gep7nqPUmoiI/szvulmPsxZ6JXJEPARKC",
@@ -352,15 +388,15 @@
       "age": 48
     },
     {
-      "id": 2,
+      "_id": "2hdfh",
       "name": "Anya",
       "email": "anya@gmail.com",
       "password": "$2a$10$fcDD8dy8URR3LwCoMms1.eCaEki.bUp8G79GFtPa8uoMWGGhiQpv.",
-      "role": "3",
+      "role": 3,
       "age": 45
     },
     {
-      "id": 3,
+      "_id": "32rfe",
       "name": "Gyerek",
       "email": "gyerek@gmail.com",
       "password": "$2a$10$gj.5VK9sLRF2Ydm57ahCD.JuP3rgmbX0w5KG1aTorCz.ePfKbj5Ni",
@@ -368,12 +404,20 @@
       "age": 15
     },
     {
-      "id": 4,
+      "_id": "43fasd",
       "name": "Mama",
       "email": "mama@gmail.com",
-      "password": "$2a$10$ch0dRkTfBRaVA76vPnH3JeV/j4SO5KSPOVh6ooixBVSW5TcOUnq.S",
+      "password": "$2a$10$zpXXhTwtCKw2xPEshY3SbO5v9h7B9VskZjUK0JzcS1CE7F78r5ivu",
       "role": 2,
       "age": 73
+    },
+    {
+      "email": "barack@gmail.com",
+      "password": "$2a$10$iJT69nNJFjf3jHrQnYdXhOuajNKR8YQTVKTk2Bbn6Con8alaGb97u",
+      "_id": "5asfnw",
+      "role": 3,
+      "name": "Barack",
+      "age": 56
     }
   ]
 }
