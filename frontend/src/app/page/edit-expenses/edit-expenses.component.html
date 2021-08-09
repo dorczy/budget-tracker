@@ -108,34 +108,35 @@
             </div>
           </div>
 
-          <div class="mb-3">
-            <label for="doneDate" class="form-label">
-              Teljesítés dátuma
-            </label>
-            <input type="date" class="form-control" id="doneDate" name="doneDate"
-              [(ngModel)]="expense.doneDate"
-              required
-            >
-            <div class="error-message"
-              [hidden]="editExpenseForm.controls.doneDate?.valid || editExpenseForm.controls.doneDate?.pristine">
-                Teljesítés dátumának megadása kötelező!
+          <div *ngIf="expense.done === 'igen'">
+            <div class="mb-3">
+              <label for="doneDate" class="form-label">
+                Teljesítés dátuma
+              </label>
+              <input type="date" class="form-control" id="doneDate" name="doneDate"
+                [(ngModel)]="expense.doneDate"
+                required
+              >
+              <div class="error-message"
+                [hidden]="editExpenseForm.controls.doneDate?.valid || editExpenseForm.controls.doneDate?.pristine">
+                  Teljesítés dátumának megadása kötelező!
+              </div>
             </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="doneMethod" class="form-label">
-              Teljesítés módja
-            </label>
-            <select class="form-select" name="doneMethod" id="doneMethod"
-              [(ngModel)]="expense.doneMethod"
-              required
-            >
-              <option value="készpénz">készpénz</option>
-              <option value="átutalás">átutalás</option>
-            </select>
-            <div class="error-message"
-              [hidden]="editExpenseForm.controls.doneMethod?.valid || editExpenseForm.controls.doneMethod?.pristine">
-                Teljesítés módjának megadása kötelező!
+            <div class="mb-3">
+              <label for="doneMethod" class="form-label">
+                Teljesítés módja
+              </label>
+              <select class="form-select" name="doneMethod" id="doneMethod"
+                [(ngModel)]="expense.doneMethod"
+                required
+              >
+                <option value="készpénz">készpénz</option>
+                <option value="átutalás">átutalás</option>
+              </select>
+              <div class="error-message"
+                [hidden]="editExpenseForm.controls.doneMethod?.valid || editExpenseForm.controls.doneMethod?.pristine">
+                  Teljesítés módjának megadása kötelező!
+              </div>
             </div>
           </div>
 

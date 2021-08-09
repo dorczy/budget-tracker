@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TableColumn } from '../interface/table-column';
+import { Expense } from '../model/expense';
 import { Remaining } from '../model/remaining';
 import { BaseService } from './base.service';
 import { ConfigService } from './config.service';
@@ -19,5 +21,12 @@ export class RemainingService extends BaseService<Remaining> {
     public configService: ConfigService
   ) {
     super(http, 'remainings', configService);
+  }
+
+  create(item: Remaining | Expense): Observable<Remaining> {
+    if (item.amount < 0) {
+      item.amount *= -1;
+    }
+    return this.http.post<Remaining>(this.apiUrl, item as Remaining);
   }
 }

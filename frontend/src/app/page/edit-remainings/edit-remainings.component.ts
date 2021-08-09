@@ -37,7 +37,6 @@ export class EditRemainingsComponent implements OnInit {
       params => this.remainingId = params._id === undefined ? "0" : params._id,
       err => console.error(err)
     );
-    // this.remainingService.get(parseInt(this.remainingId)).subscribe(
     this.remainingService.get(this.remainingId).subscribe(
       remaining => this.remaining = remaining,
       err => console.error(err)
@@ -49,9 +48,19 @@ export class EditRemainingsComponent implements OnInit {
   }
 
 
+
+
+
+
+
+
+
+
+
   saveRemaining(remaining: Remaining): void {
     this.updating = true;
 
+    // LÉTREHOZÁS A BEFIZETENDŐ SZÁMLÁKBA
     if (remaining._id === "" && remaining.done === "nem") {
       this.remainingService.create(remaining).subscribe(
         () => this.router.navigate([this.remainingService.routerName]),
@@ -59,16 +68,17 @@ export class EditRemainingsComponent implements OnInit {
       );
       alert('Sikeresen hozzáadott egy befizetendő számlát!');
 
-    } else if (remaining._id > "0" && remaining.done === "nem") {
+
+    // MÓDOSÍTÁS EGY BEFIZETENDŐ SZÁMLÁBAN
+    } else if (remaining._id !== "" && remaining.done === "nem") {
       this.remainingService.update(remaining).subscribe(
-        () => {
-          console.log("Updated remaining: ", remaining);
-          this.router.navigate([this.remainingService.routerName]);
-        },
+        () => this.router.navigate([this.remainingService.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen módosított egy befizetendő számlát!');
 
+
+    // LÉTREHOZÁS, ÁTTÉTEL A KIADÁSOKBA
     } else if (remaining._id === "" && remaining.done === "igen") {
       this.expenseService.create(remaining).subscribe(
         () => this.router.navigate([this.remainingService.routerName]),
@@ -76,22 +86,30 @@ export class EditRemainingsComponent implements OnInit {
       );
       alert('Sikeresen hozzáadott egy kiadást, mivel teljesített számlát hozott létre!');
 
-    } else if (remaining._id > "0" && remaining.done === "igen") {
+
+    // MÓDOSÍTÁS, ÁTTÉTEL A KIADÁSOKBA
+    } else if (remaining._id !== "" && remaining.done === "igen") {
       this.expenseService.create(remaining).subscribe(
         () => this.router.navigate([this.remainingService.routerName]),
         err => console.error(err)
-      );  // HIBA, ERROR, MÓDOSÍTANI
-
-      // this.remainingService.delete(remaining).subscribe(
-      //  () => console.log("Sikeres törlés!")
-      // );
-
-      console.log(remaining);
-      console.log(typeof remaining);
-
+      );
+      this.remainingService.delete(remaining).subscribe(
+       () => {}
+      );
       alert('Sikeresen módosította a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
     }
   }
+
+
+
+
+
+
+
+
+
+
+
 
   deleteRemaining(remaining: Remaining): void {
     if (confirm('Biztos, hogy törli?')) {

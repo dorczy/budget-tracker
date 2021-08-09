@@ -4,6 +4,7 @@ import { Expense } from 'src/app/model/expense';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
+import { RemainingService } from 'src/app/service/remaining.service';
 
 @Component({
   selector: 'app-edit-expenses',
@@ -24,6 +25,7 @@ export class EditExpensesComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private expenseService: ExpenseService,
+    private remainingService: RemainingService,
     private usersService: UserService,
     private router: Router,
   ) { }
@@ -33,7 +35,6 @@ export class EditExpensesComponent implements OnInit {
       params => this.expenseId = params._id === undefined ? "0" : params._id,
       err => console.error(err)
     );
-    // this.expenseService.get(parseInt(this.expenseId)).subscribe(
     this.expenseService.get(this.expenseId).subscribe(
       expense => this.expense = expense,
       err => console.error(err)
@@ -45,25 +46,73 @@ export class EditExpensesComponent implements OnInit {
   }
 
 
+
+
+
+
+
+
+
+
   saveExpense(expense: Expense): void {
     this.updating = true;
-    if (expense._id === "") {
+
+    // LÉTREHOZÁS A KIADÁSOKBA
+    if (expense._id === "" && expense.done === "igen") {
       this.expenseService.create(expense).subscribe(
         () => this.router.navigate([this.expenseService.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen hozzáadott egy kiadást!');
-    } else {
+
+
+    // MÓDOSÍTÁS EGY KIADÁSBAN
+    } else if (expense._id !== "" && expense.done === "igen") {
       this.expenseService.update(expense).subscribe(
-        () => {
-          console.log("Updated expense: ", expense);
-          this.router.navigate([this.expenseService.routerName]);
-        },
+        () => this.router.navigate([this.expenseService.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen módosított egy kiadást!');
+
+
+    // LÉTREHOZÁS, ÁTTÉTEL A BEFIZETENDŐ SZÁMLÁKBA
+    } else if (expense._id === "" && expense.done === "nem") {
+      this.remainingService.create(expense).subscribe(
+        () => this.router.navigate([this.expenseService.routerName]),
+        err => console.error(err)
+      );
+      alert('Sikeresen hozzáadott egy befizetendő számlát, mivel teljesítetlen számlát hozott létre!')
+
+
+
+    // MÓDOSÍTÁS, ÁTTÉTEL A BEFIZETENDŐ SZÁMLÁKBA
+    } else if (expense._id !== "" && expense.done === "nem") {
+      this.remainingService.create(expense).subscribe(
+        () => this.router.navigate([this.expenseService.routerName]),
+        err => console.error(err)
+      );
+      this.expenseService.delete(expense).subscribe(
+        () => {}
+      );
+      alert('Sikeresen módosította a kiadást! Mivel teljesítetlen számla, ezért átkerült a befizetendő számlákba.');
+
     }
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   deleteExpense(expense: Expense): void {
     if (confirm('Biztos, hogy törli?')) {

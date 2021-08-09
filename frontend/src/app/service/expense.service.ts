@@ -36,8 +36,6 @@ export class ExpenseService extends BaseService<Expense>{
   // }
   // !-- EREDETI
   create(item: Expense | Remaining): Observable<Expense> {
-    console.log(typeof item, item);
-
     if (item.amount > 0) {
       item.amount *= -1;
     }
@@ -45,11 +43,11 @@ export class ExpenseService extends BaseService<Expense>{
     return this.http.post<Expense>(this.apiUrl, item as Expense);
   }
 
-  update(expense: Expense): Observable<Expense> {
-    if (expense.amount > 0) {
-      expense.amount *= -1;
+  update(item: Expense): Observable<Expense> {
+    if (item.amount > 0) {
+      item.amount *= -1;
     }
 
-    return this.http.patch<Expense>(`${this.apiUrl}/${expense._id}`, expense);
+    return this.http.patch<Expense>(`${this.apiUrl}/${item._id}`, item);
   }
 }
