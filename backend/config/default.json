@@ -1,0 +1,8 @@
+{
+  "Database": {
+    "username": "NodeUser",
+    "password": "almafa",
+    "host": "cluster0.56epx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "containerName": "mongo:27017/budgetTrackerDatabase?retryWrites=true&w=majority"
+  }
+}

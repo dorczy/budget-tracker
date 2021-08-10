@@ -1,0 +1,31 @@
+{
+  "name": "budget-tracker-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "docker:build": "docker build -t vizsgaremek-express-app:latest .",
+    "docker-compose:up": "docker-compose up"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.6",
+    "mongoose-id-validator": "^0.6.0",
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "jest-mock-req-res": "^1.0.2"
+  }
+}
