@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { Expense } from 'src/app/model/expense';
+import { Category } from 'src/app/model/category';
 import { Remaining } from 'src/app/model/remaining';
 import { User } from 'src/app/model/user';
+import { CategoryService } from 'src/app/service/category.service';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { RemainingService } from 'src/app/service/remaining.service';
 import { UserService } from 'src/app/service/user.service';
@@ -21,14 +21,15 @@ export class EditRemainingsComponent implements OnInit {
   remainingId: string = "";
   routerName: string = this.remainingService.routerName;
 
-  // users$: BehaviorSubject<User[]> = this.usersService.list$;
   users: User[] = [];
+  categories: Category[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private remainingService: RemainingService,
     private expenseService: ExpenseService,
-    private usersService: UserService,
+    private userService: UserService,
+    private categoryService: CategoryService,
     private router: Router,
   ) { }
 
@@ -41,20 +42,15 @@ export class EditRemainingsComponent implements OnInit {
       remaining => this.remaining = remaining,
       err => console.error(err)
     );
-    this.usersService.getAll().subscribe(
+    this.userService.getAll().subscribe(
       users => this.users = users,
       err => console.error(err)
     );
+    this.categoryService.getAll().subscribe(
+      categories => this.categories = categories,
+      err => console.error(err)
+    );
   }
-
-
-
-
-
-
-
-
-
 
 
   saveRemaining(remaining: Remaining): void {
@@ -63,7 +59,7 @@ export class EditRemainingsComponent implements OnInit {
     // LÉTREHOZÁS A BEFIZETENDŐ SZÁMLÁKBA
     if (remaining._id === "" && remaining.done === "nem") {
       this.remainingService.create(remaining).subscribe(
-        () => this.router.navigate([this.remainingService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen hozzáadott egy befizetendő számlát!');
@@ -72,7 +68,7 @@ export class EditRemainingsComponent implements OnInit {
     // MÓDOSÍTÁS EGY BEFIZETENDŐ SZÁMLÁBAN
     } else if (remaining._id !== "" && remaining.done === "nem") {
       this.remainingService.update(remaining).subscribe(
-        () => this.router.navigate([this.remainingService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen módosított egy befizetendő számlát!');
@@ -81,7 +77,7 @@ export class EditRemainingsComponent implements OnInit {
     // LÉTREHOZÁS, ÁTTÉTEL A KIADÁSOKBA
     } else if (remaining._id === "" && remaining.done === "igen") {
       this.expenseService.create(remaining).subscribe(
-        () => this.router.navigate([this.remainingService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen hozzáadott egy kiadást, mivel teljesített számlát hozott létre!');
@@ -90,7 +86,7 @@ export class EditRemainingsComponent implements OnInit {
     // MÓDOSÍTÁS, ÁTTÉTEL A KIADÁSOKBA
     } else if (remaining._id !== "" && remaining.done === "igen") {
       this.expenseService.create(remaining).subscribe(
-        () => this.router.navigate([this.remainingService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       this.remainingService.delete(remaining).subscribe(
@@ -99,17 +95,6 @@ export class EditRemainingsComponent implements OnInit {
       alert('Sikeresen módosította a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
     }
   }
-
-
-
-
-
-
-
-
-
-
-
 
   deleteRemaining(remaining: Remaining): void {
     if (confirm('Biztos, hogy törli?')) {
@@ -125,7 +110,7 @@ export class EditRemainingsComponent implements OnInit {
 
   goBack(): void {
     if (confirm('Biztos, hogy visszalép?')) {
-      this.router.navigate([this.remainingService.routerName]);
+      this.router.navigate([this.routerName]);
     } else {
       return
     }

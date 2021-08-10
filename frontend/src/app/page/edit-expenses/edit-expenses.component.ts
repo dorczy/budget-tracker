@@ -5,6 +5,8 @@ import { ExpenseService } from 'src/app/service/expense.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
 import { RemainingService } from 'src/app/service/remaining.service';
+import { Category } from 'src/app/model/category';
+import { CategoryService } from 'src/app/service/category.service';
 
 @Component({
   selector: 'app-edit-expenses',
@@ -19,14 +21,15 @@ export class EditExpensesComponent implements OnInit {
   expenseId: string = "";
   routerName: string = this.expenseService.routerName;
 
-  // users$: BehaviorSubject<User[]> = this.usersService.list$;
-  users: User[] =  [];
+  users: User[] = [];
+  categories: Category[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private expenseService: ExpenseService,
     private remainingService: RemainingService,
-    private usersService: UserService,
+    private userService: UserService,
+    private categoryService: CategoryService,
     private router: Router,
   ) { }
 
@@ -39,19 +42,15 @@ export class EditExpensesComponent implements OnInit {
       expense => this.expense = expense,
       err => console.error(err)
     );
-    this.usersService.getAll().subscribe(
+    this.userService.getAll().subscribe(
       users => this.users = users,
       err => console.error(err)
     );
+    this.categoryService.getAll().subscribe(
+      categories => this.categories = categories,
+      err => console.error(err)
+    );
   }
-
-
-
-
-
-
-
-
 
 
   saveExpense(expense: Expense): void {
@@ -60,7 +59,7 @@ export class EditExpensesComponent implements OnInit {
     // LÉTREHOZÁS A KIADÁSOKBA
     if (expense._id === "" && expense.done === "igen") {
       this.expenseService.create(expense).subscribe(
-        () => this.router.navigate([this.expenseService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen hozzáadott egy kiadást!');
@@ -69,7 +68,7 @@ export class EditExpensesComponent implements OnInit {
     // MÓDOSÍTÁS EGY KIADÁSBAN
     } else if (expense._id !== "" && expense.done === "igen") {
       this.expenseService.update(expense).subscribe(
-        () => this.router.navigate([this.expenseService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen módosított egy kiadást!');
@@ -78,7 +77,7 @@ export class EditExpensesComponent implements OnInit {
     // LÉTREHOZÁS, ÁTTÉTEL A BEFIZETENDŐ SZÁMLÁKBA
     } else if (expense._id === "" && expense.done === "nem") {
       this.remainingService.create(expense).subscribe(
-        () => this.router.navigate([this.expenseService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       alert('Sikeresen hozzáadott egy befizetendő számlát, mivel teljesítetlen számlát hozott létre!')
@@ -88,7 +87,7 @@ export class EditExpensesComponent implements OnInit {
     // MÓDOSÍTÁS, ÁTTÉTEL A BEFIZETENDŐ SZÁMLÁKBA
     } else if (expense._id !== "" && expense.done === "nem") {
       this.remainingService.create(expense).subscribe(
-        () => this.router.navigate([this.expenseService.routerName]),
+        () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
       this.expenseService.delete(expense).subscribe(
@@ -100,18 +99,6 @@ export class EditExpensesComponent implements OnInit {
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   deleteExpense(expense: Expense): void {
@@ -128,7 +115,7 @@ export class EditExpensesComponent implements OnInit {
 
   goBack(): void {
     if (confirm('Biztos, hogy visszalép?')) {
-      this.router.navigate([this.expenseService.routerName]);
+      this.router.navigate([this.routerName]);
     } else {
       return
     }

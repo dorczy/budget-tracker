@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-5">
+
+      <h1 class="my-5">Kategóriák</h1>
+
+      <div class="d-grid gap-2 col-12 my-5">
+        <button class="btn btn-primary btn-lg" type="button"
+          routerLink="/categories/0">
+            Új kategória hozzáadása
+        </button>
+      </div>
+
+      <h5 class="my-4">
+        A Kategória részletei gombra való kattintással megtekintheti az adott kategóriába tartozó
+        kiadásokat vagy befizetendő számlákat!
+      </h5>
+
+
+      <div class="col-12">
+        <app-card-item
+          *ngFor="let category of categoriesList$ | async"
+          [item]="category"
+        ></app-card-item>
+      </div>
+
+    </div>
+  </div>
+</div>
+

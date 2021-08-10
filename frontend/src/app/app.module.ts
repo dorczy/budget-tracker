@@ -16,6 +16,8 @@ import { LoginComponent } from './page/login/login.component';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 
 import { ListSummaryComponent } from './page/list-summary/list-summary.component';
+import { ListCategoriesComponent } from './page/list-categories/list-categories.component';
+import { EditCategoriesComponent } from './page/edit-categories/edit-categories.component';
 import { ListIncomesComponent } from './page/list-incomes/list-incomes.component';
 import { EditIncomesComponent } from './page/edit-incomes/edit-incomes.component';
 import { ListExpensesComponent } from './page/list-expenses/list-expenses.component';
@@ -28,6 +30,7 @@ import { ListUsersComponent } from './page/list-users/list-users.component';
 import { EditUsersComponent } from './page/edit-users/edit-users.component';
 
 import { ListItemComponent } from './common/list-item/list-item.component';
+import { CardItemComponent } from './common/card-item/card-item.component';
 import { HufPipe } from './pipe/huf.pipe';
 import { SummaryPipe } from './pipe/summary.pipe';
 import { SortPipe } from './pipe/sort.pipe';
@@ -43,25 +46,28 @@ import { SortComponent } from './common/sort/sort.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    ForbiddenComponent,
+    ListSummaryComponent,
+    ListCategoriesComponent,
+    EditCategoriesComponent,
     ListIncomesComponent,
     EditIncomesComponent,
     ListExpensesComponent,
     EditExpensesComponent,
+    ListRemainingsComponent,
+    EditRemainingsComponent,
     ListProfileComponent,
     EditProfileComponent,
     ListUsersComponent,
     EditUsersComponent,
     ListItemComponent,
+    CardItemComponent,
     HufPipe,
     SummaryPipe,
-    ListRemainingsComponent,
-    EditRemainingsComponent,
-    ListSummaryComponent,
     SortPipe,
     FilterPipe,
     FilterComponent,
     SortComponent,
-    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,

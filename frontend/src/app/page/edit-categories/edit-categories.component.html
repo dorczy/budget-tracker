@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5">
+        <span *ngIf="categoryId === '0'">Kategória létrehozása</span>
+        <span *ngIf="categoryId !== '0'">Kategória módosítása</span>
+      </h1>
+
+      <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4 my-5"
+        *ngIf="category"
+      >
+        <form #editcategoryForm="ngForm">
+
+         <div class="mb-3">
+            <label for="name" class="form-label">
+              Megnevezés
+            </label>
+            <input type="text" class="form-control" id="name" name="name"
+              [(ngModel)]="category.name"
+              required
+            >
+            <div class="error-message"
+              [hidden]="editcategoryForm.controls.name?.valid || editcategoryForm.controls.name?.pristine">
+                Megnevezés megadása kötelező!
+            </div>
+          </div>
+
+          <div class="col-12 d-flex flex-column flex-sm-row justify-content-between">
+
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-5 mb-3 mb-sm-0">
+              <button type="button" class="btn btn-danger"
+                *ngIf="categoryId !== '0'"
+                [disabled]="editcategoryForm.invalid || updating"
+                (click)="deleteCategory(category)">
+                <i *ngIf="!updating" class="far fa-trash-alt"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                &nbsp; Törlés
+              </button>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-8 col-xl-7 d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary mr-3"
+                (click)="goBack()">
+                <i class="fas fa-chevron-left"></i>
+                &nbsp; Vissza
+              </button>
+
+              <button type="button" class="btn btn-primary"
+                [disabled]="editcategoryForm.invalid || updating"
+                (click)="saveCategory(category)">
+                <i *ngIf="!updating" class="far fa-save"></i>
+                <i *ngIf="updating" class="fas fa-sync-alt"></i>
+                &nbsp; Mentés
+              </button>
+            </div>
+
+          </div>
+
+          <div class="error-message"
+            [hidden]="editcategoryForm.valid || editcategoryForm.pristine">
+              Összes mező megadása kötelező!
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

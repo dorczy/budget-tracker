@@ -16,13 +16,18 @@
             <label for="category" class="form-label">
               Kategória
             </label>
-            <input type="text" class="form-control" id="category" name="category"
+            <select class="form-select" name="category" id="category"
               [(ngModel)]="expense.category.name"
               required
             >
+              <option
+                *ngFor="let category of categories">
+                  {{ category.name }}
+              </option>
+            </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.category?.valid || editExpenseForm.controls.category?.pristine">
-                Fő- és alkategória megadása kötelező!
+                Kategória megadása kötelező!
           </div>
           </div>
 

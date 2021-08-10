@@ -12,6 +12,7 @@ export class CategoryService extends BaseService<Category> {
 
   config: TableColumn[] = this.configService.category;
   itemIcon: string = 'fa-folder-open';
+  routerName: string = 'categories';
 
   constructor(
     public http: HttpClient,

@@ -10,6 +10,7 @@ export class ConfigService {
 
   public readonly navigationFirstBlock: NavigationItem[] = [
     {label: 'Összegző lista',       routerLink: '/summary',     icon: 'fas fa-list-ul',            role: 2},
+    {label: 'Kategóriák',           routerLink: '/categories',  icon: 'fas fa-folder-open',        role: 2},
     {label: 'Bevételek',            routerLink: '/incomes',     icon: 'fas fa-plus-circle',        role: 2},
     {label: 'Kiadások',             routerLink: '/expenses',    icon: 'fas fa-minus-circle',       role: 2},
     {label: 'Befizetendő számlák',  routerLink: '/remainings',  icon: 'fas fa-exclamation-circle', role: 2},

@@ -17,6 +17,8 @@ import { ListSummaryComponent } from './page/list-summary/list-summary.component
 import { AuthGuardService } from './service/auth-guard.service';
 import { RoleGuardService } from './service/role-guard.service';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { ListCategoriesComponent } from './page/list-categories/list-categories.component';
+import { EditCategoriesComponent } from './page/edit-categories/edit-categories.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,22 @@ const routes: Routes = [
     canActivate: [ AuthGuardService, RoleGuardService ],
     data: {
       expectedRole: 2,
+    },
+  },
+  {
+    path: "categories",
+    component: ListCategoriesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
+  },
+  {
+    path: "categories/:_id",
+    component: EditCategoriesComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 3,
     },
   },
   {
