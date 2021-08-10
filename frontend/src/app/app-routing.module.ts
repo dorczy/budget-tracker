@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './page/home/home.component';
-import { ListIncomesComponent } from './page/list-incomes/list-incomes.component';
-import { EditIncomesComponent } from './page/edit-incomes/edit-incomes.component';
-import { ListExpensesComponent } from './page/list-expenses/list-expenses.component';
-import { EditExpensesComponent } from './page/edit-expenses/edit-expenses.component';
-import { LoginComponent } from './page/login/login.component';
-import { ListUsersComponent } from './page/list-users/list-users.component';
-import { EditUsersComponent } from './page/edit-users/edit-users.component';
-import { EditProfileComponent } from './page/edit-profile/edit-profile.component';
-import { ListProfileComponent } from './page/list-profile/list-profile.component';
-import { ListRemainingsComponent } from './page/list-remainings/list-remainings.component';
-import { EditRemainingsComponent } from './page/edit-remainings/edit-remainings.component';
-import { ListSummaryComponent } from './page/list-summary/list-summary.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { RoleGuardService } from './service/role-guard.service';
+
+import { HomeComponent } from './page/home/home.component';
+import { ListSummaryComponent } from './page/summary/list-summary/list-summary.component';
+import { ListCategoriesComponent } from './page/categories/list-categories/list-categories.component';
+import { EditCategoriesComponent } from './page/categories/edit-categories/edit-categories.component';
+import { ListIncomesComponent } from './page/incomes/list-incomes/list-incomes.component';
+import { EditIncomesComponent } from './page/incomes/edit-incomes/edit-incomes.component';
+import { ListExpensesComponent } from './page/expenses/list-expenses/list-expenses.component';
+import { EditExpensesComponent } from './page/expenses/edit-expenses/edit-expenses.component';
+import { ListRemainingsComponent } from './page/remainings/list-remainings/list-remainings.component';
+import { EditRemainingsComponent } from './page/remainings/edit-remainings/edit-remainings.component';
+import { LoginComponent } from './page/login/login.component';
+import { EditProfileComponent } from './page/profile/edit-profile/edit-profile.component';
+import { ListProfileComponent } from './page/profile/list-profile/list-profile.component';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
+import { EditUsersComponent } from './page/users/edit-users/edit-users.component';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
-import { ListCategoriesComponent } from './page/list-categories/list-categories.component';
-import { EditCategoriesComponent } from './page/edit-categories/edit-categories.component';
+
 
 const routes: Routes = [
   {
@@ -140,7 +142,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

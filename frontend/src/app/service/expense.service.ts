@@ -23,18 +23,6 @@ export class ExpenseService extends BaseService<Expense>{
     super(http, 'expenses', configService);
   }
 
-  // -- EREDETI:
-  // create(expense: Expense | Remaining): void {
-  //   console.log(expense);
-  //   console.log(typeof expense);
-  //   expense.amount = expense.amount * -1;
-  //   console.log(expense);
-  //   this.http.post<Expense | Remaining>(this.apiUrl, expense).subscribe(
-  //     () => this.getAll(),
-  //     err => console.error(err)
-  //   );
-  // }
-  // !-- EREDETI
   create(item: Expense | Remaining): Observable<Expense> {
     if (item.amount > 0) {
       item.amount *= -1;

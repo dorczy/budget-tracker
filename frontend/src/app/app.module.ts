@@ -15,29 +15,30 @@ import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 
-import { ListSummaryComponent } from './page/list-summary/list-summary.component';
-import { ListCategoriesComponent } from './page/list-categories/list-categories.component';
-import { EditCategoriesComponent } from './page/edit-categories/edit-categories.component';
-import { ListIncomesComponent } from './page/list-incomes/list-incomes.component';
-import { EditIncomesComponent } from './page/edit-incomes/edit-incomes.component';
-import { ListExpensesComponent } from './page/list-expenses/list-expenses.component';
-import { EditExpensesComponent } from './page/edit-expenses/edit-expenses.component';
-import { ListRemainingsComponent } from './page/list-remainings/list-remainings.component';
-import { EditRemainingsComponent } from './page/edit-remainings/edit-remainings.component';
-import { ListProfileComponent } from './page/list-profile/list-profile.component';
-import { EditProfileComponent } from './page/edit-profile/edit-profile.component';
-import { ListUsersComponent } from './page/list-users/list-users.component';
-import { EditUsersComponent } from './page/edit-users/edit-users.component';
+import { ListSummaryComponent } from './page/summary/list-summary/list-summary.component';
+import { ListCategoriesComponent } from './page/categories/list-categories/list-categories.component';
+import { EditCategoriesComponent } from './page/categories/edit-categories/edit-categories.component';
+import { ListIncomesComponent } from './page/incomes/list-incomes/list-incomes.component';
+import { EditIncomesComponent } from './page/incomes/edit-incomes/edit-incomes.component';
+import { ListExpensesComponent } from './page/expenses/list-expenses/list-expenses.component';
+import { EditExpensesComponent } from './page/expenses/edit-expenses/edit-expenses.component';
+import { ListRemainingsComponent } from './page/remainings/list-remainings/list-remainings.component';
+import { EditRemainingsComponent } from './page/remainings/edit-remainings/edit-remainings.component';
+import { ListProfileComponent } from './page/profile/list-profile/list-profile.component';
+import { EditProfileComponent } from './page/profile/edit-profile/edit-profile.component';
+import { ListUsersComponent } from './page/users/list-users/list-users.component';
+import { EditUsersComponent } from './page/users/edit-users/edit-users.component';
 
 import { ListItemComponent } from './common/list-item/list-item.component';
 import { CardItemComponent } from './common/card-item/card-item.component';
+
 import { HufPipe } from './pipe/huf.pipe';
 import { SummaryPipe } from './pipe/summary.pipe';
 import { SortPipe } from './pipe/sort.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
 
-import { FilterComponent } from './common/filter/filter.component';
 import { SortComponent } from './common/sort/sort.component';
+import { FilterComponent } from './common/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +67,8 @@ import { SortComponent } from './common/sort/sort.component';
     SummaryPipe,
     SortPipe,
     FilterPipe,
-    FilterComponent,
     SortComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
