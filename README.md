@@ -95,7 +95,62 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 ---
-## 4. Bevételek kezelése
+## 4. Kategóriák kezelése
+---
+
+### ***1. felhasználói történet:***
+> _A felhasználó jogosultságának megfelelően olvashat, írhat, módosíthat az adott tételeken._
+
+**Elfogadási kritérium:**
+- Bizonyos felhasználók csak olvashatnak.
+- Továbbá bizonyos felhasználók olvashatnak, írhatnak és módosíthatnak is.
+
+---
+
+### ***2. felhasználói történet:***
+> _A felhasználó lekérdezheti a kategóriákat._
+
+**Elfogadási kritérium:**
+- A kategóriák kártyás formában megjelennek a felhasználó számára.
+
+---
+
+### ***3. felhasználói történet:***
+> _A felhasználó lekérdezheti a kategóriákhoz tartozó kiadásokat és befizetendő számlákat._
+
+**Elfogadási kritérium:**
+- A kategóriák részletei között táblázatos formában megjelennek a kategóriákat tartalmazó entitások.
+
+---
+
+### ***4. felhasználói történet:***
+> _Új kategória felvétele._
+
+**Elfogadási kritérium:**
+- Az űrlap kitöltésével új kategóriát vehet fel, amely megjelenik a listában.
+- A felhasználónak lehetősége van a visszalépésre is.
+
+---
+
+### ***5. felhasználói történet:***
+> _Meglévő kategória módosítása._
+
+**Elfogadási kritérium:**
+- A megfelelő gombra kattintva a kategória adatait módosíthatja, melynek változásai megjelennek a listában.
+- A felhasználónak lehetősége van a visszalépésre is.
+
+---
+
+### ***6. felhasználói történet:***
+> _Meglévő kategória törlése._
+
+**Elfogadási kritérium:**
+- A megfelelő gombra kattintva a kategóriát törölheti, melynek változásai megjelennek a listában.
+- A felhasználónak lehetősége van a visszalépésre is.
+
+---
+---
+## 5. Bevételek kezelése
 ---
 
 ### ***1. felhasználói történet:***
@@ -158,7 +213,7 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 ---
-## 5. Kiadások kezelése
+## 6. Kiadások kezelése
 ---
 
 ### ***1. felhasználói történet:***
@@ -221,7 +276,7 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 
 ---
 ---
-## 6. Befizetendő számlák
+## 7. Befizetendő számlák
 ---
 
 ### ***1. felhasználói történet:***
@@ -285,16 +340,9 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 ---
 ---
 ## Fejlesztési lehetőségek
-- Felugró ablakok használata: a felhasználó értesítése a történésekről.
+- Harmadik féltől száramazó előugró ablakok használata: a felhasználó értesítése a történésekről.
 - Statisztikák beszúrása egy külön oldalon.
 - Nagy mennyiségű adat kilistázása esetén lapozó készítése.
-- A fő kategóriák megjelenítése kártyás formában, melyekre kattintva megjelennek az adott entitás tételei.
-- Bevétel, kiadás, befizetendő entitásokhoz további tulajdonság hozzáadása:
-
-Neve | Tartalma
------------- | -------------
-főkategória | pl.: bevásárlás |
-alkategória | pl.: élelmiszer, háztartás
 
 ---
 ---
