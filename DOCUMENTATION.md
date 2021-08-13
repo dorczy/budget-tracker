@@ -26,6 +26,14 @@ A megadott Docker container indítása és inicializálása az alábbi lépések
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) alkalmazás letöltése, telepítése, majd elindítása.
 - A `/backend` mappa megnyitásával és itt az `npm run docker-compose:up` parancs kiadásával alkalmazásunk elindul.
 
+**Megjegyzés:** A belépéshez érvényes email és jelszó párosok:
+
+Jogosultság | Email | Jelszó
+------------ | ------------ | -------------
+admin | admin@gmail.com | admin_pw
+user | user@gmail.com | user_pw
+
+
 
 ## 5. A végpontok dokumentációja
 
