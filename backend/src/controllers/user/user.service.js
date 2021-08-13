@@ -1,5 +1,6 @@
 const User = require('../../models/user.model');
 
+
 exports.create = userData => {
   const user = new User(userData);
   return user.save();

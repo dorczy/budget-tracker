@@ -1,6 +1,6 @@
 const createError = require('http-errors');
-const personService = require('./service');
-const User = require('../../models/user.model');
+const incomeService = require('./income.service');
+const Income = require('../../models/income.model');
 
 
 const checkModel = (Model, body, next) => {
@@ -19,37 +19,38 @@ const checkModel = (Model, body, next) => {
 
 
 exports.create = (req, res, next) => {
-  if (!checkModel(User, req.body, next)) {
+  if (!checkModel(Income, req.body, next)) {
     return;
   }
 
-  return personService
+  return incomeService
     .create(req.body)
-    .then( createdUser => {
+    .then( createdIncome => {
       res.status(201);
-      res.json(createdUser);
+      res.json(createdIncome);
     } )
     .catch( err => next(new createError.InternalServerError(err.message)) );
 };
 
 
+
 exports.findAll = (req, res, next) => {
-  return personService
+  return incomeService
     .findAll()
-    .then( users => {
-      res.json(users);
+    .then( incomes => {
+      res.json(incomes);
     } )
     .catch( err => next(new createError.InternalServerError(err.message)) );
 };
 
 exports.findOne = (req, res, next) => {
-  return personService
+  return incomeService
     .findOne(req.params.id)
-    .then( user => {
-      if (!user) {
-        return next( new createError.NotFound("User is not found!") );
+    .then( income => {
+      if (!income) {
+        return next( new createError.NotFound("Income is not found!") );
       }
-      res.json(user);
+      res.json(income);
     } )
     .catch( err => next(new createError.InternalServerError(err.message)) );
 };
@@ -57,14 +58,14 @@ exports.findOne = (req, res, next) => {
 
 
 exports.update = (req, res, next) => {
-  if (!checkModel(User, req.body, next)) {
+  if (!checkModel(Income, req.body, next)) {
     return;
   }
 
-  return personService
+  return incomeService
     .update(req.params.id, req.body)
-    .then( user => {
-      res.json(user)
+    .then( income => {
+      res.json(income)
     } )
     .catch( err => next(new createError.InternalServerError(err.message)) );
 };
@@ -72,7 +73,7 @@ exports.update = (req, res, next) => {
 
 
 exports.delete = (req, res, next) => {
-  return personService
+  return incomeService
     .delete(req.params.id)
     .then( () => res.json({}) )
     .catch( err => next(new createError.InternalServerError(err.message)) );
