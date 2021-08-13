@@ -28,9 +28,8 @@ if (!config.has('Database')) {
 
 // DOCKER:
 // .connect(`mongodb://${dbConfig.containerName}`, {
-// ATLAS:
-// .connect(`mongodb+srv://dbUser:dbUserPassword@cluster0.emitf.mongodb.net/basicDatabase?retryWrites=true&w=majority`, {
-  
+
+// ATLAS:  
 mongoose
   .connect(`mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}`, {
     useNewUrlParser: true,
@@ -51,11 +50,11 @@ app.use(bodyParser.json());
 
 
 
-app.use('/categories', authenticateJwt, require('./controllers/category/routes'));
-app.use('/incomes', authenticateJwt, require('./controllers/income/routes'));
-app.use('/expenses', authenticateJwt, require('./controllers/expense/routes'));
-app.use('/remainings', authenticateJwt, require('./controllers/remaining/routes'));
-app.use('/users', require('./controllers/user/routes'));
+app.use('/categories', authenticateJwt, require('./controllers/category/category.routes'));
+app.use('/incomes', authenticateJwt, require('./controllers/income/income.routes'));
+app.use('/expenses', authenticateJwt, require('./controllers/expense/expense.routes'));
+app.use('/remainings', authenticateJwt, require('./controllers/remaining/remaining.routes'));
+app.use('/users', require('./controllers/user/user.routes'));
 
 
 app.post('/login', authHandler.login);
