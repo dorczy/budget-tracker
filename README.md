@@ -349,4 +349,5 @@ Az adatokat minden tulajdonság alapján lehet szűrni.
 ## További adatok
 - A projekt prioritása: magas
 - A projekt megvalósítására tervezett idő: 10 hét
-- A projekt forrása: [GitHub](https://github.com/dorczy/budget-tracker)
+- A projekt forrása: [GitHub repository](https://github.com/dorczy/budget-tracker)
+- A projekt [dokumentációja itt érhető el](https://github.com/dorczy/budget-tracker/blob/main/DOCUMENTATION.md).
