@@ -12,8 +12,8 @@ router.post('/', (req, res, next) => {
   return controller.create(req, res, next);
 });
 
-// read
-router.get('/', (req, res, next) => {
+// read - auth
+router.get('/', authenticateJwt, (req, res, next) => {
   return controller.findAll(req, res, next);
 });
 // read
@@ -21,11 +21,11 @@ router.get('/:id', (req, res, next) => {
   return controller.findOne(req, res, next);
 });
 
-// update - auth
+// update
 router.put('/:id', (req, res, next) => {
   return controller.update(req, res, next);
 });
-// update - auth
+// update
 router.patch('/:id', (req, res, next) => {
   return controller.update(req, res, next);
 });
