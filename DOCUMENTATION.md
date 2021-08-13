@@ -13,7 +13,7 @@ Az alkalmazás feladata, hogy az egyéni költségeket nyilvántartsa és kezelj
 - Fork-olást követően, a gépre le kell klónozni a [GitHub repository](https://github.com/dorczy/budget-tracker) tartalmát.
 - Az almappákba (`/backend`, `/frontend`) belépve telepíteni kell az alkalmazás függőségeit az `npm i` paranccsal mindkét helyen.
 - Amennyiben további fejlesztések szükségesek, akkor telepíteni kell az Angular keretrendszert az `npm i -g @angular/cli` paranccsal.
-- A kész Angular alkalmazást az `ng bulid --prod` paranccsal le kell build-elni.
+- A kész Angular alkalmazást az `ng build --prod` paranccsal le kell build-elni.
 - Ezután a `/frontend/dist` mappa tartalmát át kell másolni a `/backend/public` mappába.
 
 ## 3. Az alkalmazás konfigurálása
