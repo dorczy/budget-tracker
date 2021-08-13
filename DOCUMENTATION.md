@@ -35,4 +35,4 @@ A megadott Docker container indítása és inicializálása az alábbi lépések
 ---
 ## Linkek:
 
-- [A User Story (adminisztrátori szerepkör) itt érhető el.](https://github.com/dorczy/budget-tracker/blob/main/README.md)
+- A projekt [User Story-ja (adminisztrátori szerepköre) itt érhető el](https://github.com/dorczy/budget-tracker/blob/main/README.md).
