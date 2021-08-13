@@ -10,8 +10,9 @@ const logger = require('./config/logger');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+const cors = require('./config/cors');
+
 const authenticateJwt = require('./auth/authenticate');
-const adminOnly = require('./auth/adminOnly');
 const authHandler = require('./auth/authHandler');
 
 
@@ -25,12 +26,13 @@ if (!config.has('Database')) {
 };
 
 
+// DOCKER:
+// .connect(`mongodb://${dbConfig.containerName}`, {
+// ATLAS:
+// .connect(`mongodb+srv://dbUser:dbUserPassword@cluster0.emitf.mongodb.net/basicDatabase?retryWrites=true&w=majority`, {
+  
 mongoose
-// FELHŐBE CSATLAKOZÁS:
-  // .connect(`mongodb+srv://NodeUser:almafa@cluster0.56epx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
-  // .connect(`mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}`, {
-// KONTÉNERBE CSATLAKOZÁS:
-  .connect(`mongodb://${dbConfig.containerName}`, {
+  .connect(`mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -41,15 +43,20 @@ mongoose
 } );
 
 
-
+app.use(cors());
 app.use(morgan('tiny', {stream: logger.stream}));
 app.use(express.static('public'));
 
 app.use(bodyParser.json());
 
 
-app.use('/person', authenticateJwt, require('./controllers/person/person.routes'));
-app.use('/post', authenticateJwt, adminOnly, require('./controllers/post/post.routes'));
+
+app.use('/categories', authenticateJwt, require('./controllers/category/routes'));
+app.use('/incomes', authenticateJwt, require('./controllers/income/routes'));
+app.use('/expenses', authenticateJwt, require('./controllers/expense/routes'));
+app.use('/remainings', authenticateJwt, require('./controllers/remaining/routes'));
+app.use('/users', require('./controllers/user/routes'));
+
 
 app.post('/login', authHandler.login);
 app.post('/refresh', authHandler.refresh);

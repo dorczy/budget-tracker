@@ -1,39 +1,36 @@
 const jwt = require('jsonwebtoken');
 
-const Users = [
-  {
-    username: 'Admin',
-    password: 'admin_pw',
-    role: 'admin'
-  },
-  {
-    username: 'User',
-    password: 'user_pw',
-    role: 'user'
-  }
-];
-
+const Users = require('../models/user.model');
 
 const refreshTokens = [];
 
 
-module.exports.login = (req, res) => {
-  const { username, password } = req.body;
+module.exports.login = async (req, res) => {
+  const { email, password } = req.body;
 
-  const user = Users.find( 
-    u => u.username === username && u.password === password
-  );
+  try { 
+    const user = await Users.findOne( {email} );
 
-  if (user) {
+    console.log(user);
+
+    if (!user) {
+      throw new Error('User not found!');
+    }
+
+    const verified = await user.verifyPassword(password);
+    if (!verified) {
+        throw new Error('Incorrect Credentials!');
+    }
+
     const accessToken = jwt.sign({
-      username: user.username,
+      email: user.email,
       role: user.role
     }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRY
     });
 
     const refreshToken = jwt.sign({
-      username: user.username,
+      email: user.email,
       role: user.role
     }, process.env.REFRESH_TOKEN_SECRET);
 
@@ -41,11 +38,13 @@ module.exports.login = (req, res) => {
 
     res.json({
       accessToken,
-      refreshToken
+      refreshToken,
+      user
     });
 
-  } else {
-    res.send('Username or password incorrect.')
+  } catch (error) {
+    console.error(error);
+    res.send('Username or password incorrect.');
   };
 };
 
@@ -67,7 +66,7 @@ module.exports.refresh = (req, res) => {
     }
 
     const accessToken = jwt.sign({
-      username: user.username,
+      email: user.email,
       role: user.role
     }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRY
