@@ -34,14 +34,11 @@
               [(ngModel)]="income.period"
               required
             >
-            <option value="napi">napi</option>
-            <option value="heti">heti</option>
-            <option value="havi">havi</option>
-            <option value="2 havi">2 havi</option>
-            <option value="3 havi">3 havi</option>
-            <option value="6 havi">6 havi</option>
-            <option value="éves">éves</option>
-            <option value="egyszeri">egyszeri</option>
+              <option
+                *ngFor="let period of periodArr"
+                [value]="period">
+                  {{ period }}
+              </option>
             </select>
             <div class="error-message"
               [hidden]="editIncomeForm.controls.period?.valid || editIncomeForm.controls.period?.pristine">
@@ -85,8 +82,11 @@
               [(ngModel)]="income.doneMethod"
               required
             >
-              <option value="készpénz">készpénz</option>
-              <option value="átutalás">átutalás</option>
+              <option
+                *ngFor="let doneMethod of doneMethodArr"
+                [value]="doneMethod">
+                  {{ doneMethod }}
+              </option>
             </select>
             <div class="error-message"
               [hidden]="editIncomeForm.controls.doneMethod?.valid || editIncomeForm.controls.doneMethod?.pristine">
@@ -99,11 +99,13 @@
               Felhasználó
             </label>
             <select class="form-select" name="user" id="user"
-              [(ngModel)]="income.user.name"
+              [(ngModel)]="income.user._id"
               required
             >
-              <option *ngFor="let user of users">
-                {{ user.name }}
+              <option
+                *ngFor="let user of users"
+                [value]="user._id">
+                  {{ user.name }}
               </option>
             </select>
             <div class="error-message"

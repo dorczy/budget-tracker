@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-center col-12 mb-3">
-  <h4>Szűrés</h4>
+  <h4>Keresés</h4>
 </div>
 
 <div class="d-flex col-12 mb-3">
   <div class="col-6 d-flex justify-content-end px-3">
     <label for="filterKey" class="form-label m-0 d-flex align-items-center">
-      Szűrés szempontja:
+      Keresés szempontja:
     </label>
   </div>
   <div class="col-6">
@@ -26,7 +26,96 @@
     </label>
   </div>
   <div class="col-6">
+
+    <!-- alap, Megnevezés, Cég -->
     <input type="text" class="form-control" id="filterPhrase" name="filterPhrase"
-      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)">
+      *ngIf="!filterKey || filterKey === 'name' || filterKey === 'company'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      >
+
+    <!-- Összeg -->
+    <input type="number" class="form-control" id="filterPhrase" name="filterPhrase"
+      *ngIf="filterKey === 'amount'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      >
+
+    <!-- Határidő, Teljesítés dátuma -->
+    <input type="date" class="form-control" id="filterPhrase" name="filterPhrase"
+      *ngIf="filterKey.toString().toLowerCase().endsWith('date')"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      >
+
+    <!-- Kategória -->
+    <select class="form-select" name="filterPhrase" id="filterPhrase"
+      *ngIf="filterKey === 'category'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      required
+    >
+      <option
+        *ngFor="let category of categories"
+        [value]="category.name">
+          {{ category.name }}
+      </option>
+    </select>
+
+    <!-- Gyakoriság -->
+    <select class="form-select" name="filterPhrase" id="filterPhrase"
+      *ngIf="filterKey === 'period'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      required
+    >
+      <option
+        *ngFor="let period of periodArr"
+        [value]="period">
+          {{ period }}
+      </option>
+    </select>
+
+    <!-- Teljesítve -->
+    <select class="form-select" name="filterPhrase" id="filterPhrase"
+      *ngIf="filterKey === 'done'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      required
+    >
+      <option
+        *ngFor="let done of doneArr"
+        [value]="done">
+          {{ done }}
+      </option>
+    </select>
+
+    <!-- Teljesítés módja -->
+    <select class="form-select" name="filterPhrase" id="filterPhrase"
+      *ngIf="filterKey === 'doneMethod'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      required
+    >
+      <option
+        *ngFor="let doneMethod of doneMethodArr"
+        [value]="doneMethod">
+          {{ doneMethod }}
+      </option>
+    </select>
+
+    <!-- Felhasználó -->
+    <select class="form-select" name="filterPhrase" id="filterPhrase"
+      *ngIf="filterKey === 'user'"
+      [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
+      required
+    >
+      <option
+        *ngFor="let user of users"
+        [value]="user.name">
+          {{ user.name }}
+      </option>
+    </select>
+
   </div>
+</div>
+
+<div class="d-flex col-12 justify-content-center">
+  <button class="btn btn-danger mt-2"
+    (click)="deleteFilter()">
+      Keresés törlése
+  </button>
 </div>

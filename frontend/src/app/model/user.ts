@@ -1,10 +1,10 @@
 export class User {
   [propname: string]: any;
-  _id: string = '';
+  _id: string | number | null = '';
   name?: string;
   email: string = '';
   password: string = '';
   role: string | number = 1;
-  token?: string;
+  accessToken?: string;
   age?: number;
 }

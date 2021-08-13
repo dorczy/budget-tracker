@@ -1,457 +1,498 @@
 {
   "incomes": [
     {
-      "_id": "etkdd31",
+      "_id": {
+        "$oid": "611571082feaea25a4c3edc6"
+      },
+      "doneDate": {
+        "$date": "2021-08-10T00:00:00Z"
+      },
       "name": "Fizetés",
       "period": "havi",
       "company": "OTP Bank Kft.",
-      "doneDate": "2021-05-01",
       "doneMethod": "átutalás",
       "user": {
-        "_id": "1",
-        "name": "Apa",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 48
+        "$oid": "6115bb7f766f8f31a0804e3c"
       },
-      "amount": 540000
-    },
-    {
-      "_id": "2fhs4",
+      "amount": 540000,
+      "createdAt": {
+        "$date": "2021-08-12T19:05:44.389Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:05:44.389Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611571282feaea25a4c3edd1"
+      },
+      "doneDate": {
+        "$date": "2021-08-10T00:00:00Z"
+      },
       "name": "Fizetés",
       "period": "havi",
-      "company": "Kemence Pékség Kft.",
-      "doneDate": "2021-05-01",
+      "company": "Kemence Pék Kft.",
       "doneMethod": "átutalás",
       "user": {
-        "_id": "2",
-        "name": "Anya",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 45
+        "$oid": "6115ba52766f8f31a0804e2c"
       },
-      "amount": 181000
-    },
-    {
-      "_id": "3udfsa3",
+      "amount": 181000,
+      "createdAt": {
+        "$date": "2021-08-12T19:06:16.915Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:06:16.915Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "6115714e2feaea25a4c3eddc"
+      },
+      "doneDate": {
+        "$date": "2021-08-05T00:00:00Z"
+      },
       "name": "Nyugdíj",
-      "period": "éves",
+      "period": "havi",
       "company": "Magyar Államkincstár Kft.",
-      "doneDate": "2021-05-01",
       "doneMethod": "készpénz",
       "user": {
-        "_id": "4",
-        "name": "Mama",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 78
+        "$oid": "6115bb6e766f8f31a0804e38"
       },
-      "amount": 600000
-    },
-    {
-      "_id": "4th45g",
+      "amount": 198000,
+      "createdAt": {
+        "$date": "2021-08-12T19:06:54.039Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:06:54.039Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611571d62feaea25a4c3ee04"
+      },
+      "doneDate": {
+        "$date": "2021-08-12T00:00:00Z"
+      },
       "name": "Sportfogadás",
       "period": "egyszeri",
       "company": "Szerencsejáték Zrt.",
-      "doneDate": "2021-05-08",
       "doneMethod": "készpénz",
       "user": {
-        "_id": "1",
-        "name": "Apa",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 48
+        "$oid": "6115bb8d766f8f31a0804e40"
       },
-      "amount": 15300
-    },
-    {
-      "_id": "45udad5",
-      "name": "Sportfogadás",
-      "period": "egyszeri",
-      "company": "Szerencsejáték Zrt.",
-      "doneDate": "2021-07-13",
-      "doneMethod": "átutalás",
-      "user": {
-        "_id": "0",
-        "name": "Gyerek",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
+      "amount": 2760,
+      "createdAt": {
+        "$date": "2021-08-12T19:09:10.261Z"
       },
-      "amount": 2300
+      "updatedAt": {
+        "$date": "2021-08-12T19:09:10.261Z"
+      },
+      "__v": 0
     }
   ],
   "expenses": [
     {
-      "_id": "1lzt6",
+      "_id": {
+        "$oid": "611572cf2feaea25a4c3ee18"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-15T00:00:00Z"
+      },
+      "done": "igen",
+      "doneDate": {
+        "$date": "2021-08-10T00:00:00Z"
+      },
       "category": {
-        "_id": "3",
-        "name": "Egyéb"
+        "$oid": "611570b52feaea25a4c3ed65"
+      },
+      "name": "Albérlet",
+      "period": "havi",
+      "company": "Főbérlő",
+      "doneMethod": "készpénz",
+      "user": {
+        "$oid": "6115bb7f766f8f31a0804e3c"
+      },
+      "amount": -180000,
+      "createdAt": {
+        "$date": "2021-08-12T19:13:19.256Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:15:10.849Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157b0e2feaea25a4c3f1ad"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-12T00:00:00Z"
+      },
+      "done": "igen",
+      "doneDate": {
+        "$date": "2021-08-12T00:00:00Z"
+      },
+      "category": {
+        "$oid": "611570b92feaea25a4c3ed6c"
       },
       "name": "Mozi",
       "period": "egyszeri",
       "company": "CinemaCity",
-      "deadlineDate": "2021-07-11",
-      "done": "igen",
-      "doneDate": "2021-07-13",
       "doneMethod": "készpénz",
       "user": {
-        "_id": "3",
-        "name": "Gyerek",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 15
+        "$oid": "6115bb8d766f8f31a0804e40"
       },
-      "amount": -2500
-    },
-    {
-      "_id": "2asg5",
-      "category": {
-        "_id": "1",
-        "name": "Rezsi"
+      "amount": -2980,
+      "createdAt": {
+        "$date": "2021-08-12T19:48:30.387Z"
       },
-      "name": "Albérlet",
-      "period": "havi",
-      "company": "főbérlő",
-      "deadlineDate": "2021-07-29",
+      "updatedAt": {
+        "$date": "2021-08-12T19:48:30.387Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157b482feaea25a4c3f1bf"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-09T00:00:00Z"
+      },
       "done": "igen",
-      "doneDate": "2021-07-28",
-      "doneMethod": "készpénz",
-      "user": {
-        "_id": "1",
-        "name": "Apa",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 48
+      "doneDate": {
+        "$date": "2021-08-09T00:00:00Z"
       },
-      "amount": -120000
-    },
-    {
-      "_id": "3nmf5a",
       "category": {
-        "_id": "2",
-        "name": "Bevásárlás"
+        "$oid": "611570d22feaea25a4c3ed9c"
       },
       "name": "Vegyszerek",
       "period": "egyszeri",
       "company": "Rossmann",
-      "deadlineDate": "2021.07.15.",
-      "done": "igen",
-      "doneDate": "2021.07.15.",
       "doneMethod": "átutalás",
       "user": {
-        "_id": "2",
-        "name": "Anya",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 45
+        "$oid": "6115ba52766f8f31a0804e2c"
       },
-      "amount": -8341
-    },
-    {
-      "_id": "a4sad",
+      "amount": -4999,
+      "createdAt": {
+        "$date": "2021-08-12T19:49:28.114Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:49:28.114Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157b732feaea25a4c3f1ce"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-05T00:00:00Z"
+      },
+      "done": "igen",
+      "doneDate": {
+        "$date": "2021-08-05T00:00:00Z"
+      },
       "category": {
-        "_id": "2",
-        "name": "Bevásárlás"
+        "$oid": "611570d22feaea25a4c3ed9c"
       },
       "name": "Bevásárlás",
-      "period": "egyszeri",
+      "period": "heti",
       "company": "Lidl",
-      "deadlineDate": "2021-07-15",
-      "done": "igen",
-      "doneDate": "2021-07-15",
       "doneMethod": "átutalás",
       "user": {
-        "_id": "2",
-        "name": "Anya",
-        "email": "pelda@gmail.com",
-        "password": "peldaJelszo",
-        "role": "user",
-        "age": 45
+        "$oid": "6115bb7f766f8f31a0804e3c"
       },
-      "amount": -9870
-    },
-    {
-      "_id": "6jkj4sda2",
-      "category": {
-        "_id": "0",
-        "name": "Egyéb"
+      "amount": -35600,
+      "createdAt": {
+        "$date": "2021-08-12T19:50:11.656Z"
       },
-      "name": "Mozi",
-      "period": "egyszeri",
-      "company": "CinemaCity",
-      "deadlineDate": "2021-08-02",
+      "updatedAt": {
+        "$date": "2021-08-12T19:50:11.656Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157ba82feaea25a4c3f1dd"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-10T00:00:00Z"
+      },
       "done": "igen",
-      "doneDate": "2021-08-02",
-      "doneMethod": "készpénz",
-      "user": {
-        "_id": "0",
-        "name": "Gyerek",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
+      "doneDate": {
+        "$date": "2021-08-10T00:00:00Z"
       },
-      "amount": -2560
-    },
-    {
-      "_id": "7ke4asd",
       "category": {
-        "_id": "0",
-        "name": "Egyéb"
-      },
-      "name": "Házvásárlás",
-      "period": "egyszeri",
-      "company": "Közöd",
-      "deadlineDate": "2021-08-15",
-      "done": "igen",
-      "doneDate": "2021-08-03",
-      "doneMethod": "átutalás",
-      "user": {
-        "_id": "0",
-        "email": "",
-        "password": "",
-        "role": 1,
-        "name": "Barack"
-      },
-      "amount": -57000000
-    },
-    {
-      "_id": "foZ0j6s",
-      "category": {
-        "_id": "",
-        "name": "Egészségügy"
+        "$oid": "611570db2feaea25a4c3edad"
       },
       "name": "Szemészet",
-      "period": "egyszeri",
+      "period": "éves",
       "company": "Sinc Kft.",
-      "deadlineDate": "2021-08-10",
-      "done": "igen",
-      "doneDate": "2021-08-10",
       "doneMethod": "átutalás",
       "user": {
-        "_id": "",
-        "email": "",
-        "password": "",
-        "role": 1,
-        "name": "Barack"
+        "$oid": "6115bb6e766f8f31a0804e38"
       },
-      "amount": -43000
+      "amount": -43000,
+      "createdAt": {
+        "$date": "2021-08-12T19:51:04.175Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T21:03:29.649Z"
+      },
+      "__v": 0
     }
   ],
   "remainings": [
     {
-      "_id": "1cyxk",
+      "_id": {
+        "$oid": "61157bf52feaea25a4c3f1ef"
+      },
+      "deadlineDate": {
+        "$date": "2021-09-01T00:00:00Z"
+      },
+      "done": "nem",
       "category": {
-        "_id": "5",
-        "name": "Autó, utazás"
+        "$oid": "611570bf2feaea25a4c3ed75"
       },
       "name": "BKV bérlet",
       "period": "havi",
       "company": "BKK Kft.",
-      "deadlineDate": "2021-08-05",
-      "done": "nem",
-      "doneDate": "",
-      "doneMethod": "",
       "user": {
-        "_id": "1",
-        "name": "Anya",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
+        "$oid": "6115ba52766f8f31a0804e2c"
       },
-      "amount": 9500
-    },
-    {
-      "_id": "j5qdas2",
+      "amount": 9500,
+      "createdAt": {
+        "$date": "2021-08-12T19:52:21.253Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:52:21.253Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157c1d2feaea25a4c3f1fe"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-13T00:00:00Z"
+      },
+      "done": "nem",
       "category": {
-        "_id": "1",
-        "name": "Rezsi"
+        "$oid": "611570b52feaea25a4c3ed65"
       },
       "name": "Áram",
-      "period": "havi",
+      "period": "2 havi",
       "company": "ELMŰ Kft.",
-      "deadlineDate": "2021-08-02",
-      "done": "nem",
-      "doneDate": "",
-      "doneMethod": "",
       "user": {
-        "_id": "1",
-        "name": "Apa",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
+        "$oid": "6115bb7f766f8f31a0804e3c"
       },
-      "amount": 21000
-    },
-    {
-      "_id": "rthasd3",
+      "amount": 21300,
+      "createdAt": {
+        "$date": "2021-08-12T19:53:01.535Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:53:01.535Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157c482feaea25a4c3f20d"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-31T00:00:00Z"
+      },
+      "done": "nem",
       "category": {
-        "_id": "5",
-        "name": "Biztosítás"
+        "$oid": "611570c82feaea25a4c3ed80"
       },
-      "name": "Biztosítás",
-      "period": "havi",
+      "name": "Személybiztosítás",
+      "period": "éves",
       "company": "Generali Kft.",
-      "deadlineDate": "2021-10-15",
-      "done": "nem",
-      "doneDate": "",
-      "doneMethod": "",
       "user": {
-        "_id": "1",
-        "name": "Anya",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
+        "$oid": "6115bb6e766f8f31a0804e38"
       },
-      "amount": 55300
-    },
-    {
-      "_id": "mk342d4",
+      "amount": 55120,
+      "createdAt": {
+        "$date": "2021-08-12T19:53:44.598Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:55:01.159Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "61157c762feaea25a4c3f21c"
+      },
+      "deadlineDate": {
+        "$date": "2021-08-20T00:00:00Z"
+      },
+      "done": "nem",
       "category": {
-        "_id": "0",
-        "name": "Rezsi"
+        "$oid": "611570b52feaea25a4c3ed65"
       },
       "name": "Mobilrészlet",
-      "period": "2 havi",
-      "company": "Telekom",
-      "deadlineDate": "2021-08-11",
-      "done": "nem",
-      "doneDate": "",
-      "doneMethod": "",
-      "user": {
-        "_id": "0",
-        "name": "Mama",
-        "email": "",
-        "password": "",
-        "role": "",
-        "age": 0
-      },
-      "amount": 13000
-    },
-    {
-      "_id": "k34ta6",
-      "category": {
-        "_id": "0",
-        "name": "Rezsi"
-      },
-      "name": "Telefon",
-      "period": "havi",
-      "company": "Vodafone",
-      "deadlineDate": "2021-08-20",
-      "done": "nem",
-      "doneMethod": "",
-      "user": {
-        "_id": "0",
-        "email": "",
-        "password": "",
-        "role": 1,
-        "name": "Anya"
-      },
-      "amount": 10000
-    },
-    {
-      "_id": "p1a0rPz",
-      "category": {
-        "_id": "",
-        "name": "Egyéb"
-      },
-      "name": "Ebéd",
       "period": "3 havi",
-      "company": "Iskola",
-      "deadlineDate": "2021-08-31",
-      "done": "nem",
+      "company": "Telekom",
       "user": {
-        "_id": "",
-        "email": "",
-        "password": "",
-        "role": 1,
-        "name": "Mama"
+        "$oid": "6115bb8d766f8f31a0804e40"
       },
-      "amount": 8510
+      "amount": 33980,
+      "createdAt": {
+        "$date": "2021-08-12T19:54:30.801Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:54:50.427Z"
+      },
+      "__v": 0
     }
   ],
   "categories": [
     {
-      "_id": "b1a",
-      "name": "Rezsi"
-    },
-    {
-      "_id": "5lw",
-      "name": "Autó, utazás"
-    },
-    {
-      "_id": "1asrte2",
-      "name": "Biztosítás"
-    },
-    {
-      "_id": "8gsa9d",
-      "name": "Kölcsön, hitel"
-    },
-    {
-      "_id": "aba2",
-      "name": "Bevásárlás"
-    },
-    {
-      "_id": "4usdd",
-      "name": "Egészségügy"
-    },
-    {
-      "_id": "4Vmui9K",
-      "name": "Egyéb"
+      "_id": {
+        "$oid": "611570b52feaea25a4c3ed65"
+      },
+      "name": "Rezsi",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:21.991Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:21.991Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570b92feaea25a4c3ed6c"
+      },
+      "name": "Egyéb",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:25.710Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:25.710Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570bf2feaea25a4c3ed75"
+      },
+      "name": "Autó, utazás",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:31.386Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:31.386Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570c82feaea25a4c3ed80"
+      },
+      "name": "Biztosítás",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:40.854Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:40.854Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570ce2feaea25a4c3ed8d"
+      },
+      "name": "Kölcsön, hitel",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:46.873Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:46.873Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570d22feaea25a4c3ed9c"
+      },
+      "name": "Bevásárlás",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:50.889Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:50.889Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "611570db2feaea25a4c3edad"
+      },
+      "name": "Egészségügy",
+      "createdAt": {
+        "$date": "2021-08-12T19:04:59.671Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-12T19:04:59.671Z"
+      },
+      "__v": 0
     }
   ],
   "users": [
     {
-      "_id": "df12d1",
-      "name": "Apa",
-      "email": "apa@gmail.com",
-      "password": "$2a$10$r5y0SSIV1PZLt2aPLsF1Gep7nqPUmoiI/szvulmPsxZ6JXJEPARKC",
+      "_id": {
+        "$oid": "6115ba52766f8f31a0804e2c"
+      },
       "role": 3,
-      "age": 48
-    },
-    {
-      "_id": "2hdfh",
-      "name": "Anya",
       "email": "anya@gmail.com",
-      "password": "$2a$10$fcDD8dy8URR3LwCoMms1.eCaEki.bUp8G79GFtPa8uoMWGGhiQpv.",
-      "role": 3,
-      "age": 45
-    },
-    {
-      "_id": "32rfe",
-      "name": "Gyerek",
-      "email": "gyerek@gmail.com",
-      "password": "$2a$10$gj.5VK9sLRF2Ydm57ahCD.JuP3rgmbX0w5KG1aTorCz.ePfKbj5Ni",
+      "password": "$2a$10$tF7LdpZ7teZ8zXmhNPIzGeKSYzfxcXj94btOS6Wvw7Dn/vZa8i0OS",
+      "name": "Anya",
+      "age": 40,
+      "createdAt": {
+        "$date": "2021-08-13T00:18:26.485Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-13T00:18:26.485Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "6115bb6e766f8f31a0804e38"
+      },
       "role": 2,
-      "age": 15
-    },
-    {
-      "_id": "43fasd",
-      "name": "Mama",
-      "email": "mama@gmail.com",
-      "password": "$2a$10$zpXXhTwtCKw2xPEshY3SbO5v9h7B9VskZjUK0JzcS1CE7F78r5ivu",
-      "role": 2,
-      "age": 73
-    },
-    {
-      "email": "barack@gmail.com",
-      "password": "$2a$10$iJT69nNJFjf3jHrQnYdXhOuajNKR8YQTVKTk2Bbn6Con8alaGb97u",
-      "_id": "5asfnw",
+      "email": "nagyi@gmail.com",
+      "password": "$2a$10$Iy0D1o0BR7mtZbM2459nYOpUHW7cXPjXzOkOijt9UpBsqDjOvQSHC",
+      "name": "Nagyi",
+      "age": 74,
+      "createdAt": {
+        "$date": "2021-08-13T00:23:10.062Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-13T00:23:10.062Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "6115bb7f766f8f31a0804e3c"
+      },
       "role": 3,
-      "name": "Barack",
-      "age": 56
+      "email": "apa@gmail.com",
+      "password": "$2a$10$VxMiH4SwpJFgWBZYk3wMj.t55ddGHHbspKRpy.EWxhsCykQFmQsDe",
+      "name": "Apa",
+      "age": 43,
+      "createdAt": {
+        "$date": "2021-08-13T00:23:27.216Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-13T00:23:27.216Z"
+      },
+      "__v": 0
+    },{
+      "_id": {
+        "$oid": "6115bb8d766f8f31a0804e40"
+      },
+      "role": 2,
+      "email": "sanyi@gmail.com",
+      "password": "$2a$10$k8n31QI/0Ln.myNnMUGvLO/Pp9FzjCSZ4RMIRAxNmP.pAHvcVuBSq",
+      "name": "Sanyi",
+      "age": 16,
+      "createdAt": {
+        "$date": "2021-08-13T00:23:41.563Z"
+      },
+      "updatedAt": {
+        "$date": "2021-08-13T00:23:41.563Z"
+      },
+      "__v": 0
     }
   ]
 }

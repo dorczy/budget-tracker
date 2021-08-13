@@ -23,6 +23,7 @@ export class UserService extends BaseService<User> {
   }
 
   create(user: User): Observable<User> {
+    user._id = null;
     user.role = user.role === "3" ? 3 : 2;
     return this.http.post<User>(this.apiUrl, user);
   }

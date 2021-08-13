@@ -4,6 +4,7 @@ import { Income } from 'src/app/model/income';
 import { IncomeService } from 'src/app/service/income.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
+import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
   selector: 'app-edit-incomes',
@@ -20,10 +21,14 @@ export class EditIncomesComponent implements OnInit {
 
   users: User[] =  [];
 
+  periodArr: string[] = this.configService.period;
+  doneMethodArr: string[] = this.configService.doneMethod;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private incomeService: IncomeService,
     private usersService: UserService,
+    private configService: ConfigService,
     private router: Router,
   ) { }
 

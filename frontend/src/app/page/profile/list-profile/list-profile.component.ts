@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
@@ -23,7 +22,7 @@ export class ListProfileComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.userSub = this.authService.currentUserSubject.subscribe(
+    this.userSub = this.authService.currentUserSubject$.subscribe(
       user => this.user = user,
       err => console.error(err)
     );
@@ -33,7 +32,7 @@ export class ListProfileComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
 
-  openEditProfile(_id: number | string): void {
+  openEditProfile(_id: number | string | null): void {
     this.router.navigate(['profile/' + _id]);
   }
 

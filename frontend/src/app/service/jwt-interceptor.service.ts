@@ -12,12 +12,12 @@ export class JwtInterceptorService implements HttpInterceptor {
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const currentUser = this.authService.currentUserValue;
+    const currentToken = this.authService.lastToken;
 
-    if (currentUser && currentUser.token) {
+    if (currentToken) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${currentUser.token}`
+          Authorization: `Bearer ${currentToken}`
         }
       });
     }

@@ -24,6 +24,7 @@ export class ExpenseService extends BaseService<Expense>{
   }
 
   create(item: Expense | Remaining): Observable<Expense> {
+    item._id = null;
     if (item.amount > 0) {
       item.amount *= -1;
     }

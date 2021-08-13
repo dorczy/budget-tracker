@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,28 +18,21 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(ngForm: NgForm): void {
-    this.authService.login(ngForm.value).toPromise().then(
-      userResponse => {
-        if (this.authService.currentUserValue) {
+  onLogin(): void {
+    this.authService.login(this.user).subscribe(
+      user => {
+        if (user) {
           this.router.navigate(['/']);
         }
-      },
-      err => {
-        this.serverError = err.error;
-        const to = setTimeout( () => {
-          clearTimeout(to);
-          this.serverError = '';
-        }, 3000 )
       }
-    )
+    );
   }
-
 
 }

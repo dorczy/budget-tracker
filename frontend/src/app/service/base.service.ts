@@ -6,7 +6,7 @@ import { ConfigService } from './config.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BaseService<T extends { _id: number | string }> {
+export class BaseService<T extends { _id: number | string | null }> {
 
   apiUrl: string = '';
   entityName: string = '';
@@ -23,6 +23,7 @@ export class BaseService<T extends { _id: number | string }> {
   }
 
   create(item: T): Observable<T> {
+    item._id = null;
     return this.http.post<T>(this.apiUrl, item);
   }
 

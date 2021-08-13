@@ -23,7 +23,6 @@ export class ListIncomesComponent implements OnInit {
   // filter
   filterKey: string = '';
   phrase: string = '';
-  result: boolean = false;
 
 
   constructor(

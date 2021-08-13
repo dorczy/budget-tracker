@@ -46,20 +46,29 @@
             </span>
 
             <ng-template #anotherBlock>
-              <span *ngIf="item[prop.key] === item['category']">
+              <span *ngIf="prop.key === 'category'">
                 {{ item.category.name }}
               </span>
-              <span #itemName *ngIf="item[prop.key] === item['name']">
+              <span #itemName *ngIf="prop.key === 'name'">
                 {{ toStrongLetters(itemName, item.name) }}
               </span>
-              <span *ngIf="item[prop.key] === item['user']">
+              <span *ngIf="prop.key === 'deadlineDate'">
+                {{ item.deadlineDate | date:'yyyy-MM-dd' }}
+              </span>
+              <span *ngIf="prop.key === 'doneDate'">
+                {{ item.doneDate | date:'yyyy-MM-dd' }}
+              </span>
+              <span *ngIf="prop.key === 'user'">
                 {{ item.user.name }}
               </span>
-              <span #itemAmount *ngIf="item[prop.key] === item['amount']">
+              <span #itemAmount *ngIf="prop.key === 'amount'">
                 {{ toStrongLetters(itemAmount, (item.amount | huf)) }}
               </span>
-              <span *ngIf="item[prop.key] === item['role']">
+              <span *ngIf="prop.key === 'role'">
                 {{ item.role === 3 ? "admin" : "user" }}
+              </span>
+              <span *ngIf="prop.hidden">
+                ******
               </span>
             </ng-template>
 

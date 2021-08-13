@@ -15,7 +15,7 @@
         </p>
 
         <div *ngIf="user" class="col-12 col-sm-8 col-md-5 offset-md-1 col-lg-4 offset-md-2 my-5">
-          <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+          <form #loginForm="ngForm" (ngSubmit)="onLogin()">
 
             <div class="mb-3">
               <label for="email" class="form-label">
@@ -24,7 +24,6 @@
               <input type="email" class="form-control" name="email" id="email"
                 placeholder="email@gmail.com"
                 [(ngModel)]="user.email"
-                pattern="([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\@]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\.]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)"
                 required
                 autofocus
                 >

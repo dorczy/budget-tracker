@@ -17,11 +17,12 @@
               Kategória
             </label>
             <select class="form-select" name="category" id="category"
-              [(ngModel)]="expense.category.name"
+              [(ngModel)]="expense.category._id"
               required
             >
               <option
-                *ngFor="let category of categories">
+                *ngFor="let category of categories"
+                [value]="category._id">
                   {{ category.name }}
               </option>
             </select>
@@ -53,14 +54,11 @@
               [(ngModel)]="expense.period"
               required
             >
-              <option value="napi">napi</option>
-              <option value="heti">heti</option>
-              <option value="havi">havi</option>
-              <option value="2 havi">2 havi</option>
-              <option value="3 havi">3 havi</option>
-              <option value="6 havi">6 havi</option>
-              <option value="éves">éves</option>
-              <option value="egyszeri">egyszeri</option>
+              <option
+                *ngFor="let period of periodArr"
+                [value]="period">
+                  {{ period }}
+              </option>
             </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.period?.valid || editExpenseForm.controls.period?.pristine">
@@ -104,8 +102,11 @@
               [(ngModel)]="expense.done"
               required
             >
-              <option value="igen" selected>igen</option>
-              <option value="nem">nem</option>
+              <option
+                *ngFor="let done of doneArr"
+                [value]="done">
+                  {{ done }}
+              </option>
             </select>
             <div class="error-message"
               [hidden]="editExpenseForm.controls.done?.valid || editExpenseForm.controls.done?.pristine">
@@ -135,8 +136,11 @@
                 [(ngModel)]="expense.doneMethod"
                 required
               >
-                <option value="készpénz">készpénz</option>
-                <option value="átutalás">átutalás</option>
+              <option
+                *ngFor="let doneMethod of doneMethodArr"
+                [value]="doneMethod">
+                  {{ doneMethod }}
+              </option>
               </select>
               <div class="error-message"
                 [hidden]="editExpenseForm.controls.doneMethod?.valid || editExpenseForm.controls.doneMethod?.pristine">
@@ -150,11 +154,12 @@
               Felhasználó
             </label>
             <select class="form-select" name="user" id="user"
-              [(ngModel)]="expense.user.name"
+              [(ngModel)]="expense.user._id"
               required
             >
               <option
-                *ngFor="let user of users">
+                *ngFor="let user of users"
+                [value]="user._id">
                   {{ user.name }}
               </option>
             </select>

@@ -114,6 +114,10 @@ const routes: Routes = [
   {
     path: "profile/:_id",
     component: EditProfileComponent,
+    canActivate: [ AuthGuardService, RoleGuardService ],
+    data: {
+      expectedRole: 2,
+    },
   },
   {
     path: "users",

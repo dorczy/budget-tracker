@@ -4,6 +4,7 @@ import { Category } from 'src/app/model/category';
 import { Remaining } from 'src/app/model/remaining';
 import { User } from 'src/app/model/user';
 import { CategoryService } from 'src/app/service/category.service';
+import { ConfigService } from 'src/app/service/config.service';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { RemainingService } from 'src/app/service/remaining.service';
 import { UserService } from 'src/app/service/user.service';
@@ -24,12 +25,17 @@ export class EditRemainingsComponent implements OnInit {
   users: User[] = [];
   categories: Category[] = [];
 
+  periodArr: string[] = this.configService.period;
+  doneArr: string[] = this.configService.done;
+  doneMethodArr: string[] = this.configService.doneMethod;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private remainingService: RemainingService,
     private expenseService: ExpenseService,
     private userService: UserService,
     private categoryService: CategoryService,
+    private configService: ConfigService,
     private router: Router,
   ) { }
 
@@ -85,12 +91,15 @@ export class EditRemainingsComponent implements OnInit {
 
     // MÓDOSÍTÁS, ÁTTÉTEL A KIADÁSOKBA
     } else if (remaining._id !== "" && remaining.done === "igen") {
+      const deleteItem = {...remaining, _id: remaining._id};
+
       this.expenseService.create(remaining).subscribe(
-        () => this.router.navigate([this.routerName]),
+        () => {},
         err => console.error(err)
       );
-      this.remainingService.delete(remaining).subscribe(
-       () => {}
+      this.remainingService.delete(deleteItem).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
       );
       alert('Sikeresen módosította a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
     }

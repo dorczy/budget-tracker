@@ -7,6 +7,7 @@ import { User } from 'src/app/model/user';
 import { RemainingService } from 'src/app/service/remaining.service';
 import { Category } from 'src/app/model/category';
 import { CategoryService } from 'src/app/service/category.service';
+import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
   selector: 'app-edit-expenses',
@@ -24,12 +25,17 @@ export class EditExpensesComponent implements OnInit {
   users: User[] = [];
   categories: Category[] = [];
 
+  periodArr: string[] = this.configService.period;
+  doneArr: string[] = this.configService.done;
+  doneMethodArr: string[] = this.configService.doneMethod;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private expenseService: ExpenseService,
     private remainingService: RemainingService,
     private userService: UserService,
     private categoryService: CategoryService,
+    private configService: ConfigService,
     private router: Router,
   ) { }
 
@@ -86,12 +92,15 @@ export class EditExpensesComponent implements OnInit {
 
     // MÓDOSÍTÁS, ÁTTÉTEL A BEFIZETENDŐ SZÁMLÁKBA
     } else if (expense._id !== "" && expense.done === "nem") {
+      const deleteItem = {...expense, _id: expense._id};
+
       this.remainingService.create(expense).subscribe(
-        () => this.router.navigate([this.routerName]),
+        () => {},
         err => console.error(err)
       );
-      this.expenseService.delete(expense).subscribe(
-        () => {}
+      this.expenseService.delete(deleteItem).subscribe(
+        () => this.router.navigate([this.routerName]),
+        err => console.error(err)
       );
       alert('Sikeresen módosította a kiadást! Mivel teljesítetlen számla, ezért átkerült a befizetendő számlákba.');
 
