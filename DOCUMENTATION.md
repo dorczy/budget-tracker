@@ -10,17 +10,15 @@ Az alkalmazás feladata, hogy az egyéni költségeket nyilvántartsa és kezelj
 
 ## 2. Az alkalmazás telepítése
 
-- Fork-olást követően, a gépre le kell klónozni a [GitHub repository](https://github.com/dorczy/budget-tracker) tartalmát.
-- Az almappákba (`/backend`, `/frontend`) belépve telepíteni kell az alkalmazás függőségeit az `npm i` paranccsal mindkét helyen.
-- Amennyiben további fejlesztések szükségesek, akkor telepíteni kell az Angular keretrendszert az `npm i -g @angular/cli` paranccsal.
-- A kész Angular alkalmazást az `ng build --prod` paranccsal le kell build-elni.
-- Ezután a `/frontend/dist` mappa tartalmát át kell másolni a `/backend/public` mappába.
+1. Fork-olást követően, a gépre le kell klónozni a [GitHub repository](https://github.com/dorczy/budget-tracker) tartalmát.
+1. Az almappákba (`/backend`, `/frontend`) belépve telepíteni kell az alkalmazás függőségeit az `npm i` paranccsal mindkét helyen.
+1. Amennyiben további fejlesztések szükségesek, akkor telepíteni kell az Angular keretrendszert az `npm i -g @angular/cli` paranccsal.
+1. A kész Angular alkalmazást az `ng build --prod` paranccsal le kell build-elni.
+1. Ezután a `/frontend/dist` mappa tartalmát át kell másolni a `/backend/public` mappába.
 
 ## 3. Az alkalmazás konfigurálása
 
-A _base.service.ts_ állományban be kell állítani az API végpont elérési útvonalát:  
-
-[comment]: <> (Kiegészítés később - pl. http://localhost:3000)
+A `config.service.ts` állományban található `apiUrl` változóban be kell állítani az API végpont elérési útvonalát:  `http://localhost:3000`
 
 ## 4. Az alkalmazás indítása
 
@@ -38,4 +36,3 @@ A megadott Docker container indítása és inicializálása az alábbi lépések
 ## Linkek:
 
 - [A User Story (adminisztrátori szerepkör) itt érhető el.](https://github.com/dorczy/budget-tracker/blob/main/README.md)
-- A kiegészítő anyagok itt érhetők el.
