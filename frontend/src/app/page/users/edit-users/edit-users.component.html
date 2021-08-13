@@ -16,7 +16,6 @@
             <input type="text" class="form-control" id="name" name="name"
               placeholder="Gizi"
               [(ngModel)]="user.name"
-              pattern="[A-ZÁÉÍÓÖŐÚÜŰ]+[a-záéíóöőúüű]+"
               required>
             <div class="error-message"
               [hidden]="editUserForm.controls.name?.valid || editUserForm.controls.name?.pristine">
@@ -31,7 +30,6 @@
             <input type="email" class="form-control" name="email" id="email"
               placeholder="pelda@gmail.com"
               [(ngModel)]="user.email"
-              pattern="([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\@]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)([\.]+)([A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|]+)"
               required>
             <div [hidden]="editUserForm.controls.email?.valid || editUserForm.controls.email?.pristine" class="error-message">
               Hibás email cím!
