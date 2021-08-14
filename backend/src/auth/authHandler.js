@@ -11,37 +11,35 @@ module.exports.login = async (req, res) => {
   try { 
     const user = await Users.findOne( {email} );
 
-    console.log(user);
-
     if (!user) {
       throw new Error('User not found!');
     }
-
+    
     const verified = await user.verifyPassword(password);
     if (!verified) {
-        throw new Error('Incorrect Credentials!');
+      throw new Error('Incorrect password!');
     }
-
+    
     const accessToken = jwt.sign({
       email: user.email,
       role: user.role
     }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRY
     });
-
+    
     const refreshToken = jwt.sign({
       email: user.email,
       role: user.role
     }, process.env.REFRESH_TOKEN_SECRET);
 
     refreshTokens.push(refreshToken);
-
+    
     res.json({
       accessToken,
       refreshToken,
       user
     });
-
+    
   } catch (error) {
     console.error(error);
     res.send('Username or password incorrect.');

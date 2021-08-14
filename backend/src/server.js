@@ -12,6 +12,10 @@ mongoose.Promise = global.Promise;
 
 const cors = require('./config/cors');
 
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./docs/swagger.yaml');
+
 const authenticateJwt = require('./auth/authenticate');
 const authHandler = require('./auth/authHandler');
 
@@ -51,11 +55,12 @@ app.use(bodyParser.json());
 
 
 app.use('/categories', authenticateJwt, require('./controllers/category/category.routes'));
-app.use('/incomes', authenticateJwt, require('./controllers/income/income.routes'));
 app.use('/expenses', authenticateJwt, require('./controllers/expense/expense.routes'));
+app.use('/incomes', authenticateJwt, require('./controllers/income/income.routes'));
 app.use('/remainings', authenticateJwt, require('./controllers/remaining/remaining.routes'));
 app.use('/users', require('./controllers/user/user.routes'));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.post('/login', authHandler.login);
 app.post('/refresh', authHandler.refresh);
