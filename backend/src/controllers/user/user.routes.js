@@ -12,8 +12,8 @@ router.post('/', (req, res, next) => {
   return controller.create(req, res, next);
 });
 
-// read - auth
-router.get('/', authenticateJwt, (req, res, next) => {
+// read - auth, admin
+router.get('/', authenticateJwt, adminOnly, (req, res, next) => {
   return controller.findAll(req, res, next);
 });
 // read

@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
   return controller.findAll(req, res, next);
 });
 // read
-router.get('/:id', adminOnly, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   return controller.findOne(req, res, next);
 });
 

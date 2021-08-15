@@ -24,7 +24,7 @@ module.exports = ( Model, populateList = [], router, controller ) => {
     return currentController.findAll(req, res, next);
   }),
 
-  router.get('/:id', adminOnly, (req, res, next) => {
+  router.get('/:id', (req, res, next) => {
     return currentController.findOne(req, res, next);
   }),
 
