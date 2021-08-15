@@ -18,20 +18,29 @@ Az alkalmazás feladata, hogy az egyéni költségeket nyilvántartsa és kezelj
 
 ## 3. Az alkalmazás konfigurálása
 
-A `config.service.ts` állományban található `apiUrl` változóban be kell állítani az API végpont elérési útvonalát:  `http://localhost:3000`
+A `/frontend` mappában, a `config.service.ts` állományban található `apiUrl` változóban be kell állítani az API végpont elérési útvonalát:  `http://localhost:3000`
 
 ## 4. Az alkalmazás indítása
 
-A megadott Docker container indítása és inicializálása az alábbi lépéseket követve:
+A megadott Docker container indítása és inicializálása az alábbi lépéseket követve tehető meg:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) alkalmazás letöltése, telepítése, majd elindítása.
-- A `/backend` mappa megnyitásával és itt az `npm run docker-compose:up` parancs kiadásával alkalmazásunk elindul.
+- A `/backend` mappa megnyitásával és itt az `npm run docker-compose:up` parancs kiadásával az API elindul.
 
-**Megjegyzés:** A belépéshez érvényes email és jelszó párosok:
+Amennyiben fejlesztés alatt áll az alkalmazás:
+1. A `/frontend` mappába lépve ki kell adni az `ng serve -o` parancsot.
+1. Ezzel az alapértelmezett porton elindul az Angular alkalmazás a böngészőben.
+
+Ha a build-elt Angular alkalmazással dolgozik, akkor ebben az esetben a külön indítás nem szükséges.
+
+**Megjegyzés:**
+- Az alkalmazásban lehetősége van a regisztrációra.
+- Előre elkészített, a belépéshez érvényes email és jelszó párosok:
 
 Jogosultság | Email | Jelszó
 ------------ | ------------ | -------------
 admin | admin@gmail.com | admin_pw
 user | user@gmail.com | user_pw
+
 
 
 
