@@ -7,7 +7,8 @@
     "start": "node src/index.js",
     "test": "jest",
     "docker:build": "docker build -t vizsgaremek-express-app:latest .",
-    "docker-compose:up": "docker-compose up"
+    "docker-compose:up": "docker-compose up",
+    "build": "cd ../frontend && npm i && ng build && npx copyfiles ./dist/budget-tracker/* ../backend/public/ -f && cd ../backend && npm i && docker-compose up"
   },
   "keywords": [],
   "author": "",
