@@ -4,7 +4,7 @@ export class User {
   name?: string;
   email: string = '';
   password: string = '';
-  role: string | number = 1;
+  role: string | number = 2;
   accessToken?: string;
   age?: number;
 }

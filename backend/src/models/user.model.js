@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
   role: {
     type: Number,
     required: true,
-    default: 1,
+    default: 2,
   },
   accessToken: {
     type: String,
