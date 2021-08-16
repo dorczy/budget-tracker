@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 
 import { NavbarComponent } from './common/navbar/navbar.component';
@@ -39,6 +42,8 @@ import { FilterPipe } from './pipe/filter.pipe';
 
 import { SortComponent } from './common/sort/sort.component';
 import { FilterComponent } from './common/filter/filter.component';
+
+
 
 @NgModule({
   declarations: [
@@ -75,6 +80,8 @@ import { FilterComponent } from './common/filter/filter.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     {

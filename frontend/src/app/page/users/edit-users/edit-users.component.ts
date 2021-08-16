@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-users',
@@ -21,6 +22,7 @@ export class EditUsersComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private userService: UserService,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +50,12 @@ export class EditUsersComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen módosította a felhasználó adatait!');
+      this.toastr.success('Sikeresen módosította a felhasználó adatait!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     }
   }
 
@@ -58,7 +65,12 @@ export class EditUsersComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert("Sikeresen törölte a felhasználót!")
+      this.toastr.success('Sikeresen törölte a felhasználót!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     } else {
       return
     }

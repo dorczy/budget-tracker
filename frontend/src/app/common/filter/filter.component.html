@@ -39,7 +39,7 @@
       [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
       >
 
-    <!-- Határidő, Teljesítés dátuma -->
+    <!-- Határidő, Befizetés dátuma -->
     <input type="date" class="form-control" id="filterPhrase" name="filterPhrase"
       *ngIf="filterKey.toString().toLowerCase().endsWith('date')"
       [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
@@ -71,7 +71,7 @@
       </option>
     </select>
 
-    <!-- Teljesítve -->
+    <!-- Befizetve -->
     <select class="form-select" name="filterPhrase" id="filterPhrase"
       *ngIf="filterKey === 'done'"
       [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"
@@ -84,7 +84,7 @@
       </option>
     </select>
 
-    <!-- Teljesítés módja -->
+    <!-- Befizetés módja -->
     <select class="form-select" name="filterPhrase" id="filterPhrase"
       *ngIf="filterKey === 'doneMethod'"
       [(ngModel)]="phrase" (ngModelChange)="filtering(filterKey, phrase)"

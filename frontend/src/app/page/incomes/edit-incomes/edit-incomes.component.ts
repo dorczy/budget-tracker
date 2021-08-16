@@ -5,6 +5,7 @@ import { IncomeService } from 'src/app/service/income.service';
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/model/user';
 import { ConfigService } from 'src/app/service/config.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-incomes',
@@ -30,6 +31,7 @@ export class EditIncomesComponent implements OnInit {
     private usersService: UserService,
     private configService: ConfigService,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +40,10 @@ export class EditIncomesComponent implements OnInit {
       err => console.error(err)
     );
     this.incomeService.get(this.incomeId).subscribe(
-      income => this.income = income,
+      income => {
+        income.doneDate = income.doneDate.toString().slice(0, 10);
+        this.income = income
+      },
       err => console.error(err)
     );
     this.usersService.getAll().subscribe(
@@ -55,13 +60,24 @@ export class EditIncomesComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadott egy bevételt!');
+      this.toastr.success('Sikeresen létrehozott egy bevételt!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
+
     } else {
       this.incomeService.update(income).subscribe(
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen módosított egy bevételt!');
+      this.toastr.success('Sikeresen módosított egy bevételt!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     }
   }
 
@@ -71,7 +87,12 @@ export class EditIncomesComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert("Sikeresen törölt egy bevételt!")
+      this.toastr.success('Sikeresen törölt egy bevételt!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     } else {
       return
     }

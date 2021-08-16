@@ -6,7 +6,7 @@ export class Income {
   name: string = '';
   period: string = '';
   company: string = '';
-  doneDate: Date = new Date();
+  doneDate!: Date | string;
   doneMethod: string = '';
   user: User = new User();
   amount: number = 0;

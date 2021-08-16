@@ -62,7 +62,7 @@
 
           <div class="mb-3">
             <label for="doneDate" class="form-label">
-              Teljesítés dátuma
+              Kifizetés dátuma
             </label>
             <input type="date" class="form-control" id="doneDate" name="doneDate"
               [(ngModel)]="income.doneDate"
@@ -70,13 +70,13 @@
             >
             <div class="error-message"
               [hidden]="editIncomeForm.controls.doneDate?.valid || editIncomeForm.controls.doneDate?.pristine">
-                Teljesítés dátumának megadása kötelező!
+                Kifizetés dátumának megadása kötelező!
             </div>
           </div>
 
           <div class="mb-3">
             <label for="doneMethod" class="form-label">
-              Teljesítés módja
+              Kifizetés módja
             </label>
             <select class="form-select" name="doneMethod" id="doneMethod"
               [(ngModel)]="income.doneMethod"
@@ -90,7 +90,7 @@
             </select>
             <div class="error-message"
               [hidden]="editIncomeForm.controls.doneMethod?.valid || editIncomeForm.controls.doneMethod?.pristine">
-                Teljesítés módjának megadása kötelező!
+                Kifizetés módjának megadása kötelező!
             </div>
           </div>
 

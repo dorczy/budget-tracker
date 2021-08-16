@@ -96,7 +96,7 @@
 
           <div class="mb-3">
             <label for="done" class="form-label">
-              Teljesítve
+              Befizetve
             </label>
             <select class="form-select" name="done" id="done"
               [(ngModel)]="remaining.done"
@@ -110,14 +110,14 @@
             </select>
             <div class="error-message"
               [hidden]="editRemainingForm.controls.done?.valid || editRemainingForm.controls.done?.pristine">
-                Teljesítés megadása kötelező!
+                Befizetés megadása kötelező!
             </div>
           </div>
 
           <div *ngIf="remaining.done === 'igen'">
             <div class="mb-3">
               <label for="doneDate" class="form-label">
-                Teljesítés dátuma
+                Befizetés dátuma
               </label>
               <input type="date" class="form-control" id="doneDate" name="doneDate"
                 [(ngModel)]="remaining.doneDate"
@@ -125,13 +125,13 @@
                 >
               <div class="error-message"
                 [hidden]="editRemainingForm.controls.doneDate?.valid || editRemainingForm.controls.doneDate?.pristine">
-                  Teljesítés dátumának megadása kötelező!
+                  Befizetés dátumának megadása kötelező!
               </div>
             </div>
 
             <div class="mb-3">
               <label for="doneMethod" class="form-label">
-                Teljesítés módja
+                Befizetés módja
               </label>
               <select class="form-select" name="doneMethod" id="doneMethod"
                 [(ngModel)]="remaining.doneMethod"
@@ -145,7 +145,7 @@
               </select>
               <div class="error-message"
                 [hidden]="editRemainingForm.controls.doneMethod?.valid || editRemainingForm.controls.doneMethod?.pristine">
-                  Teljesítés módjának megadása kötelező!
+                  Befizetés módjának megadása kötelező!
               </div>
             </div>
           </div>

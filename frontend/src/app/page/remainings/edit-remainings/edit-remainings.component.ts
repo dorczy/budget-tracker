@@ -8,6 +8,7 @@ import { ConfigService } from 'src/app/service/config.service';
 import { ExpenseService } from 'src/app/service/expense.service';
 import { RemainingService } from 'src/app/service/remaining.service';
 import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-remainings',
@@ -37,6 +38,7 @@ export class EditRemainingsComponent implements OnInit {
     private categoryService: CategoryService,
     private configService: ConfigService,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -45,7 +47,13 @@ export class EditRemainingsComponent implements OnInit {
       err => console.error(err)
     );
     this.remainingService.get(this.remainingId).subscribe(
-      remaining => this.remaining = remaining,
+      remaining => {
+        remaining.deadlineDate = remaining.deadlineDate.toString().slice(0, 10);
+        if (remaining.doneDate) {
+          remaining.doneDate = remaining.doneDate.toString().slice(0, 10);
+        }
+        this.remaining = remaining
+      },
       err => console.error(err)
     );
     this.userService.getAll().subscribe(
@@ -68,7 +76,12 @@ export class EditRemainingsComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadott egy befizetendő számlát!');
+      this.toastr.success('Sikeresen létrehozott egy befizetendő számlát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
 
 
     // MÓDOSÍTÁS EGY BEFIZETENDŐ SZÁMLÁBAN
@@ -77,7 +90,12 @@ export class EditRemainingsComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen módosított egy befizetendő számlát!');
+      this.toastr.success('Sikeresen módosított egy befizetendő számlát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
 
 
     // LÉTREHOZÁS, ÁTTÉTEL A KIADÁSOKBA
@@ -86,7 +104,12 @@ export class EditRemainingsComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadott egy kiadást, mivel teljesített számlát hozott létre!');
+      this.toastr.success('Sikeresen létrehozott egy kiadást, mivel befizetett számlát hozott létre!', '', {
+        timeOut: 10000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
 
 
     // MÓDOSÍTÁS, ÁTTÉTEL A KIADÁSOKBA
@@ -101,7 +124,12 @@ export class EditRemainingsComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen módosította a befizetendő számlát! Mivel teljesített számla, ezért átkerült a kiadásokba.');
+      this.toastr.success('Sikeresen módosította a befizetendő számlát! Mivel befizetett számla, ezért átkerült a kiadásokba.', '', {
+        timeOut: 10000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     }
   }
 
@@ -111,7 +139,12 @@ export class EditRemainingsComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert("Sikeresen törölt egy befizetendő számlát!")
+      this.toastr.success('Sikeresen törölt egy befizetendő számlát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     } else {
       return
     }

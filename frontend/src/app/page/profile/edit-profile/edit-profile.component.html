@@ -74,11 +74,15 @@
             </label>
             <input type="number" class="form-control" name="age" id="age"
               placeholder="25"
+              pattern="\d+"
+              min="1"
+              max="100"
+              step="1"
               [(ngModel)]="user.age"
               required>
             <div class="error-message"
               [hidden]="profileForm.controls.age?.valid || profileForm.controls.age?.pristine">
-              Kor megadása kötelező!
+              Kor megadása kötelező! A megfelelő értéknek 1 és 100 közötti egész számnak kell lennie.
             </div>
           </div>
 

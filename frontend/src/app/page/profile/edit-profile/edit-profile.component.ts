@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-profile',
@@ -24,6 +25,7 @@ export class EditProfileComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +48,12 @@ export class EditProfileComponent implements OnInit {
         data => this.router.navigate([""]),
         err => console.error(err)
       );
-      alert('Sikeresen regisztrált!')
+      this.toastr.success('Sikeresen regisztrált!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
 
     // profil frissítése:
     } else {
@@ -54,7 +61,12 @@ export class EditProfileComponent implements OnInit {
         () => this.router.navigate(['profile']),
         err => console.error(err)
       );
-      alert('Sikeresen módosította a profilját!')
+      this.toastr.success('Sikeresen módosította a profilját!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     };
   };
 
@@ -69,6 +81,12 @@ export class EditProfileComponent implements OnInit {
 
       this.authService.logout();
 
+      this.toastr.success('Sikeresen törölte a profilját!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     } else {
       return
     };

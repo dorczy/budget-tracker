@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/service/auth.service';
-import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService,
     private router: Router,
   ) { }
 
@@ -31,6 +29,13 @@ export class LoginComponent implements OnInit {
         if (user) {
           this.router.navigate(['/']);
         }
+      },
+      err => {
+        this.serverError = err.error.text;
+        const to = setTimeout( () => {
+          clearTimeout(to);
+          this.serverError = '';
+        }, 5000 )
       }
     );
   }

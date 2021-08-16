@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/model/category';
 import { CategoryService } from 'src/app/service/category.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-categories',
@@ -20,6 +21,7 @@ export class EditCategoriesComponent implements OnInit {
     private categoryService: CategoryService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -41,14 +43,24 @@ export class EditCategoriesComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen hozzáadott egy kategóriát!');
+      this.toastr.success('Sikeresen létrehozott egy kategóriát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
 
     } else if (category._id !== "") {
       this.categoryService.update(category).subscribe(
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen módosított egy kategóriát!');
+      this.toastr.success('Sikeresen módosított egy kategóriát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     }
   }
 
@@ -58,7 +70,12 @@ export class EditCategoriesComponent implements OnInit {
         () => this.router.navigate([this.routerName]),
         err => console.error(err)
       );
-      alert('Sikeresen törölt egy kategóriát!')
+      this.toastr.success('Sikeresen törölt egy kategóriát!', '', {
+        timeOut: 8000,
+        closeButton: true,
+        progressBar: true,
+        extendedTimeOut: 2000,
+      });
     } else {
       return
     }
