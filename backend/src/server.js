@@ -30,12 +30,12 @@ if (!config.has('Database')) {
 };
 
 
-// DOCKER:
-// .connect(`mongodb://${dbConfig.containerName}`, {
-
 // ATLAS:  
+// .connect(`mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}`, {
+  
+// DOCKER:
 mongoose
-  .connect(`mongodb+srv://${dbConfig.username}:${dbConfig.password}@${dbConfig.host}`, {
+    .connect(`mongodb://${dbConfig.containerName}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
