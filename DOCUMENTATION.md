@@ -6,7 +6,7 @@
 
 ## 1. Az alkalmazás célja
 
-Az alkalmazás feladata, hogy az egyéni költségeket nyilvántartsa és kezelje olyan módon, hogy a bevételek, a kiadások, továbbá a befizetendő számlák külön követhetőek.
+Az alkalmazás feladata, hogy az egyéni vagy háztartásonkénti költségvetést nyilvántartsa és kezelje olyan módon, hogy a bevételek, a kiadások, továbbá a befizetendő számlák külön követhetőek legyenek.
 
 ## 2. Az alkalmazás telepítése
 
@@ -14,11 +14,11 @@ Az alkalmazás feladata, hogy az egyéni költségeket nyilvántartsa és kezelj
 1. Az almappákba (`/backend`, `/frontend`) belépve telepíteni kell az alkalmazás függőségeit az `npm i` paranccsal mindkét helyen.
 1. Amennyiben további fejlesztések szükségesek, akkor telepíteni kell az Angular keretrendszert az `npm i -g @angular/cli` paranccsal.
 1. A kész Angular alkalmazást az `ng build --prod` paranccsal le kell build-elni.
-1. Ezután a `/frontend/dist` mappa tartalmát át kell másolni a `/backend/public` mappába.
+1. Ezután a `/frontend/dist/budget-tracker` mappa tartalmát át kell másolni a `/backend/public` mappába.
 
 ## 3. Az alkalmazás konfigurálása
 
-A `/frontend` mappában, a `config.service.ts` állományban található `apiUrl` változóban be kell állítani az API végpont elérési útvonalát:  `http://localhost:3000`
+A `/frontend` mappában, a `config.service.ts` állományban található `apiUrl` változóban be kell állítani az API végpont elérési útvonalát: `http://localhost:3000`
 
 ## 4. Az alkalmazás indítása
 
@@ -27,10 +27,12 @@ A megadott Docker container indítása és inicializálása az alábbi lépések
 - A `/backend` mappa megnyitásával és itt az `npm run docker-compose:up` parancs kiadásával az API elindul.
 
 Amennyiben fejlesztés alatt áll az alkalmazás:
-1. A `/frontend` mappába lépve ki kell adni az `ng serve -o` parancsot.
-1. Ezzel az alapértelmezett porton elindul az Angular alkalmazás a böngészőben.
+- A `/frontend` mappába lépve ki kell adni az `ng serve -o` parancsot.
+- Ezzel az alapértelmezett porton elindul az Angular alkalmazás a böngészőben.
 
-Ha a build-elt Angular alkalmazással dolgozik, akkor ebben az esetben a külön indítás nem szükséges.
+Ha a build-elt Angular alkalmazással dolgozik:
+- Ebben az esetben a külön indítás nem szükséges.
+- Az alkalmazás elérhető a böngészőből a `http://localhost:3000` URL-en.
 
 **Megjegyzés:**
 - Az alkalmazásban lehetősége van a regisztrációra.
